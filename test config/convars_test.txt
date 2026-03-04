@@ -15,8 +15,8 @@ citadel_player_glow_disabled "0"                                // Disables play
 r_citadel_npr_outlines_max_dist "1000"                          // Limits outline distance to reduce unnecessary processing. [def: "1000"]
 
 // --- 2. Field of View --- 
-r_aspectratio "2.60"                                            // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov). [def: "0"]
-citadel_camera_hero_fov "90"                                   // The field of view angle of the camera when following a hero. [def: "90"]
+//r_aspectratio "2.60"                                           // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov). [def: "0"]
+citadel_camera_hero_fov "110"                                   // The field of view angle of the camera when following a hero. [def: "90"]
 
 // --- 3. HUD --- 
 citadel_unit_status_use_new "0"                                 // This uses new Health Bar, to use old Health Bar change "true" to "false". [def: "0"]
@@ -168,7 +168,7 @@ battery_saver "0"                                               // Disables batt
 cl_input_enable_raw_keyboard "1"                                // Enables raw keyboard input handling (more direct input path). [def: "0"]
 
 // ================ PARTICLES ================ 
-//cl_particle_max_count "1500" 			    					// If console is flooded with max particles exceeded warnings. [def: "0"]
+//cl_particle_max_count "1500" 					// If console is flooded with max particles exceeded warnings. [def: "0"]
 r_particle_max_size_cull "0"                                    // 0 = DO NOT remove large particles (to see ultimates!). [def: "1200"]
 r_particle_max_detail_level "0"                                 // The maximum detail level of particle to create. [def: "3"]
 particle_cluster_nodraw "1"                                     // Skips drawing particle “clusters”/grouped particle batches (performance, fewer small effects). [def: "0"]
@@ -198,7 +198,7 @@ sc_layer_batch_threshold "16"                                 	// Lower batch th
 sc_layer_batch_threshold_fullsort "20"                        	//                                                          	[def: "80"]
 sv_pvs_max_distance "2800"                                    	// Don't render things out of view                          	[def: "0"]
 sv_remove_ent_from_pvs "1"                                    	// Culls objects (creeps, boxes, objects) outside of view   	[def: "0"]
-//r_farz "6000"							// Override the far clipping plane				[def: "-1"]
+r_farz "6000"							// Override the far clipping plane				[def: "-1"]
 
 // ================ Grass =======================
 r_grass_quality "0"                                           	// Quality of the grass                                     	[def: "2"]
@@ -219,3 +219,45 @@ ai_strong_optimizations_no_checkstand "1"			// Not fully sure what exactly this 
   // Piggy               Let me mirror his config                                                               \\
  // Sqooky               Manager of the GitHub                                                                   \\
 // --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4 --------------------------------- \\
+
+//test convars
+	//r_render_hair 0
+	//sc_instanced_mesh_lod_bias 10
+	//lb_ssss_samples 0
+	//r_drawtracers_firstperson "0"
+	//r_particle_cables_render "0"
+	//cl_aggregate_particles "1"
+	//r_draw_particle_children_with_parents "0"
+	//func_break_max_pieces "0"
+	//cl_bone_cache_optimization "1"
+	//r_particle_skip_postsim "1"
+	//r_fallback_texture_lod_scale "4"
+	//
+	//	r_texture_pool_size "512"
+	//r_max_portal_render_targets "0"
+	//cl_interp_parallel "1"
+	//cl_batch_entity_list_ops_during_latch "1"
+	//sc_dithered_lod_transition_amt "0"
+	//citadel_damage_text_lifetime "0.5"
+	//citadel_hud_objective_health_idle_timeout "4"
+	//citadel_unit_status_delta_decay_delay "0"
+	//citadel_unit_status_delta_decay_rate "10"
+	//r_citadel_distancefield_blur "0"
+        fs_async_threads 8
+//test convars end
+        cl_async_usercmd_send "true"
+	r_citadel_selection_outline2_alpha 125
+        r_particle_max_draw_distance 1000
+	r_particle_skip_postsim true
+        sv_pvs_max_distance 3600
+        "sc_screen_size_lod_scale_override" "0.4549"
+        citadel_crosshair_hit_marker_duration 0
+
+
+
+
+
+
+citadel_unit_status_use_new true
+citadel_unit_status_use_v2 "true" 
+citadel_unit_status_use_v2_for_nonplayers "true"
