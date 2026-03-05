@@ -1,4 +1,4 @@
-To either request support or contribute findings to the project, our discord server can be found [here](https://discord.com/invite/AM7RRGBXet).  
+To either request support or contribute findings to the project, our discord server can be found [here](https://discord.gg/EF3Jq57jQv).  
 # Base Instructions
 To install the performance config replace the gameinfo.gi in ``steamapps/common/deadlock/game/citadel`` with the one downloaded from this repository.
 
