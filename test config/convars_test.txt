@@ -1,4 +1,9 @@
 
+
+
+
+
+
 // ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.4 --------------- \\
             // Check here for updates: https://gamebanana.com/mods/656341 \\
            // Downloaded from: https://github.com/Sqooky/OptimizationLock  \\
@@ -19,6 +24,9 @@ r_citadel_npr_outlines_max_dist "1000"                          // Limits outlin
 citadel_camera_hero_fov "110"                                   // The field of view angle of the camera when following a hero. [def: "90"]
 
 // --- 3. HUD --- 
+
+citadel_unit_status_use_v2 "true"				// This is the new health bar that lets you see stamina [def: "0"]
+citadel_unit_status_use_v2_for_nonplayers "true"		// This is the new health bar but for creeps [def: "0"]
 citadel_unit_status_use_new "0"                                 // This uses new Health Bar, to use old Health Bar change "true" to "false". [def: "0"]
 citadel_hud_objective_health_enabled "2"                        // 0=Off, 1=Shrines, 2=T1/T2, 3=Barracks. [def: "2"]
 citadel_damage_report_enable "1"                                // Enables/Disables incoming/outgoing damage tab (tuning this off is very questionable but okay). [def: "1"]
@@ -47,17 +55,33 @@ r_size_cull_threshold "0.7"                                     // *Culls small 
 
 // --- 8. Camera Tweaks ---
 r_citadel_clip_sphere_min_opacity "0"                           // Removes the blur from the pinhole camera [def: "40"]
-r_citadel_clip_sphere_skin "0"					// [def: "0.01"]
-r_citadel_clip_sphere_cone_angle "360"				// [def: "40"]
-r_citadel_clip_sphere_distance_max "-1"				// [def: "75"]
+//r_citadel_clip_sphere_skin "0.01"					// [def: "0.01"]
+//r_citadel_clip_sphere_cone_angle "360"				// [def: "40"]
+//r_citadel_clip_sphere_distance_max "100"			// [def: "75"]
 
-// ================= UI ================== 
-r_dashboard_render_quality "1"                                  // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
+// ================= UI ==================
+r_citadel_enable_pano_world_blur "false"
+r_dashboard_render_quality "0"                                  // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
 citadel_damage_text_show_effectiveness "0"                      // Shows extra “effectiveness” info in damage text (e.g., resist/weakness style feedback). [def: "0"]
 panorama_disable_box_shadow "1"                                 // Disables UI box shadows in the UI (less GPU/UI cost). [def: "0"]
 panorama_disable_blur "1"                                       // Disables UI blur effects in the UI. [def: "0"]
+panorama_allow_transitions "false"                              // Turns off UI anim (shop,etc) [def: "1"]
+
 citadel_minimap_use_canvas_for_neutrals "0"                     // Uses an alternate “canvas” rendering path for neutral icons on the minimap (render path toggle). [def: "1"]
 citadel_minimap_use_canvas_for_shop "0"                         // Uses an alternate “canvas” rendering path for shop icons on the minimap (render path toggle). [def: "1"]
+closecaption "false"                                          // I assume this does what it says on the tin
+panorama_use_new_occlusion_invalidation "1"
+panorama_temp_comp_layer_min_dimension "128"
+panorama_max_overlay_fps "15"
+panorama_max_fps "15"               // [ADJUST] UI FPS cap - 0=Unlimited (smooth UI) | 30/60=Standard | Higher = smoother HUD but more CPU
+panorama_async_compute_mipgen "1"
+citadel_camera_soft_collision "1"
+citadel_camera_wobble_disable "0"
+
+
+
+
+
 
 // ================ SHADOWS ================
 r_shadows "0"                                                   // Disables dynamic shadows. [def: "1"]
@@ -78,8 +102,11 @@ sparseshadowtree_disable_for_viewmodel "0"                      // Disable SST g
 cl_globallight_shadow_mode "0"                                  // \\ [def: "2"]
 lb_csm_draw_alpha_tested "0"                                    // Prevents alpha-tested geometry from being included in CSM passes (cheaper, possible missing leaf/fence shadows). [def: "1"]
 lb_csm_draw_translucent "0"                                     // Prevents translucent objects from rendering into CSM (cheaper, fewer shadow details). [def: "1"]
+lb_enable_shadow_casting "0"                                    // Disables baked shadows I believe [def: "1"]
+
 
 // ================ LIGHTING ================
+r_directlighting "false"                                        // "set to use direct lighting" [def:"true"]
 mat_async_shader_load "1"                                       // I have no reason to believe it doesn't do what it says on the tin [def: "0"]
 r_rendersun "0"                                                 // Disables sun lighting. [def: "1"]
 r_citadel_sun_shadow_slope_scale_depth_bias "1.0"               // \\ [def: "3.54"]
@@ -151,6 +178,8 @@ violence_agibs "0"                                              // Disables alie
 sc_clutter_enable "0"                                           // Disables clutter props, improves visibility & FPS. [def: "1"]
 
 // ================ NETWORK ================ 
+
+cl_async_usercmd_send "true"					// Should help fix jank networking by sending packets asyncronously	[def: "false"]
 cl_updaterate "128"                                             // Client snapshot update rate requested from the server (higher = more frequent updates). [def: "128"]
 cl_interp "0.01"                                                // Client-side interpolation time (smoothing delay) for rendering other players/entities. [def: 0]
 cl_interp_ratio "1"                                             // Multiplier that affects interpolation time (often cl_interp_ratio / cl_updaterate). [def: "0"]
@@ -168,7 +197,7 @@ battery_saver "0"                                               // Disables batt
 cl_input_enable_raw_keyboard "1"                                // Enables raw keyboard input handling (more direct input path). [def: "0"]
 
 // ================ PARTICLES ================ 
-//cl_particle_max_count "1500" 					// If console is flooded with max particles exceeded warnings. [def: "0"]
+//cl_particle_max_count "1500"                                  // If console is flooded with max particles exceeded warnings. [def: "0"]
 r_particle_max_size_cull "0"                                    // 0 = DO NOT remove large particles (to see ultimates!). [def: "1200"]
 r_particle_max_detail_level "0"                                 // The maximum detail level of particle to create. [def: "3"]
 particle_cluster_nodraw "1"                                     // Skips drawing particle “clusters”/grouped particle batches (performance, fewer small effects). [def: "0"]
@@ -180,7 +209,7 @@ cl_particle_sim_fallback_threshold_ms "5"                       // If particle s
 //cl_particle_sim_fallback_base_multiplier "5"                  // How aggressive the switch to fallbacks will be depending on how far over the cl_particle_sim_fallback_threshold_ms the sim time is. (Higher = more aggressive). [def: "5"]
 cl_particle_fallback_multiplier "4"                             // Multiplier for falling back to cheaper effects under load. [def: "0"]
 cl_particle_fallback_base "4"                                   // Base for falling back to cheaper effects under load. [def: "0"]
-r_particle_skip_postsim "1"					// Not entirely sure what it does, going off of the name I'd imagine it skips the post simulation, this is a testvar [def: "false"]
+r_particle_skip_postsim "1"	                                // Not entirely sure what it does, going off of the name I'd imagine it skips the post simulation, this is a testvar [def: "false"]
 
 
 
@@ -189,7 +218,7 @@ r_particle_skip_postsim "1"					// Not entirely sure what it does, going off of 
 sc_instanced_mesh_lod_bias "15"                               	// Bias for LOD selection of instanced mesh                 	[def: "1.25"]
 sc_instanced_mesh_lod_bias_shadow "10"                        	// Bias for LOD selection of instanced meshes in shadowmaps 	[def: "1.75"]
 sc_instanced_mesh_motion_vectors "0"                          	// Set 1 if you use motion blur                             	[def: "1"]
-//sc_instanced_mesh_size_cull_bias "10"                         // Bias for size culling of instanced meshes              	[def: "1.5"]
+//sc_instanced_mesh_size_cull_bias "10"                         // Bias for size culling of instanced meshes              	    [def: "1.5"]
 sc_instanced_mesh_size_cull_bias_shadow "10"                  	// Bias for size culling instanced meshes in shadowmaps     	[def: "2"]
 sc_fade_distance_scale_override "180"                         	// Distance objects fade in and out                         	[def: "-1"]
 sc_clutter_enable "0"                                         	// No debris/props 1=Props visible (immersive)              	[def: "1"]
@@ -198,7 +227,16 @@ sc_layer_batch_threshold "16"                                 	// Lower batch th
 sc_layer_batch_threshold_fullsort "20"                        	//                                                          	[def: "80"]
 sv_pvs_max_distance "2800"                                    	// Don't render things out of view                          	[def: "0"]
 sv_remove_ent_from_pvs "1"                                    	// Culls objects (creeps, boxes, objects) outside of view   	[def: "0"]
-r_farz "6000"							// Override the far clipping plane				[def: "-1"]
+r_farz "6000"							                        // Override the far clipping plane				[def: "-1"]
+mat_viewportscale "0.01" //was 1 this controls LOD on everything except trees and bushes (good) for some reason
+r_mapextents "4500"                                           // Far clipping plane
+phys_cull_internal_mesh_contacts "true" //default false
+citadel_use_pvs_for_players "true" //default false, culls players when out of view
+
+
+// ========= ====== Misc ========================
+r_dopixelvisibility "false" //default true enables or disables pixel visibility calculations, which can affect performance and visibility checks within the game.
+r_max_portal_render_targets "2"
 
 // ================ Grass =======================
 r_grass_quality "0"                                           	// Quality of the grass                                     	[def: "2"]
@@ -220,44 +258,10 @@ ai_strong_optimizations_no_checkstand "1"			// Not fully sure what exactly this 
  // Sqooky               Manager of the GitHub                                                                   \\
 // --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4 --------------------------------- \\
 
-//test convars
-	//r_render_hair 0
-	//sc_instanced_mesh_lod_bias 10
-	//lb_ssss_samples 0
-	//r_drawtracers_firstperson "0"
-	//r_particle_cables_render "0"
-	//cl_aggregate_particles "1"
-	//r_draw_particle_children_with_parents "0"
-	//func_break_max_pieces "0"
-	//cl_bone_cache_optimization "1"
-	//r_particle_skip_postsim "1"
-	//r_fallback_texture_lod_scale "4"
-	//
-	//	r_texture_pool_size "512"
-	//r_max_portal_render_targets "0"
-	//cl_interp_parallel "1"
-	//cl_batch_entity_list_ops_during_latch "1"
-	//sc_dithered_lod_transition_amt "0"
-	//citadel_damage_text_lifetime "0.5"
-	//citadel_hud_objective_health_idle_timeout "4"
-	//citadel_unit_status_delta_decay_delay "0"
-	//citadel_unit_status_delta_decay_rate "10"
-	//r_citadel_distancefield_blur "0"
         fs_async_threads 8
-//test convars end
-        cl_async_usercmd_send "true"
-	r_citadel_selection_outline2_alpha 125
-        r_particle_max_draw_distance 1000
-	r_particle_skip_postsim true
+	r_citadel_selection_outline2_alpha 125
+        r_particle_max_draw_distance 1000
+	r_particle_skip_postsim true
         sv_pvs_max_distance 3600
-        "sc_screen_size_lod_scale_override" "0.4549"
+        sc_screen_size_lod_scale_override "0.4549"
         citadel_crosshair_hit_marker_duration 0
-
-
-
-
-
-
-citadel_unit_status_use_new true
-citadel_unit_status_use_v2 "true" 
-citadel_unit_status_use_v2_for_nonplayers "true"

@@ -473,10 +473,10 @@
 //"r_aspectratio" "2.15"              // [ADJUST] FOV control: 1.33=70fov | 1.56=75fov | 1.75=80fov | 2.0=85fov | 2.15=90fov | 2.49=100fov | 3.0=110fov | 3.5=120fov
 
 // ================ LIGHTING & SHADOWS ================
-"r_directlighting" "false"
-"r_ssao" "false"                        // Disable ambient occlusion
-"r_shadows" "0"                     // [FPS IMPACT] 0=Off (max FPS) | 1=On (shadows enabled)
-"r_rendersun" "0"
+"r_directlighting" "false"              //*
+"r_ssao" "false"                        //* Disable ambient occlusion
+"r_shadows" "0"                     //* [FPS IMPACT] 0=Off (max FPS) | 1=On (shadows enabled)
+"r_rendersun" "0"                   //*
 "lb_enable_shadow_casting" "0"      // [FPS IMPACT] 0=Off (shadows disabled, +FPS) | 1=On (shadow casting enabled)
 "lb_csm_draw_alpha_tested" "0"
 "lb_csm_draw_translucent" "0"
