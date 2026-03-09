@@ -740,7 +740,7 @@
 "fx_drawmetalspark" "false" //Default: true<br>Draw metal spark effects.
 "r_mapextents" "4500" //Default: 16384<br>Set the max dimension for the map.  This determines the far clipping plane, set to higher number if no like popping building
 "r_citadel_npr_force_solid_outline" "true" //default false
-"r_dopixelvisibility" "false" //default true enables or disables pixel visibility calculations, which can affect performance and visibility checks within the game.
+"r_dopixelvisibility" "true" //default true enables or disables pixel visibility calculations, which can affect performance and visibility checks within the game.
 "citadel_player_outline_enemies" "false" //turn off enemy outline DOES NOT BREAK BACKSTABBER OR PING THRU WALL
 "sc_screen_size_lod_scale_override" "0.01" //was -1
 "mat_colorcorrection" "0"
