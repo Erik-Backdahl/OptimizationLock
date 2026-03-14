@@ -466,7 +466,7 @@
 	ConVars
 	{	 
 
-// ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.4.1 --------------- \\
+// ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.4.2 --------------- \\
 		    // Check here for updates: https://gamebanana.com/mods/656341 \\
 		   // Downloaded from: https://github.com/Sqooky/OptimizationLock  \\
 		  // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
@@ -707,7 +707,7 @@ save_parallel 								"true"
    // Jaden		      Nice guy and helped both test and support various newcomers						       \\
   // Piggy		       Let me mirror his config														       		\\
  // Sqooky		       Manager of the GitHub																   	 \\
-// --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.1 ------------------------------- \\
+// --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.2 ------------------------------- \\
 
 citadel_crosshair_hit_marker_duration 0
 
