@@ -532,6 +532,17 @@ mat_colorcorrection 1				// Colour stuff
 
 // End of piggy's config
 
+// ================ In Testing ================
+
+citadel_npc_force_animate_every_tick        "false"
+citadel_outer_radius_scaler                 "0.25"
+iv_parallel_restore                         "false"
+panorama_use_new_occlusion_invalidation     "false"
+r_decals_default_fade_duration                  "1"
+r_texture_budget_update_period                  "0.5"
+save_parallel                               "true"
+
+
 		"rate"
 		{
 			"min"		"98304"
