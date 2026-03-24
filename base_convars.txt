@@ -14,7 +14,9 @@
 citadel_trooper_glow_disabled 				"0"				// 1 = Disable friendly/enemy minion glow. 							[def: "0"]
 citadel_boss_glow_disabled 					"1"				// Disables boss and walker glow/highlight effect. 					[def: "0]
 citadel_player_glow_disabled 				"0"				// Disables player glow/highlight effect when pinged. 				[def: "0"]
-r_citadel_npr_outlines_max_dist 			"1000"			// Limits outline distance to reduce unnecessary processing. 		[def: "1000"]
+r_citadel_npr_outlines_max_dist 			"250"			// Limits outline distance to reduce unnecessary processing. 		[def: "1000"]
+r_citadel_selection_outline2_alpha 			"0.2"			// Outlines on enemy players and abilities on a scale of 0-1.		[def: "0.8"]
+r_citadel_npr_outlines 						"false"			// Enable outlines on enemy players.								[def: "true"]
 
 // --- 2. Field of View ---
 //r_aspectratio 							"2.60"			// 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov). 		[def: "0"]
@@ -93,7 +95,7 @@ lb_csm_draw_translucent 					"0"				// Prevents translucent objects from renderi
 lb_enable_shadow_casting 					"0"				// Disables baked shadows I believe 								[def: "1"]
 
 // ================ LIGHTING ================
-r_directlighting "false"									// "set to use direct lighting" 									[def:"true"]
+r_directlighting 							"false"			// Set to true to have your characters not be black in the shop 	[def:"true"]
 mat_async_shader_load 						"1"				// I have no reason to believe it doesn't do what it says on the tin [def: "0"]
 r_rendersun 								"0"				// Disables sun lighting. 											[def: "1"]
 r_citadel_sun_shadow_slope_scale_depth_bias "1.0"			// \\ 																[def: "3.54"]
@@ -128,7 +130,7 @@ cloth_sim_on_tick 							"0"				// Update the cloth simulation every tick 						
 phys_threaded_cloth_bone_update 			"1"				// Make the cloth update threaded 									[def: "0"]
 phys_threaded_kinematic_bone_update 		"1"				// 																	[def: "0"]
 phys_threaded_transform_update 				"1"				// 																	[def: "0"]
-props_break_max_pieces_perframe				"0.5"			// Makes boxes break into single pieces								[def: "16"]
+props_break_max_pieces_perframe				"0"				// Makes boxes break into single pieces								[def: "16"]
 
 // ================ ROPES ================
 r_drawropes 								"0"				// Draw ropes. 														[def: "1"]
@@ -234,25 +236,32 @@ ai_strong_optimizations_no_checkstand 		"1"				// Not fully sure what exactly th
 citadel_npc_force_animate_every_tick 		"false"			// Don't change this, it does what it says on the tin.				[def: "true"]
 
 // ================ In Testing ================
-// ================ Test group 2 ================
-cl_phys_assume_fixed_tick_interval 			"false"	// Assume the client uses a fixed tickrate like the server (which may not always be true)actual [def: "true"]
-citadel_arrow_brightness 							"1"
-cl_interp_parallel 									"true"	// 
-cl_modifier_parallel_gather_status_effect_updates 	"true"	// 
-parallel_perform_invalidate_physics 				"true"	// 
 
-citadel_camera_soft_collision_angle 360
+// ================ Test group 3 ================
+enable_priority_boost 						"true"
+engine_max_ticks_to_simulate 				"2"				// Max number of ticks to simulate per frame, after which simulation will start to slow down compared to real time.	[Def: "-1"]
+engine_allow_multiple_simulates_per_frame 	"true"			// Simulate more ticks when your fps is low, could be good?		[def: "false"]
+//cl_phys_enabled 							"false"			// You can disable physics and might see an improvement in framerate, however ragdolls will be buggy.	[def: "true"]
+cq_enable 									"false"			// Custom queuing (I belive) being enabled. Network jank I am testing
+cl_phys_assume_fixed_tick_interval 			"false"			// Assume the client uses a fixed tickrate like the server (which may not always be true)actual [def: "true"]
+citadel_arrow_brightness 					"1"
+cl_interp_parallel 							"true"			// 
+cl_modifier_parallel_gather_status_effect_updates 	"true"	// 
+parallel_perform_invalidate_physics 		"true"			// 
+
+// ================ Test group 2 ================
+citadel_camera_soft_collision_angle 		"360"
 cl_batch_entity_list_ops_during_latch 		"true"
 citadel_damage_text_batching_window_ability "1000"
 sc_force_materials_batchable 				"true"
 r_particle_timescale 						"1.3"
-cl_particle_batch_mode 						"2"		// Has a range of 1 or 2, 2 is apparently slightly odd and 0 will make them not batch [def: "1"]
-r_draw_particle_children_with_parents 		"0"		// 
-r_late_particle_job_sync 					"true"	// 
-r_particle_batch_collections 				"true"	// 
-r_particle_max_detail_level 				"1"		// 
-r_particle_max_texture_layers 				"3"		// 
-r_particle_model_new 						"true"	// 
+cl_particle_batch_mode 						"1"				// Has a range of 1 or 2, 2 will make celeste's auto rebound look weird and 0 will make them not batch [def: "1"]
+r_draw_particle_children_with_parents 		"0"				// 
+r_late_particle_job_sync 					"true"			// 
+r_particle_batch_collections 				"true"			// 
+r_particle_max_detail_level 				"1"				// 
+r_particle_max_texture_layers 				"3"				// 
+r_particle_model_new 						"false"			// 
 
 // ================ Test group 1 ================ 
 r_particle_allowprerender                   "false"
@@ -295,4 +304,4 @@ sparseshadowtree_parallel_generation 		"true"
 // --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.4 ------------------------------- \\
 
 
-/ --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.4 ------------------------------- \\
+ --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.4 ------------------------------- \\
