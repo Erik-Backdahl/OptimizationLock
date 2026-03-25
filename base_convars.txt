@@ -251,6 +251,7 @@ snd_steamaudio_num_threads                  "3"             // Audio thread coun
 // README This probably depends on how good your cpu is, the better it is the more threads you can allow
 
 // ================ Test Group 4 ================
+sc_hdr_enabled_override                     "0"
 r_texturefilteringquality                   "3"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
 r_texture_stream_mip_bias                   "1"             // Worth adjusting, practically how good your textures will look.
 r_texture_budget_threshold                  "0.7"           // Reduce texture memory pool size when this percentage of the budget is full. [def: "0.8"]
@@ -319,6 +320,3 @@ sparseshadowtree_parallel_generation        "true"
   // Piggy             Let me mirror his config                                                                 \\
  // Sqooky             Manager of the GitHub                                                                     \\
 // --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.4 ------------------------------- \\
-
-
- --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.4 ------------------------------- \\

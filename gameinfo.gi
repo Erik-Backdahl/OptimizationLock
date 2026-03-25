@@ -639,6 +639,7 @@ sc_clutter_enable                           "0"             // Disables clutter 
 "volume_fog_intermediate_textures_hdr"      "0"
 
 // ================ NETWORK ================
+cl_async_usercmd_send                       "true"
 //cl_updaterate                             "128"           // Client snapshot update rate requested from the server (higher = more frequent updates).      [def: "128"]
 //cl_interp                                 "0.01"          // Client-side interpolation time (smoothing delay) for rendering other players/entities.       [def: 0]
 //cl_interp_ratio                           "1"             // Multiplier that affects interpolation time (often cl_interp_ratio / cl_updaterate).              [def: "0"]
@@ -711,11 +712,14 @@ ai_strong_optimizations_no_checkstand       "1"             // Not fully sure wh
 citadel_npc_force_animate_every_tick        "false"         // Don't change this, it does what it says on the tin.              [def: "true"]
 
 // ================ In Testing ================
+sc_hdr_enabled_override                     "0"
 
 // ================ Audio ================
+snd_ui_positional                           "false"         // [def: "true"]
 snd_occlusion_bounces                       "0"             // Probably limits occlusion
 audio_enable_vmix_mastering                 "false"         // [def: "true"]
 snd_steamaudio_num_threads                  "3"             // Audio thread count [def: "4"]
+snd_soundmixer_version                      "1"             // [def: "2"]
 // README This probably depends on how good your cpu is, the better it is the more threads you can allow
 
 // ================ Test Group 4 ================
@@ -865,7 +869,7 @@ sparseshadowtree_parallel_generation        "true"
         "in_button_double_press_window" "0.3"
 
         // Convars that control spatialization of UI audio.
-        "snd_ui_positional"                             "1"
+        "snd_ui_positional"                             "false"
         "snd_ui_spatialization_spread"                  "2.4"
         
         // sound volume rate change limiting
@@ -893,7 +897,7 @@ sparseshadowtree_parallel_generation        "true"
         "cl_max_particle_pvs_aabb_edge_length" "100"
         
         // Allow aggregation of particles (for perf)
-        "cl_aggregate_particles" "true"
+        "cl_aggregate_particles" "false"
         
         "citadel_enable_vdata_sound_preload" "true"
     }
