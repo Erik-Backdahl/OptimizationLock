@@ -469,7 +469,7 @@
 //      If you would like to donate as a means of showing thanks I have a kofi.     \\
 //      https://ko-fi.com/sqooky                                                    \\
 
-// ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.4.4 --------------- \\
+// ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.4.5 --------------- \\
             // Check here for updates: https://gamebanana.com/mods/656341 \\
            // Downloaded from: https://github.com/Sqooky/OptimizationLock  \\
           // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
@@ -547,7 +547,6 @@ r_citadel_shadow_quality                    "0"             // Deadlock/Citadel 
 r_citadel_gpu_culling_shadows               "1"             // Enables GPU-driven culling for shadow casters (performance).     [def: "0"]
 csm_max_shadow_dist_override                "0"             // Overrides max distance for cascaded shadow maps (-1 = use default behavior/no override). [def: "1024"]
 r_size_cull_threshold_shadow                "1"             // Threshold of shadow map size percentage below which objects get culled (higher = cull more to save shadow cost). [def: "0.2"]
-lb_enable_shadow_casting                    "0"             // Prevents stationary/dynamic lights from casting shadows.         [def: "1"]
 lb_barnlight_shadowmap_scale                "0.5"           // Scale for computed barnlight shadowmap size (lower = cheaper).   [def: "1"]
 lb_csm_cascade_size_override                "1"             // Enables overriding CSM cascade sizing rules (forces engine to use override values). [def: "1536"]
 lb_csm_override_staticgeo_cascades          "0"             // Disables realistic static cascades/ shadows from being cast around dynamic shadows such as heroes, uses low quality baked shadows instead. [def: "1"]
@@ -790,7 +789,7 @@ sparseshadowtree_parallel_generation        "true"
    // Jaden           Nice guy and helped both test and support various newcomers                              \\
   // Piggy             Let me mirror his config                                                                 \\
  // Sqooky             Manager of the GitHub                                                                     \\
-// --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.4 ------------------------------- \\
+// --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.5 ------------------------------- \\
 
         "rate"
         {
