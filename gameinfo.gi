@@ -744,7 +744,7 @@ citadel_camera_soft_collision_angle         "360"
 cl_batch_entity_list_ops_during_latch       "true"
 citadel_damage_text_batching_window_ability "1000"
 sc_force_materials_batchable                "true"
-r_particle_timescale                        "1.3"
+r_particle_timescale                        "1.1"           // Speeds up particle simulation, thus making them end quicker, however this causes visual desyncs, most notably with big effects that last a while such as infernus ult. Please tweak this to what you are comfortable with. [def: "1"]
 cl_particle_batch_mode                      "1"             // Has a range of 1 or 2, 2 will make celeste's auto rebound look weird and 0 will make them not batch [def: "1"]
 r_draw_particle_children_with_parents       "0"             // 
 r_late_particle_job_sync                    "true"          // 
