@@ -461,7 +461,7 @@
 //      If you would like to donate as a means of showing thanks I have a kofi.     \\
 //      https://ko-fi.com/sqooky                                                    \\
 
-// ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.4.5 --------------- \\
+// ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.4.6 --------------- \\
             // Check here for updates: https://gamebanana.com/mods/656341 \\
            // Downloaded from: https://github.com/Sqooky/OptimizationLock  \\
           // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
@@ -736,7 +736,7 @@ citadel_camera_soft_collision_angle         "360"
 cl_batch_entity_list_ops_during_latch       "true"
 citadel_damage_text_batching_window_ability "1000"
 sc_force_materials_batchable                "true"
-r_particle_timescale                        "1.1"           // Speeds up particle simulation, thus making them end quicker, however this causes visual desyncs, most notably with big effects that last a while such as infernus ult. Please tweak this to what you are comfortable with. [def: "1"]
+r_particle_timescale                        "1.1"           // Speeds up particle simulation, thus making them end sooner, however this causes visual desyncs, most notably with big effects that last a while such as infernus ult. Please tweak this to what you are comfortable with. [def: "1"]
 cl_particle_batch_mode                      "1"             // Has a range of 1 or 2, 2 will make celeste's auto rebound look weird and 0 will make them not batch [def: "1"]
 r_draw_particle_children_with_parents       "0"             // 
 r_late_particle_job_sync                    "true"          // 
@@ -771,17 +771,16 @@ sparseshadowtree_parallel_generation        "true"
 
 // ================ Testing End ================
 
-
-                        // ================ Config end ================
-
-       // Dacoder_       Responsible for ver. 1.3.2 and documentation                                      \\
-      // Brullee         Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config  \\
-     // Kaizuchaneru     While not directly invovled in the deveopment, they tested most cvars               \\
+         //CREDITS
+        // Sqooky              Manager of the GitHub                                                      \\
+       // Dacoder_      Responsible for ver. 1.3.2 and documentation                                       \\
+      // Brullee        Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config   \\
+     // Kaizuchaneru    While not directly invovled in the deveopment, they tested most cvars                \\
     // Artemon121       Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game      \\
-   // Jaden           Nice guy and helped both test and support various newcomers                              \\
-  // Piggy             Let me mirror his config                                                                 \\
- // Sqooky             Manager of the GitHub                                                                     \\
-// --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.5 ------------------------------- \\
+   // Jaden             Nice guy and helped both test and support various newcomers                            \\
+  // Piggy              Let me mirror his config                                                                \\
+ // Tamara Mochaccina   Made the vindicta scope mod and contributed the fog fix                                  \\
+// --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.6 ------------------------------- \\
 
         "rate"
         {
