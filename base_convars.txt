@@ -134,7 +134,7 @@ cloth_sim_on_tick                           "0"             // Update the cloth 
 phys_threaded_cloth_bone_update             "1"             // Make the cloth update threaded                                   [def: "0"]
 phys_threaded_kinematic_bone_update         "1"             //                                                                  [def: "0"]
 phys_threaded_transform_update              "1"             //                                                                  [def: "0"]
-props_break_max_pieces_perframe             "0"             // Makes boxes break into single pieces                             [def: "16"]
+props_break_max_pieces_perframe             "-1"             // Makes boxes break into single pieces                             [def: "16"]
 
 // ================ ROPES ================
 r_drawropes                                 "0"             // Draw ropes.                                                      [def: "1"]
@@ -166,7 +166,7 @@ violence_hblood                             "0"             // Disables human bl
 violence_ablood                             "0"             // Disables alien/other blood effects.                              [def: "1"]
 violence_hgibs                              "0"             // Disables human gibs.                                             [def: "1"]
 violence_agibs                              "0"             // Disables alien/other gibs.                                       [def: "1"]
-sc_clutter_enable                           "0"             // Disables clutter props, improves visibility & FPS.               [def: "1"]
+sc_clutter_enable                           "false"             // Disables clutter props, improves visibility & FPS.           [def: "true"]
 
 "volume_fog_intermediate_textures_hdr"      "0"
 
@@ -191,7 +191,7 @@ cl_input_enable_raw_keyboard                "1"             // Enables raw keybo
 
 // ================ PARTICLES ================
 cl_particle_max_count                       "1500"          // If console is flooded with max particles exceeded warnings.      [def: "0"]
-r_particle_max_size_cull                    "300"           // Insane convar I need to benchmark
+r_particle_max_size_cull                    "500"           // Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway [def: "1200"]
 r_particle_max_detail_level                 "1"             // The maximum detail level of particle to create.                  [def: "3"]
 particle_cluster_nodraw                     "1"             // Skips drawing particle “clusters”/grouped particle batches (performance, fewer small effects). [def: "0"]
 r_physics_particle_op_spawn_scale           "0"             // Prevents physics-based particle spawns.                          [def: "1"]
@@ -254,6 +254,44 @@ snd_steamaudio_num_threads                  "3"             // Audio thread coun
 snd_soundmixer_version                      "1"             // [def: "2"]
 // README This probably depends on how good your cpu is, the better it is the more threads you can allow
 
+// ================ Test Group 5 ================
+// ================ Testing Stuff From Kai's Updated Cfg ================
+sv_hide_ent_in_pvs                          "1"             // [def: "-1"]
+ai_lod_auto_enabled                         "true"          // not fully sure what this does but curious [def: "false"]
+"props_break_apply_radial_forces" "false"
+"particle_cluster_use_collision_hulls" "0"
+"citadel_unit_status_old_update_rate" "15"
+"r_pipeline_stats_use_flush_api" "0"
+"sc_instanced_mesh_opaque_fade" "0"
+"g_ragdoll_important_maxcount" "1" 
+"g_ragdoll_maxcount" "1"
+"r_texture_stream_max_resolution" "1024"
+"r_texture_nonstreaming_load" "1"
+"csm_max_num_cascades_override" "2"
+"r_hair_indirect_transmittance" "false"
+"r_drawdecals" "false" //defaul true
+"minimap_update_rate_hz" "30"
+"ai_think_interval" "0.3"
+"ai_async_queue_max_jobs" "8"
+"ai_think_interval_lod_med" "0.4"
+"ai_think_interval_lod_low" "1"
+"ai_gather_conditions_async" "true"
+"ai_foot_sweep_enable" "false"
+"wind_system_temporal_smoothing" "false"
+"wind_system_default_resolution_xy" "64"
+"lb_precomputed_shadowmap_enable" "0"
+"lb_shadow_map_cull_empty_mixed" "true"
+"r_citadel_fog_quality" "0"
+"r_citadel_gpu_culling_shadows" "1" //test, was 0
+"r_hair_shadowtile" "false"
+"vis_sunlight_enable" "0"
+"snd_use_baked_occlusion" "1"
+"citadel_per_weapon_per_surface_impact_effects" "false"
+"r_particle_model_per_thread_count" "48"
+"r_limit_particle_job_duration" "1"
+
+// ================ EVERYTHING BELOW THIS IS STABLE YAY ================
+
 // ================ Test Group 4 ================
 r_texturefilteringquality                   "3"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
 r_texture_stream_mip_bias                   "1"             // Worth adjusting, practically how good your textures will look.
@@ -283,7 +321,7 @@ r_draw_particle_children_with_parents       "0"             //
 r_late_particle_job_sync                    "true"          // 
 r_particle_batch_collections                "true"          // 
 r_particle_max_detail_level                 "1"             // 
-r_particle_max_texture_layers               "3"             // 
+r_particle_max_texture_layers               "2"             // 
 r_particle_model_new                        "false"         // 
 
 // ================ Test group 1 ================ 

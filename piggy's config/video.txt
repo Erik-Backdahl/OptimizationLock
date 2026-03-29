@@ -12,6 +12,16 @@
 "DeviceID"		" "	//replace with the value found in your config
 //			 ^
 
+
+
+// ------------------------------------------------------------
+// RESOLUTION AND REFRESH RATE SETTINGS
+"setting.defaultres" "1920"                // Change to your res | 1920
+"setting.defaultresheight" "1080"            // Change to your res | 1080
+"setting.recommendedheight" "1080"            // Change to your res | 1080 
+"setting.refreshrate_numerator" "144"        // Change to your monitor hz: 144Hz | 240Hz ect 
+
+
 //========================================
 "setting.fullscreen" "1"				// 0 = Borderless, 1 = Exclusive Fullscreen
 "setting.nowindowborder" "1"
