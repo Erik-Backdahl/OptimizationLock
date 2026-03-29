@@ -385,28 +385,28 @@
 	SceneSystem
 	{
 		GpuLightBinner 1
-		FogCachedShadowAtlasWidth 2048
-		FogCachedShadowAtlasHeight 2048
-		FogCachedShadowTileSize 128
+		FogCachedShadowAtlasWidth 0
+		FogCachedShadowAtlasHeight 0
+		FogCachedShadowTileSize 0
 		GpuLightBinnerSunLightFastPath 1
-		CSMCascadeResolution 2048
+		CSMCascadeResolution 0
 		SunLightManagerCount 0
 		SunLightManagerCountTools 0
-		DefaultShadowTextureWidth 6144
-		DefaultShadowTextureHeight 6144
-		DynamicShadowResolution 1
+		DefaultShadowTextureWidth 0
+		DefaultShadowTextureHeight 0
+		DynamicShadowResolution 0
 
 		TransformTextureRowCount	1024
 		TransformTextureRowCountToolsMode 6144
 		SunLightMaxCascadeSize		4
 		SunLightShadowRenderMode	Depth
 		LayerBatchThresholdFullsort 20
-		NonTexturedGradientFog		1
+		NonTexturedGradientFog		0
 		// Temp till I can add support in citadel shaders
 		DisableLateAllocatedTransformBuffer 1
 		MinimumLateAllocatedVertexCacheBufferSizeMB 64
-		CubemapFog 1
-		VolumetricFog 1
+		CubemapFog 0
+		VolumetricFog 0
 		FrameBufferCopyFormat R11G11B10F
 		Tonemapping 0
 		
@@ -473,10 +473,10 @@
 //"r_aspectratio" "2.15"              // [ADJUST] FOV control: 1.33=70fov | 1.56=75fov | 1.75=80fov | 2.0=85fov | 2.15=90fov | 2.49=100fov | 3.0=110fov | 3.5=120fov
 
 // ================ LIGHTING & SHADOWS ================
-"r_directlighting" "false"              //*
-"r_ssao" "false"                        //* Disable ambient occlusion
-"r_shadows" "0"                     //* [FPS IMPACT] 0=Off (max FPS) | 1=On (shadows enabled)
-"r_rendersun" "0"                   //*
+"r_directlighting" "false"
+"r_ssao" "false"                        // Disable ambient occlusion
+"r_shadows" "0"                     // [FPS IMPACT] 0=Off (max FPS) | 1=On (shadows enabled)
+"r_rendersun" "0"
 "lb_enable_shadow_casting" "0"      // [FPS IMPACT] 0=Off (shadows disabled, +FPS) | 1=On (shadow casting enabled)
 "lb_csm_draw_alpha_tested" "0"
 "lb_csm_draw_translucent" "0"
@@ -492,7 +492,7 @@
 "r_citadel_sun_shadow_slope_scale_depth_bias" "1.0" //was 1
 "r_lightmap_size_directional_irradiance" "0" //was 4
 "r_size_cull_threshold_shadow" "200" //Default: 100<br>Threshold of shadow map size percentage below which objects get culled
-"csm_max_shadow_dist_override" "0"
+"csm_max_shadow_dist_override" "1500"
 "sc_cache_envmap_lpv_lookup" "false" //was true
 "cl_retire_low_priority_lights" "1"
 "sc_disable_spotlight_shadows" "1"
@@ -502,7 +502,7 @@
 "lb_enable_lights" "0" //was 1
 "lb_enable_stationary_lights" "0"         // Disable stationary lights
 "lb_max_visible_barn_lights_override" "1"
-"lb_max_visible_envmaps_override" "4" //default 4 DO NOT CHANGE OR IT BREAKS GAME
+//"lb_max_visible_envmaps_override" "4" //default 4 DO NOT CHANGE OR IT BREAKS GAME
 "lb_ssss_samples" "0"
 //"r_multiscattering" "0"                   // Disable multiscattering (only works with shadows disable)
 
@@ -535,11 +535,11 @@
 "r_citadel_ssao_thin_occluder_compensation" "0"
 
 // ================ PARTICLE SYSTEM ================
-"r_particle_max_detail_level" "0"
+"r_particle_max_detail_level" "1 "//was 0
 "r_particle_cables_cast_shadows" "0"
 "r_RainParticleDensity" "0"
 "r_physics_particle_op_spawn_scale" "0"
-"r_particle_max_size_cull" "1600" //was 800 Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway
+"r_particle_max_size_cull" "1200" //was 800 Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway
 "particle_cluster_nodraw" "1"
 "r_particle_mixed_resolution_viewstart" "800"
 "r_particle_max_draw_distance" "300000" // Lower = less particle range, more FPS, dont go below this value it doesnt draw trooper hp bar,
@@ -564,7 +564,7 @@
 "pred_cloth_rot_low" "0" //was 0.005
 "pred_cloth_rot_multiplier" "0" //was 0.2 changing these values does fucking nothing
 "cl_phys_timescale" "1"              // [FPS IMPACT] 0=Disable physics (max FPS) | 1=Normal physics | Lower = slower physics, less CPU
-"cl_fasttempentcollision" "100000" //test Temp Entities" are things like shell casings hitting the floor. Increasing this number usually tells the engine to skip collision checks for them entirely or expire them instantly to avoid physics costs.
+"cl_fasttempentcollision" "999999" //test Temp Entities" are things like shell casings hitting the floor. Increasing this number usually tells the engine to skip collision checks for them entirely or expire them instantly to avoid physics costs.
 
 "phys_threaded_cloth_bone_update" "1"
 "phys_threaded_kinematic_bone_update" "1"
@@ -578,12 +578,12 @@
 "r_drawmodeldecals" "0" //does not exist in master convar
 "r_character_decal_resolution" "0.01" //default 1
 "r_decals" "1"                  // im p sure valve killed this command [ADJUST] Max decals visible: 1= only 1 bullet hole(max FPS) | 16=default
-"r_propsmaxdist" "700"
-"props_break_max_pieces_perframe" "0" 
+"r_propsmaxdist" "600"
+"props_break_max_pieces_perframe" "2" 
 "r_citadel_screenspace_particles_full_res" "0"
 "r_citadel_gpu_culling_shadows" "1"
 "skeleton_instance_lod_optimization" "1"
-"r_size_cull_threshold" "2.5" //was 1.2, 5 is too aggressive
+"r_size_cull_threshold" "1.2" //was 1.2, 5 is too aggressive
 "r_hair_ao" "0"
 "r_render_hair" "0"                   // doesnt work [FPS IMPACT] 0=Off (max FPS boost, bald heroes) | 1=On (hair rendered)
 "r_haircull_percent" "100"
@@ -600,7 +600,7 @@
 "sc_instanced_mesh_size_cull_bias" "10" // Bias for size culling of instanced meshes
 "sc_instanced_mesh_size_cull_bias_shadow" "10" // Bias for size culling instanced meshes in shadowmaps
 "sc_fade_distance_scale_override" "180"
-"sc_clutter_enable" "0"                   // [FPS IMPACT] 0=No debris/props (max FPS) | 1=Props visible (immersive)
+"sc_clutter_enable" "false"                   // [FPS IMPACT] 0=No debris/props (max FPS) | 1=Props visible (immersive)
 "sc_aggregate_bvh_threshold" "16"         // Lower BVH threshold (default: 128)
 "sc_layer_batch_threshold" "16"           // Lower batch threshold (default: 128)
 "sc_layer_batch_threshold_fullsort" "20" //default 80
@@ -647,9 +647,9 @@
 // ================ NETWORK & PREDICTION ================
 "cl_prediction_savedata_postentitypacketreceived" "1"
 "r_frame_sync_enable" "0" //was 0
-"cl_clock_buffer_ticks" "0"          // Testing set 1 to smooth over packet loss
+//"cl_clock_buffer_ticks" "0"          // Testing set 1 to smooth over packet loss
 "cl_async_usercmd_send" "true"
-"cl_smooth" "0"                      // [ADJUST] 0=No smoothing (lower input lag) | 1=Smoothing enabled (may add delay)
+//"cl_smooth" "0"                      // [ADJUST] 0=No smoothing (lower input lag) | 1=Smoothing enabled (may add delay)
 "cl_smoothtime" "0.01"
 "cl_smooth_draw_debug" "0"
 "cl_interp_parallel" "1"
@@ -742,7 +742,7 @@ r_citadel_disable_npr_lighting true
 "r_citadel_npr_force_solid_outline" "true" //default false
 "r_dopixelvisibility" "true" //default true enables or disables pixel visibility calculations, which can affect performance and visibility checks within the game.
 "citadel_player_outline_enemies" "false" //turn off enemy outline DOES NOT BREAK BACKSTABBER OR PING THRU WALL
-"sc_screen_size_lod_scale_override" "0.01" //was -1
+"sc_screen_size_lod_scale_override" "0.001" //was -1
 "mat_colorcorrection" "0"
 "r_farz" "6000" //default -1 far clipping plane, same as r_mapextents but this affect another thing that i dont understand yet, it gives fps though
 "cl_disable_ragdolls" "true"
@@ -753,11 +753,12 @@ r_citadel_disable_npr_lighting true
 
 "r_light_sensitivity_mode" "true"
 "sv_pvs_max_distance" "2800" //default 4000, unrender things(boxes, creeps, objs,etc) behind walls or out of viewing distance, does not affect player model.
+"sv_hide_ent_in_pvs" "1"
 "sv_remove_ent_from_pvs" "1" //default 0 remove entities from potential view something, basically culling objs outside of view
 
 "phys_cull_internal_mesh_contacts" "true" //default false
 "citadel_use_pvs_for_players" "true" //default false, culls players when out of view
-//"r_particle_max_texture_layers" "3" //was -1
+"r_particle_max_texture_layers" "3" //was -1
 
 "r_citadel_distancefield_down_sample" "6" //default 1
 
@@ -778,7 +779,7 @@ r_citadel_disable_npr_lighting true
 
 "animgraph_enable_parallel_op_evaluation" "true" //default false
 "animgraph_enable_parallel_preupdate" "true" //false
-//"ai_lod_auto_enabled" "1" //default 0, idk about this
+"ai_lod_auto_enabled" "true" //default 0, idk about this
 "ai_use_async_ragdoll_fixup" "true" //doesnt really need tbh since ragdoll is disabled
 "cl_phys_networked_start_sleep" "true" //try on and off, this is probably what causing result screen to pop up when idling
 "func_break_max_pieces" "1" //default 15
@@ -817,11 +818,11 @@ r_citadel_disable_npr_lighting true
 "r_texture_stream_mip_bias" "3"
 "r_texture_stream_resolution_bias" "0.01"
 //"lb_enable_envmaps" "0" //REMOVE THIS DO NOT CHANGE THIS VALUE CUZ EVERYTHING IS GONNA BE BLACK
-"lb_enable_baked_shadows" "0"
+"lb_enable_baked_shadows" "1"
 "r_world_wind_frequency_grass" "0"
 "r_world_wind_frequency_trees" "0"
 "mat_tonemap_bloom_scale" "0"
-"mat_disable_dynamic_shader_compile" "1"
+//"mat_disable_dynamic_shader_compile" "1"
 "lb_barnlight_shadow_use_precomputed_vis" "0"
 "r_low_latency" "1" //Force enabling this for kaiz only, Default: 1<br>NVIDIA Low Latency/AMD Anti-Lag 2 (0 = off, 1 = on, 2 = NV-only, on + boost)
 "mesh_calculate_curvature_smooth_pass_count" "0"
@@ -830,12 +831,47 @@ r_citadel_disable_npr_lighting true
 "phys_expensive_shape_threshold" "100" //was 6
 "sc_max_framebuffer_copies_per_layer" "0" //no idea what this does ngl
 "r_strip_invisible_during_sceneobject_update" "1" //Default: false<br>
-"fs_async_threads" "8"
+//"fs_async_threads" "17" //was 8
+"props_break_apply_radial_forces" "false"
+//"panorama_min_comp_layer_cache_cost" "256"
+"r_citadel_depth_prepass_dynamic_objects" "0"
+"particle_cluster_use_collision_hulls" "0"
+"citadel_unit_status_old_update_rate" "15"
+"r_pipeline_stats_use_flush_api" "0"
+"sc_instanced_mesh_opaque_fade" "0"
+"g_ragdoll_important_maxcount" "1" 
+"g_ragdoll_maxcount" "1"
+"r_texture_stream_max_resolution" "1024"
+"r_texture_nonstreaming_load" "1"
+//"r_indirectlighting" "false"
+"csm_max_num_cascades_override" "2"
+"r_hair_indirect_transmittance" "false"
+//"r_lightmap_bicubic_filtering" "false"
+"r_drawdecals" "false" //defaul true
+"minimap_update_rate_hz" "30"
+"ai_think_interval" "0.3"
 citadel_npc_force_animate_every_tick        "false"
 
+"ai_async_queue_max_jobs" "8"
+"ai_think_interval_lod_med" "0.4"
+"ai_think_interval_lod_low" "1"
+"ai_gather_conditions_async" "true"
+"ai_foot_sweep_enable" "false"
+"wind_system_temporal_smoothing" "false"
+"wind_system_default_resolution_xy" "64"
+"lb_precomputed_shadowmap_enable" "0"
+"lb_shadow_map_cull_empty_mixed" "true"
+"r_citadel_fog_quality" "0"
+"r_citadel_gpu_culling_shadows" "1" //test, was 0
+"r_hair_shadowtile" "false"
+"vis_sunlight_enable" "0"
+"snd_use_baked_occlusion" "1"
+"citadel_per_weapon_per_surface_impact_effects" "false"
 
+"r_particle_model_per_thread_count" "48"
+"r_limit_particle_job_duration" "1"
 
-
+ 
 		"rate"
 		{
 			"min"		"98304"
@@ -905,7 +941,7 @@ citadel_npc_force_animate_every_tick        "false"
 		"cl_async_usercmd_send_disabled_recvmargin_min" "0.5"	// Additional frame since we do not use the async usercmd send (potentially unneccessary)
 		"cl_clock_buffer_ticks"	"1"
 		"cl_interp_ratio" "0"
-		"cl_async_usercmd_send" "false"
+		"cl_async_usercmd_send" "true"
 
 		"fps_max"		"400"
 		"fps_max_ui"	"120"

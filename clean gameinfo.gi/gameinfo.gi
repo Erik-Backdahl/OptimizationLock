@@ -13,9 +13,12 @@
 	}
 	nodegraph 0
 	perfwizard 0
-	tonemapping 0 
+	tonemapping 0
 	GameData	"citadel.fgd"
-	
+
+	DisallowGameInfoConditionals 1
+	PGIVersion "6E09D3ED5A47F6A97443813F0E00F90BAA435918F82DF0C9B5DA46D27A33D903"
+
 	Localize
 	{
 		DuplicateTokensAssert	1
@@ -58,21 +61,18 @@
 		//
 		// Search paths are relative to the exe directory\..\
 		//
-	
-// Deadlock Mod Manager - Start
-
 		SearchPaths
-        {  
-            Game_Language       citadel_*LANGUAGE*
-            Game                citadel/addons
-            Mod                 citadel
-            Write               citadel          
-            Game                citadel
-            Mod                 core
-            Write               core
-            Game                core        
-        }
-// Deadlock Mod Manager - End
+		{
+			// These are optional language paths. They must be mounted first, which is why there are first in the list.
+			// *LANGUAGE* will be replaced with the actual language name. If not running a specific language, these paths will not be mounted
+			Game_Language		citadel_*LANGUAGE*
+
+			// These are optional low-violence paths. They will only get mounted if you're in a low-violence mode.
+			Game_LowViolence	citadel_lv
+
+			Game				citadel
+			Game				core
+		}
 	}
 	
 	MaterialSystem2
@@ -125,9 +125,9 @@
 		SwapChainSampleableDepth 1
 		VulkanMutableSwapchain 1
 		"LowLatency"								"1"
-		"VulkanOnly"								"1"	[ $LINUX || $OSX ] // No OpenGL or D3D9/11 fallback on Linux or OSX, only Vulkan is supported.
-		"VulkanRequireSubgroupWaveOpSupport"		"1"	[ !$OSX ]
-		"VulkanRequireDescriptorIndexing"			"1"	[ !$OSX ]
+		"VulkanOnly_Linux"							"1"
+		"VulkanRequireSubgroupWaveOpSupport"		"1"
+		"VulkanRequireDescriptorIndexing"			"1"
 		"VulkanSteamShaderCache" "1"
 		"VulkanSteamAppShaderCache" "1"
 		"VulkanSteamDownloadedShaderCache" "1"
