@@ -531,8 +531,6 @@ citadel_damage_text_show_effectiveness      "0"             // Shows extra “ef
 panorama_disable_box_shadow                 "1"             // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "0"]
 panorama_disable_blur                       "1"             // Disables UI blur effects in the UI.                              [def: "0"]
 panorama_allow_transitions                  "false"         // Turns off UI anim (shop,etc)                                     [def: "1"]
-citadel_minimap_use_canvas_for_neutrals     "0"             // Uses an alternate “canvas” rendering path for neutral icons on the minimap (render path toggle). [def: "1"]
-citadel_minimap_use_canvas_for_shop         "0"             // Uses an alternate “canvas” rendering path for shop icons on the minimap (render path toggle). [def: "1"]
 closecaption                                "false"         // I assume this does what it says on the tin
 panorama_use_new_occlusion_invalidation     "1"
 panorama_temp_comp_layer_min_dimension      "128"
@@ -669,8 +667,6 @@ sc_clutter_enable                           "false"         // No debris/props 1
 sc_aggregate_bvh_threshold                  "16"            // Lower BVH threshold                                              [def: "128"]
 sc_layer_batch_threshold                    "16"            // Lower batch threshold                                            [default: "128"]
 sc_layer_batch_threshold_fullsort           "20"            //                                                                  [def: "80"]
-sv_pvs_max_distance                         "2800"          // Don't render enemy players past a certain distance               [def: "0"]
-sv_remove_ent_from_pvs                      "1"             // Culls objects (creeps, boxes, objects) outside of view           [def: "0"]
 r_farz                                      "7000"          // Override the far clipping plane                                  [def: "-1"]
 r_mapextents                                "7000"          // Far clipping plane, this will make buildings pop in and out      [def: "16384"] damn that's an oddly specific number
 mat_viewportscale                           "0.01"          // Scale down the main viewport I belive this gets overwritten by video.txt [def: "1"]
@@ -727,7 +723,6 @@ snd_steamaudio_reverb_order_rendering       "0"
 
 
 // ================ Needs to be Documented but is Stable Group 4 ================
-sv_parallel_checktransmit                   "1"
 cl_enable_eye_occlusion                     "false"
 r_texturefilteringquality                   "3"             // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
 r_texture_stream_mip_bias                   "1"             // Worth adjusting, practically how good your textures will look.
@@ -768,7 +763,6 @@ mat_async_shader_load                       "true"
 nav_obstruction_async_update                "true"
 r_async_compute_fog                         "true"
 sparseshadowtree_parallel_generation        "true"
-//sv_parallel_sendsnapshot                  "3"
 
 // =============== No Clue What These do But it's Probably Important. ===============
 //If you test these please report to me on your findings 
