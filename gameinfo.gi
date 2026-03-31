@@ -469,7 +469,7 @@
 //      If you would like to donate as a means of showing thanks I have a kofi.     \\
 //      https://ko-fi.com/sqooky                                                    \\
 
-// ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.4.7 --------------- \\
+// ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.4.8 --------------- \\
             // Check here for updates: https://gamebanana.com/mods/656341 \\
            // Downloaded from: https://github.com/Sqooky/OptimizationLock  \\
           // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
@@ -786,7 +786,7 @@ r_drawskybox                                "true"          // Can't be changed 
    // Jaden             Nice guy and helped both test and support various newcomers                            \\
   // Piggy              Let me mirror his config                                                                \\
  // Tamara Mochaccina   Made the vindicta scope mod and contributed the fog fix                                  \\
-// --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.7 ------------------------------- \\
+// --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.4.8 ------------------------------- \\
 
         "rate"
         {
