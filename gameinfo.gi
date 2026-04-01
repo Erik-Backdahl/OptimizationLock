@@ -595,7 +595,7 @@ cloth_sim_on_tick                           "0"             // Update the cloth 
 phys_threaded_cloth_bone_update             "1"             // Make the cloth update threaded                                   [def: "0"]
 phys_threaded_kinematic_bone_update         "1"             //                                                                  [def: "0"]
 phys_threaded_transform_update              "1"             //                                                                  [def: "0"]
-props_break_max_pieces_perframe             "1"             // Makes boxes break into a single pieces                           [def: "16"]
+props_break_max_pieces_perframe             "0"             // Makes boxes break into a single pieces                           [def: "16"]
 
 // ================ VISUAL CLARITY ================
 mat_colorcorrection                         "1"             // Disables/ Enables color correction (game looks less vibrant when off). [def: "1"]
