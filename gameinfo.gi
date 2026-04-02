@@ -1,3 +1,20 @@
+//      If you would like to donate as a means of showing thanks I have a kofi.     \\
+//      https://ko-fi.com/sqooky                                                    \\
+//           ...       ....       
+//        ...   ..   ..    ...     
+//       .        . .  o      . 
+//      .          v           . 
+//      . o       ___     o    . 
+//      .     _---   -_      .  
+//     o .   /^        '\     .   
+//        . /   _- /|.  |  o    
+//          |f1/0   @\Y?u\       
+//      o   /u'\_ v _/ f:j|    o
+//         /!#%|'-_- '\%k*|  
+//     o   |*@/        \_/      
+//         \)&|                  
+// OptimizationLock v1.5 by Sqooky with help from others <3
+
 "GameInfo"
 {
     game        "citadel"
