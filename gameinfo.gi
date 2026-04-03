@@ -561,13 +561,11 @@ panorama_disable_blur                       "1"             // Disables UI blur 
 panorama_allow_transitions                  "false"         // Turns off UI anim (shop,etc)                                     [def: "1"]
 closecaption                                "false"         // I assume this does what it says on the tin                       [def: "false"]
 panorama_temp_comp_layer_min_dimension      "128"           // Based on the name I'm implied to believe this is the minimum size for panorama compositing, ie blur, rounded corners, etc. [def: "512"]
-panorama_max_fps                            "15"            // [ADJUST] UI FPS cap - 0=Unlimited (smooth UI) | 30/60=Standard | Higher = smoother HUD but more CPU
 
 // ================ Shadows ================
 r_shadows                                   "0"             // Disables dynamic shadows.                                        [def: "1"]
 r_citadel_shadow_quality                    "0"             // Deadlock/Citadel shadow quality level (0 = lowest).              [def: "2"]
 r_citadel_gpu_culling_shadows               "1"             // Enables GPU-driven culling for shadow casters (performance).     [def: "0"]
-csm_max_shadow_dist_override                "0"             // Overrides max distance for cascaded shadow maps (-1 = use default behavior/no override). [def: "1024"]
 r_size_cull_threshold_shadow                "1"             // Threshold of shadow map size percentage below which objects get culled (higher = cull more to save shadow cost). [def: "0.2"]
 lb_barnlight_shadowmap_scale                "0.5"           // Scale for computed barnlight shadowmap size (lower = cheaper).   [def: "1"]
 lb_csm_cascade_size_override                "1"             // Enables overriding CSM cascade sizing rules (forces engine to use override values). [def: "1536"]
@@ -692,7 +690,6 @@ sc_instanced_mesh_motion_vectors            "0"             // Set 1 if you use 
 //sc_instanced_mesh_size_cull_bias          "10"            // Bias for size culling of instanced meshes                        [def: "1.5"]
 sc_instanced_mesh_size_cull_bias_shadow     "10"            // Bias for size culling instanced meshes in shadowmaps             [def: "2"]
 sc_fade_distance_scale_override             "100"           // Distance objects fade in and out                                 [def: "-1"]
-sc_clutter_enable                           "false"         // No debris/props 1=Props visible                                  [def: "true"]
 sc_aggregate_bvh_threshold                  "128"           // Not fully sure what these do. Don't change them.                 [def: "128"]
 sc_layer_batch_threshold                    "128"           // Not fully sure what these do. Don't change them.                 [default: "128"]
 sc_layer_batch_threshold_fullsort           "80"            // Not sure what these do. Jasper said to leave them at default     [def: "80"]
@@ -701,7 +698,6 @@ phys_cull_internal_mesh_contacts            "true"          // Don't simulate th
 citadel_use_pvs_for_players                 "true"          // Default culls players when out of view                           [def: "false"]
 
 // ================ Misc ================
-mat_async_shader_load                       "true"          // Asyncronious loading of shaders (I belive)                       [def: "false"]
 nav_obstruction_async_update                "true"          // Not fully sure but async good wowie                              [def: "false"]
 r_async_compute_fog                         "true"          // Just whether to asyncroniously render fog                        [def: "false"]
 save_parallel                               "true"          // Absolutely no idea but typically paralell processing is good.            [def: "false"]
@@ -866,7 +862,6 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
         "cl_interp_ratio" "0"
         "cl_async_usercmd_send" "true"
 
-        "fps_max"       "400"
         "fps_max_ui"    "120"
 
         "in_button_double_press_window" "0.3"
