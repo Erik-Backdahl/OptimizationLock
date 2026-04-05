@@ -8,11 +8,6 @@ That aside it is possible that in the future valve will properly implement this,
 
 Until then you should consider writing [a forum post](https://forums.playdeadlock.com/) going "heyyyyyy I'm scared I won't be able to play this game at ~+60fps if cvars are properly disabled" as it is the most direct way to provide feedback to the developers
 
-## tldr: 
-### They're probably going to restrict cvars in the future
-### Right now you can still use the config just fine
-### You should write a [forum](https://forums.playdeadlock.com/) post to let them know about how this proposition effects you
-
 # Base Instructions
 To install the performance config replace the gameinfo.gi in ``steamapps/common/deadlock/game/citadel`` with the one downloaded from this repository.
 **There is a video tutorial** for installation avalible [here](https://youtu.be/TbjLbQVN2kE)
