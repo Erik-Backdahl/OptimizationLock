@@ -495,6 +495,7 @@
 // ================ Preferences ================
 
 // --- 1. Outlines ---
+citadel_damage_offscreen_indicator_disabled "true"          // The little trooper portraits that show up behind walls.          [def: "true"]
 citadel_unit_status_allies_see_thru_walls_max_distance "40" // How far to make allied players' unit status show through walls.  [def: "0"] (0 means no limit)
 
 // --- 2. Field of View ---
@@ -759,13 +760,12 @@ csm_viewmodel_shadows                       "false"         // All of these comm
 //r_wait_on_present true
 
 // ================ Convars You Shouldn't/Can't Mess With But I Want to Maintain the Documentation ================ 
-//cl_particle_max_count                       "1500"          // Maximum allowed particles. Setting it too low will cause issues. [def: "0"]
+//cl_particle_max_count                     "1500"          // Maximum allowed particles. Setting it too low will cause issues. [def: "0"]
 //cl_phys_enabled                           "false"         // You can disable physics and might see an improvement in framerate, however a lot will be buggy.   [def: "true"]
 gpu_level                                   "1"             // GPU level literally doesn't matter, gets set to 2 in the engine
 r_citadel_npr_force_solid_outline           "false"         // Causes odd visual bugs with dragons and neutrals when set to true    [def: "false"]
 r_drawskybox                                "true"          // Can't be changed anymore                                             [def: "true"]
 citadel_trooper_glow_disabled               "1"             // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
-citadel_damage_offscreen_indicator_disabled "true"         // The little trooper portraits that show up behind walls.          [def: "true"]
 citadel_boss_glow_disabled                  "1"             // Disables boss and walker glow/highlight effect.                  [def: "0]
 citadel_player_glow_disabled                "0"             // Disables player glow/highlight effect when pinged.               [def: "0"]
 r_citadel_npr_outlines_max_dist             "1"             // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
