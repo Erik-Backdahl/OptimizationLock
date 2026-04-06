@@ -554,7 +554,7 @@ r_particle_max_size_cull                    "999"           //                  
 // So particle culling is handled by the CPU in deadlock, if you have GPU overhead to spare, consider lowering this value. 
 
 // ================= UI ================
-r_citadel_enable_pano_world_blur            "false"
+r_citadel_enable_pano_world_blur            "true"
 r_dashboard_render_quality                  "0"             // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
 citadel_damage_text_show_effectiveness      "0"             // Shows extra “effectiveness” info in damage text (e.g., resist/weakness style feedback). [def: "0"]
 panorama_disable_box_shadow                 "1"             // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "0"]
