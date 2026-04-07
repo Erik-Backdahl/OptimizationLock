@@ -704,7 +704,7 @@ fog_enable "0"
 fog_enableskybox "0"
 cl_smooth "true" // might change to false again
 // lb_enable_envmaps "0" gives fps but fucks up lighting
-cl_particle_batch_mode "2"
+cl_particle_batch_mode "1"
 cl_phys_enabled "false"
 csm_cascade0_override_dist "0"
 csm_cascade1_override_dist "0"
