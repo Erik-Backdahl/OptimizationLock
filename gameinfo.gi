@@ -499,7 +499,7 @@ citadel_damage_offscreen_indicator_disabled "true"          // The little troope
 citadel_unit_status_allies_see_thru_walls_max_distance "40" // How far to make allied players' unit status show through walls.  [def: "0"] (0 means no limit)
 
 // --- 2. Field of View ---
-citadel_camera_hero_fov                     "110"           // The field of view angle of the camera when following a hero.     [def: "90"]
+citadel_camera_hero_fov                     "106"           // The field of view angle of the camera when following a hero.     [def: "90"]
 
 // --- 3. HUD ---
 citadel_damage_text_batching_window_ability "1000"          // How long to wait until batching damage text.             
