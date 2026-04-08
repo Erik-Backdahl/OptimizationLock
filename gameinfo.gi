@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|  
 //     o   |*@/        \_/      
 //         \)&|                  
-// OptimizationLock v1.5 by Sqooky with help from others <3
+// OptimizationLock v1.5.1 by Sqooky with help from others <3
 
 "GameInfo"
 {
@@ -485,7 +485,7 @@
 //      If you would like to donate as a means of showing thanks I have a kofi.     \\
 //      https://ko-fi.com/sqooky                                                    \\
 
-// ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.5 --------------- \\
+// ---------------- GAMEINFO CONFIG OptimizationLock -- ver. 1.5.1 --------------- \\
             // Check here for updates: https://gamebanana.com/mods/656341 \\
            // Downloaded from: https://github.com/Sqooky/OptimizationLock  \\
           // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
@@ -788,7 +788,7 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
 //- Tamara Mochaccina Contributed vindicta scope fix and the fog fix.  
 //- Maihdenless:      Started the original OptimisationLock & its Discord.  
 //- Soulx:            Gave me five dollars and told me about spirolactone (fucking sick I love you)
-// --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.5 ------------------------------- \\
+// --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.5.1 ------------------------------- \\
 
         "rate"
         {
