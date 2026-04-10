@@ -128,7 +128,7 @@
 		VulkanMutableSwapchain                      "1"
 		"LowLatency"								"1"
 		"VulkanOnly_Linux"      					"1"
-		"VulkanRequireSubgroupWaveOpSupport"		"1"	[ !$OSX ]
+		"VulkanRequireSubgroupWaveOpSupport"		"1"
 		"VulkanRequireDescriptorIndexing"			"1"	[ !$OSX ]
 		"VulkanSteamShaderCache" "1"
 		"VulkanSteamAppShaderCache" "1"

@@ -135,26 +135,26 @@
 
     RenderSystem
     {
-		IndexBufferPoolSizeMB 32
-		UseReverseDepth 1
-		Use32BitDepthBuffer 0
-		Use32BitDepthBufferWithoutStencil 0
-		SwapChainSampleableDepth 1
-		VulkanMutableSwapchain 1
+		IndexBufferPoolSizeMB                       32
+		UseReverseDepth                             1
+		Use32BitDepthBuffer                         0
+		Use32BitDepthBufferWithoutStencil           0
+		SwapChainSampleableDepth                    1
+		VulkanMutableSwapchain                      1
 		"LowLatency"								"1"
 		"VulkanOnly_Linux"							"1"
 		"VulkanRequireSubgroupWaveOpSupport"		"1"
 		"VulkanRequireDescriptorIndexing"			"1"
-		"VulkanSteamShaderCache" "1"
-		"VulkanSteamAppShaderCache" "1"
-		"VulkanSteamDownloadedShaderCache" "1"
-		"VulkanAdditionalShaderCache" "vulkan_shader_cache.foz"
-		"VulkanStagingPMBSizeLimitMB" "384"
-		"GraphicsPipelineLibrary"	"1"
-		"VulkanOnlyTestProbability" "0"
-		"VulkanDefrag"				"1"
-		"MinStreamingPoolSizeMB"	"1024"
-		"MinStreamingPoolSizeMBTools" "2048"
+		"VulkanSteamShaderCache"                    "1"
+		"VulkanSteamAppShaderCache"                 "1"
+		"VulkanSteamDownloadedShaderCache"          "1"
+		"VulkanAdditionalShaderCache"               "vulkan_shader_cache.foz"
+		"VulkanStagingPMBSizeLimitMB"               "384"
+		"GraphicsPipelineLibrary"	                "1"
+		"VulkanOnlyTestProbability"                 "0"
+		"VulkanDefrag"				                "0"
+		"MinStreamingPoolSizeMB"	                "1024"
+		"MinStreamingPoolSizeMBTools"               "2048"
     }
 
     NVNGX
@@ -171,7 +171,7 @@
         RenderingPipeline
         {
             SupportsMSAA 0
-            DistanceField 1
+            DistanceField 0
         }
         PauseSinglePlayerOnGameOverlay 1
         DefensiveConCommands 1
@@ -207,28 +207,28 @@
 
     Hammer
     {
-        "fgd"                   "citadel.fgd"   // NOTE: This is relative to the 'game' path.
-        "GameFeatureSet"        "Citadel"
-        "DefaultSolidEntity"    "trigger_multiple"
-        "DefaultPointEntity"    "info_player_start"
-        "NavMarkupEntity"       "func_nav_markup"
-        "OverlayBoxSize"            "8"
-        "TileMeshesEnabled"         "1"
-        "RenderMode"                "ToolsVis"
-        "CreateRenderClusters"      "1"
-        "DefaultMinDrawVolumeSize"  "2048"
+        "fgd"                           "citadel.fgd"   // NOTE: This is relative to the 'game' path.
+        "GameFeatureSet"                "Citadel"
+        "DefaultSolidEntity"            "trigger_multiple"
+        "DefaultPointEntity"            "info_player_start"
+        "NavMarkupEntity"               "func_nav_markup"
+        "OverlayBoxSize"                "8"
+        "TileMeshesEnabled"             "1"
+        "RenderMode"                    "ToolsVis"
+        "CreateRenderClusters"          "1"
+        "DefaultMinDrawVolumeSize"      "2048"
         "DefaultMinTrianglesPerCluster" "16384"
         "TileGridSupportsBlendHeight"   "1"
-        "TileGridBlendDefaultColor" "0 255 0"
-        "LoadScriptEntities" "0"
-        "UsesBakedLighting" "1"
-        "UseAnalyticGrid" "0"
-        "SupportsDisplacementMapping" "0"
+        "TileGridBlendDefaultColor"     "0 255 0"
+        "LoadScriptEntities"            "0"
+        "UsesBakedLighting"             "1"
+        "UseAnalyticGrid"               "0"
+        "SupportsDisplacementMapping"   "0"
         "SteamAudioEnabled"             "1"
         "LatticeDeformerEnabled"        "1"
-        "ShadowAtlasWidth" "16384"
-        "ShadowAtlasHeight" "16384"
-        "TimeSlicedShadowMapRendering" "1"
+        "ShadowAtlasWidth"              "0"
+        "ShadowAtlasHeight"             "0"
+        "TimeSlicedShadowMapRendering"  "0"
     }
 
     SoundTool
@@ -305,17 +305,17 @@
                 
                 directional_irradiance_sh2_r
                 {
-                    CompressedFormat DXT1
+                    CompressedFormat BC6H
                 }
                 
                 directional_irradiance_sh2_g
                 {
-                    CompressedFormat DXT1
+                    CompressedFormat BC6H
                 }
                 
                 directional_irradiance_sh2_b
                 {
-                    CompressedFormat DXT1
+                    CompressedFormat BC6H
                 }
             }
             LightmapGutterSize 2 // For bicubic filtering
@@ -387,10 +387,10 @@
     WorldRenderer
     {
         EnvironmentMaps                 1
-        EnvironmentMapFaceSize          256
-        EnvironmentMapRenderSize        1024
+        EnvironmentMapFaceSize          128         // Lowering this value will cause everything to become shiny
+        EnvironmentMapRenderSize        1        
         EnvironmentMapFormat            BC6H
-        EnvironmentMapPreviewFormat         BC6H
+        EnvironmentMapPreviewFormat     BC6H
         EnvironmentMapColorSpace        linear
         EnvironmentMapMipProcessor      GGXCubeMapBlur
         // Build cubemaps into a cube array instead of individual cubemaps.
@@ -428,6 +428,7 @@
         VolumetricFog 0
         FrameBufferCopyFormat R11G11B10F
         Tonemapping 0
+        // Removing this block will cause characters to not render
         WellKnownLightCookies
         {
             "blank" "materials/effects/lightcookies/blank.vtex"
@@ -790,6 +791,13 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
 //- Soulx:            Gave me five dollars and told me about spirolactone (fucking sick I love you)
 // --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.5.1 ------------------------------- \\
 
+
+
+// TESTING
+r_aoproxy_min_dist "9999" // default: 3, 0 is always tricky so consider changing this to 1
+r_aoproxy_min_dist_box "9999"
+cl_fasttempentcollision "999999"                                    // Limits/controls fast collision processing for temporary entities (impacts/tracers/etc.); higher usually = more work. [def: "5"]
+engine_max_ticks_to_simulate "1"
         "rate"
         {
             "min"       "98304"
@@ -805,7 +813,7 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
         "panorama_classes_perf_warning_threshold_ms" "0.75"
 
         // Panorama - enable minidumps on JS exceptions
-        "panorama_js_minidumps" "1"
+        "panorama_js_minidumps" "0"
         // Enable the render target cache optimization.
         "panorama_disable_render_target_cache" "0"
 
