@@ -119,15 +119,15 @@
 
 	RenderSystem
 	{
-		IndexBufferPoolSizeMB 32
-		VertexBufferPoolSizeMB 32
-		UseReverseDepth 1
-		Use32BitDepthBuffer 0
-		Use32BitDepthBufferWithoutStencil 0
-		SwapChainSampleableDepth 1
-		VulkanMutableSwapchain 1
+		IndexBufferPoolSizeMB                       "32"
+		VertexBufferPoolSizeMB                      "32"
+		UseReverseDepth                             "1"
+		Use32BitDepthBuffer                         "0"
+		Use32BitDepthBufferWithoutStencil           "0"
+		SwapChainSampleableDepth                    "1"
+		VulkanMutableSwapchain                      "1"
 		"LowLatency"								"1"
-		"VulkanOnly"								"1"	[ $LINUX || $OSX ] // No OpenGL or D3D9/11 fallback on Linux or OSX, only Vulkan is supported.
+		"VulkanOnly_Linux"      					"1"
 		"VulkanRequireSubgroupWaveOpSupport"		"1"	[ !$OSX ]
 		"VulkanRequireDescriptorIndexing"			"1"	[ !$OSX ]
 		"VulkanSteamShaderCache" "1"
