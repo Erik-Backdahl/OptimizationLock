@@ -500,8 +500,10 @@ citadel_damage_offscreen_indicator_disabled "true"          // The little troope
 citadel_unit_status_allies_see_thru_walls_max_distance "40" // How far to make allied players' unit status show through walls.  [def: "0"] (0 means no limit)
 
 // --- 2. Field of View ---
+// These commands both affect fov but do so in different ways. citadel_camera_hero_fov changes the field of view using typical degrees but doesn't modify the punch zoom in. This means that if you have a high fov value the zoom in can be disorienting.
 citadel_camera_hero_fov                     "106"           // The field of view angle of the camera when following a hero.     [def: "90"]
-
+r_aspectratio                               "2.10"          // this comma
+// r_aspectratio changes the zoom of the camera which in turn doesn't make the punch zoom in as jarring, but the command is not as intuitive.
 // --- 3. HUD ---
 citadel_damage_text_batching_window_ability "1000"          // How long to wait until batching damage text.             
 citadel_unit_status_use_new                 "1"             // This uses new Health Bar, to use old Health Bar change "true" to "false".    [def: "0"]
@@ -625,7 +627,7 @@ props_break_max_pieces_perframe             "0"             // Makes boxes and t
 
 // ================ Visual Clarity ================
 mat_colorcorrection                         "1"             // Disables/ Enables color correction (game looks less vibrant when off).   [def: "1"]
-r_decals_default_fade_duration              "1"             // How quickly decals (bullet holes) fade                                   [def: "3"]
+r_decals_default_fade_duration              "1"             // How quickly decals (bullet holes) fade                           [def: "3"]
 r_drawdecals                                "1"             // *Render decals.                                                  [def: "1"]
 r_decals                                    "1"             // Maximum number of decals allowed. (lower = fewer bullet holes/blood/impact marks). [def: "2048"]
 r_character_decal_resolution                "1"             // Resolution of character decal texture.                           [def: "1024"]
@@ -739,6 +741,7 @@ snd_steamaudio_reverb_order_rendering       "0"             // The amount of dir
 
 // ================ Csm Shadows. ================
 // According to jasper these shouldn't do anything, but I'm keeping them because they seemed to provide a performance increase with them disabled
+// I need to do benchmarks of the config with and without these commands, however I am LAZY
 csm_cascade0_override_dist                  "0"             // All of these commands should reduce shadow quality.
 csm_cascade1_override_dist                  "0"             // All of these commands should reduce shadow quality.
 csm_cascade2_override_dist                  "0"             // All of these commands should reduce shadow quality.
