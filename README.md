@@ -65,17 +65,19 @@ Every variation of the config included in this repository has mod support added.
 
 # Credits
 Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
-- Sqooky:           Manager of the GitHub.  
-- JasperP:          My personal hero.  
-- Boot:             Provided the csm cvars which had a notable performance improvement.  
-- Kin:              Did an insane amount of benchmarking unprompted.  
-- Brullee:          Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config  
-- Kaizuchaneru:     While not directly invovled in the deveopment, they tested most cvars  
-- Artemon121:       Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game.  
-- Jaden:            Nice guy and helped both test and support various newcomers.  
-- Piggy:            Let me mirror his config.  
-- Tamara Mochaccina Contributed vindicta scope fix and the fog fix.  
-- Soulx:            Gave me five dollars (fucking sick I love you)  
+- Sqooky:               Manager of the GitHub.  
+- JasperP:              My personal hero.  
+- Boot:                 Provided the csm cvars which had a notable performance improvement.  
+- Kin:                  Did an insane amount of benchmarking unprompted.  
+- Brullee:              Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config  
+- Kaizuchaneru:         While not directly invovled in the deveopment, they tested most cvars  
+- Artemon121:           Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game.  
+- Jaden:                Nice guy and helped both test and support various newcomers.  
+- Piggy:                Let me mirror his config.  
+- Tamara Mochaccina:    Contributed vindicta scope fix and the fog fix.  
+- Jayie:                Made the optimized soul container model.
+- Soulx:                Gave me five dollars (fucking sick I love you)  
+- Dacooder:             Contribued four values and documentation for 1.3.2
 (You can find Artemon121's cvar unhider [here](https://github.com/Artemon121/cvar-unhide-s2-citadel))
 
 ----
