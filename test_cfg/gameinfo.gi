@@ -32,6 +32,9 @@
     perfwizard 0
     tonemapping 0 
     GameData    "citadel.fgd"
+
+    DisallowGameInfoConditionals 0
+    PGIVersion "6E09D3ED5A47F6A97443813F0E00F90BAA435918F82DF0C9B5DA46D27A33D903"
     
     Localize
     {
@@ -112,49 +115,49 @@
 
     MaterialEditor
     {
-        "DefaultShader" "environment_texture_set"
+        "DefaultShader"                             "environment_texture_set"
     }
 
     NetworkSystem
     {
         BetaUniverse
         {
-            FakeLag         0
-            FakeLoss        0
-            //FakeReorderPct 0.05
-            //FakeReorderDelay 10
-            //FakeJitter "low"
+            FakeLag                                 "0"         // I am confident these do as they say      [def: "40"]
+            FakeLoss                                "0"         //                                          [def: "0.1"]
+            //FakeReorderPct                        "0.05"
+            //FakeReorderDelay                      "10"
+            //FakeJitter                            "low"
             // Turning off fake jitter for now while I work on making the CQ totally solid
-            FakeReorderPct 0
-            FakeReorderDelay 0
-            FakeJitter "off"
+            FakeReorderPct                          "0"
+            FakeReorderDelay                        "0"
+            FakeJitter                              "off"
         }
 
-        "SkipRedundantChangeCallbacks"  "1"
+        SkipRedundantChangeCallbacks                "1"
     }
 
     RenderSystem
     {
-		IndexBufferPoolSizeMB                       "32"
-		UseReverseDepth                             "1"
-		Use32BitDepthBuffer                         "0"
-		Use32BitDepthBufferWithoutStencil           "0"
-		SwapChainSampleableDepth                    "1"
-		VulkanMutableSwapchain                      "1"
-		"LowLatency"                                "1"
-		"VulkanOnly_Linux"                          "1"
-		"VulkanRequireSubgroupWaveOpSupport"        "1"
-		"VulkanRequireDescriptorIndexing"           "1"
-		"VulkanSteamShaderCache"                    "1"
-		"VulkanSteamAppShaderCache"                 "1"
-		"VulkanSteamDownloadedShaderCache"          "1"
-		"VulkanAdditionalShaderCache"               "vulkan_shader_cache.foz"
-		"VulkanStagingPMBSizeLimitMB"               "512"
-		"GraphicsPipelineLibrary"	                "1"
-		"VulkanOnlyTestProbability"                 "1"
-		"VulkanDefrag"				                "1"
-		"MinStreamingPoolSizeMB"	                "1024"
-		"MinStreamingPoolSizeMBTools"               "2048"
+		IndexBufferPoolSizeMB                       "64"        // Not fully sure.                          [def: "32"]
+		UseReverseDepth                             "1"         // Also not fully sure.                     [def: "1"]
+		Use32BitDepthBuffer                         "0"         //      [def: "0"]
+		Use32BitDepthBufferWithoutStencil           "1"         //      [def: "0"]
+		SwapChainSampleableDepth                    "1"         //      [def: ""]
+		VulkanMutableSwapchain                      "1"         //      [def: ""]
+		LowLatency                                  "1"         //      [def: ""]
+		VulkanOnly_Linux                            "1"         //      [def: ""]
+		VulkanRequireSubgroupWaveOpSupport          "1"         //      [def: ""] 
+		VulkanRequireDescriptorIndexing             "1"         // Setting this command to zero causes my wayland compositor to crash upon launching the game. I would imagine don't fiddle with it      [def: "1"]
+		VulkanSteamShaderCache                      "1"         //      [def: ""]
+		VulkanSteamAppShaderCache                   "1"         //      [def: ""]
+		VulkanSteamDownloadedShaderCache            "1"         //      [def: ""]
+		VulkanAdditionalShaderCache                 "vulkan_shader_cache.foz"
+		VulkanStagingPMBSizeLimitMB                 "1"         //I am going to assume pmb is shorthand for "primitive mesh" and this is the size of memory allowed to be allocated to a mesh? not fully sure.
+		GraphicsPipelineLibrary                     "1"         // This seemed to discard precompiled shaders when set to 0            [def: "1"]
+		VulkanOnlyTestProbability                   "1"
+		VulkanDefrag                                "1"
+		MinStreamingPoolSizeMB                      "1024"
+		MinStreamingPoolSizeMBTools                 "2048"
     }
 
     NVNGX
@@ -387,15 +390,16 @@
     WorldRenderer
     {
         EnvironmentMaps                 "1"
-        EnvironmentMapFaceSize          "256"
-        EnvironmentMapRenderSize        "1024"
-        EnvironmentMapFormat            "BC6H"
-        EnvironmentMapPreviewFormat     "BC6H"
+        EnvironmentMapFaceSize          "256"       // 
+        EnvironmentMapRenderSize        "512"       // There does not seem to be any downside to lowering this value so it is currently in experimentation. [def: "1024"]
+        EnvironmentMapFormat            "BC6H"       // These values don't seem to be able to be changed but this should change the texture format          [def: "BC6H"]
+        EnvironmentMapPreviewFormat     "BC6H"       // ^                                                                                                   [def: "BC6H"]
+
         EnvironmentMapColorSpace        "linear"
         EnvironmentMapMipProcessor      "GGXCubeMapBlur"
         // Build cubemaps into a cube array instead of individual cubemaps.
         "EnvironmentMapUseCubeArray"    "1"
-        "EnvironmentMapCacheSizeTools"  "300"
+        "EnvironmentMapCacheSizeTools"  "3"
         BindlessSceneObjectDesc         "CitadelBindlessDesc"
         GrassCastsShadows               "0"
     }
@@ -506,8 +510,8 @@ citadel_unit_status_allies_see_thru_walls_max_distance "40" // How far to make a
 
 // --- 2. Field of View ---
 // These commands both affect fov but do so in different ways. citadel_camera_hero_fov changes the field of view using typical degrees but doesn't modify the punch zoom in. This means that if you have a high fov value the zoom in can be disorienting.
-//citadel_camera_hero_fov                     "106"         // The field of view angle of the camera when following a hero.     [def: "90"]
-r_aspectratio                               "2.60"          // this comma
+//citadel_camera_hero_fov                   "106"           // The field of view angle of the camera when following a hero.     [def: "90"]
+r_aspectratio                               "2.80"          //                                                                  [def: "2"]
 // r_aspectratio changes the zoom of the camera which in turn doesn't make the punch zoom in as jarring, but the command is not as intuitive.
 
 // --- 3. HUD ---
@@ -520,6 +524,7 @@ citadel_damage_report_enable                "1"             // Enables/Disables 
 citadel_hideout_ball_show_juggle_count      "1"             // Shows a fun juggle count minigame for hideout ball.              [def: "0"]
 citadel_hideout_ball_show_juggle_fx         "1"             // Shows juggle visual FX for hideout ball minigame.                [def: "0"]
 citadel_crosshair_hit_marker_duration       "1"             // Removes the hitmarker when shooting people.                      [def: "0.1"]
+// ^ This command seems to be broken as of current
 
 // --- 4. Lighting & Shadows ---
 lb_enable_stationary_lights                 "0"             // *Disables stationary lights (map looks flatter but more performant).         [def: "1"]
@@ -918,4 +923,5 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
         "ShowLowAvailableVirtualMemoryMessageBox" "1"
     }
 }
+
 

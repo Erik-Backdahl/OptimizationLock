@@ -13,9 +13,9 @@
 	}
 	nodegraph 0
 	perfwizard 0
-	tonemapping 0 
+	tonemapping 0
 	GameData	"citadel.fgd"
-	
+
 	Localize
 	{
 		DuplicateTokensAssert	1
@@ -42,9 +42,9 @@
 		"turkish" "3"
 		"ukrainian" "3"
 	}
-	
+
 	FileSystem
-	{	
+	{
 		//
 		// The code that loads this file automatically does a few things here:
 		//
@@ -74,7 +74,7 @@
 			Game				core
 		}
 	}
-	
+
 	MaterialSystem2
 	{
 		RenderModes
@@ -188,7 +188,7 @@
 		"Engine"	"Source 2"
 		"ToolsDir"	"../sdktools"	// NOTE: Default Tools path. This is relative to the mod path.
 	}
-	
+
 	pulse
 	{
 		"pulse_enabled"					"1"
@@ -252,7 +252,7 @@
 		// steps. Additionally this controls which builders are displayed in the hammer build dialog.
 		DefaultMapBuilders
 		{
-			"bakedlighting"	"1"	// Enable lightmapping during compile time		
+			"bakedlighting"	"1"	// Enable lightmapping during compile time
 			"envmap"	"0" // turned off since it currently causes an assert and doesn't work due to some build issue
 			"nav"		"1"	// Generate nav mesh data
 		}
@@ -285,23 +285,23 @@
 		BakedLighting
 		{
 			Version 4
-			ImportanceVolumeTransitionRegion 512            // distance we transition from high to low resolution charts 
+			ImportanceVolumeTransitionRegion 512            // distance we transition from high to low resolution charts
 			LightmapChannels
 			{
 				direct_light_shadows 1
 				debug_chart_color 1
 				directional_irradiance_sh2_dc 1
-				
+
 				directional_irradiance_sh2_r
 				{
 					CompressedFormat DXT1
 				}
-				
+
 				directional_irradiance_sh2_g
 				{
 					CompressedFormat DXT1
 				}
-				
+
 				directional_irradiance_sh2_b
 				{
 					CompressedFormat DXT1
@@ -355,7 +355,7 @@
 			GameOutputPath	"resource/localization/citadel_vdata"
 			TokenPrefix		"Citadel_VData_"
 		}
-		
+
 		TextureCompiler
 		{
 			//Compressor              "lz4"
@@ -375,7 +375,7 @@
 
 	WorldRenderer
 	{
-		EnvironmentMaps					1
+		EnvironmentMaps				1
 		EnvironmentMapFaceSize			256
 		EnvironmentMapRenderSize		1024
 		EnvironmentMapFormat			BC6H
@@ -383,11 +383,11 @@
 		EnvironmentMapColorSpace		linear
 		EnvironmentMapMipProcessor		GGXCubeMapBlur
 		// Build cubemaps into a cube array instead of individual cubemaps.
-		"EnvironmentMapUseCubeArray" 	1
-		"EnvironmentMapCacheSizeTools"  300
+		EnvironmentMapUseCubeArray              1
+		EnvironmentMapCacheSizeTools            300
 		BindlessSceneObjectDesc			CitadelBindlessDesc
-		GrassCastsShadows				0
-		LPVEdgeBlending 0
+		GrassCastsShadows		        0
+		LPVEdgeBlending                         0
 	}
 
 	SceneSystem
@@ -427,7 +427,7 @@
 		FogCachedShadowTileMaxFilterRadius 0
 		PointLightShadowsEnabled 0
 		PunctualContactShadows 0
-		
+
 		WellKnownLightCookies
 		{
 			"blank" "materials/effects/lightcookies/blank.vtex"
@@ -655,7 +655,7 @@ zipline_use_new_latch "0"                                       // Use the new l
 citadel_damage_text_show_effectiveness "0"                      // Shows extra “effectiveness” info in damage text (e.g., resist/weakness style feedback). [def: "0"]
 citadel_minimap_use_canvas_for_neutrals "0"                     // Uses an alternate “canvas” rendering path for neutral icons on the minimap (render path toggle). [def: "1"]
 citadel_minimap_use_canvas_for_shop "0"                         // Uses an alternate “canvas” rendering path for shop icons on the minimap (render path toggle). [def: "1"]
-animgraph_enable_parallel_preupdate "1"                         // Allows animgraph pre-update work to run in parallel (performance). [def: "0"] 
+animgraph_enable_parallel_preupdate "1"                         // Allows animgraph pre-update work to run in parallel (performance). [def: "0"]
 animgraph_enable_parallel_op_evaluation "1"                     // Allows animgraph operator evaluation to run in parallel (performance). [def: "0"]
 r_citadel_distancefield_farfield_enable "0"                     // Disables long-range distance field effects. [def: "1"]
 
@@ -692,14 +692,14 @@ citadel_unit_status_delta_decay_delay "0"
 citadel_unit_status_delta_decay_rate "10"
 snd_steamaudio_enable_reverb "0"
 snd_steamaudio_enable_perspective_correction "0"
-snd_spatialize_lerp "0"  
-dsp_slow_cpu "1" 
+snd_spatialize_lerp "0"
+dsp_slow_cpu "1"
 snd_mixahead "0.05"
 r_texture_stream_max_resolution "128"
 r_drawtracers "0"
 r_particle_cables_render_meshlets "0"
 cl_phys_sleep_enable "1"
-r_enable_rigid_animation "0" 
+r_enable_rigid_animation "0"
 fog_enable "0"
 fog_enableskybox "0"
 cl_smooth "true" // might change to false again
@@ -1036,7 +1036,7 @@ citadel_match_details_lane_stats_time "360"
 		"snd_steamaudio_invalid_path_length"	"0.0"
 		"cl_disconnect_soundevent"				"citadel.convar.stop_all_game_layer_soundevents"
 		"snd_event_browser_default_stack"		"citadel_default_3d"
-		
+
 		// voip
 		"voice_in_process"			            "1"
 
@@ -1047,7 +1047,7 @@ citadel_match_details_lane_stats_time "360"
 		"snd_sos_max_event_base_depth" "10"
 		"sos_use_guid_filter" "1"
 
-		"voice_always_sample_mic"               
+		"voice_always_sample_mic"
 		{
 			"version"	"2"
 			"default"	"0"
@@ -1063,7 +1063,7 @@ citadel_match_details_lane_stats_time "360"
 
 		// For perf reasons, since we don't use source-based DSP:
 		"disable_source_soundscape_trace"       "1"
-		
+
 		// Networking - Induced latency (pred offset)
 		"cl_tickpacket_recvmargin_desired" "5" 					// 5 ms base, min. floor for protecting against thrashing the queue
 		"cl_tickpacket_desired_queuelength" "0"					// 0 = attempt to always reach the queue's min floor
@@ -1080,7 +1080,7 @@ citadel_match_details_lane_stats_time "360"
 		// Convars that control spatialization of UI audio.
 		"snd_ui_positional"								"1"
 		"snd_ui_spatialization_spread"					"2.4"
-		
+
 		// sound volume rate change limiting
 		"snd_envelope_rate"								"100.0"
 		"snd_soundmixer_update_maximum_frame_rate" 		"0"
@@ -1104,10 +1104,10 @@ citadel_match_details_lane_stats_time "360"
 		"snd_event_browser_focus_events" "true"
 
 		"cl_max_particle_pvs_aabb_edge_length" "100"
-		
+
 		// Allow aggregation of particles (for perf)
 		"cl_aggregate_particles" "true"
-		
+
 		"citadel_enable_vdata_sound_preload" "true"
 
 		"r_particle_allowprerender" "false"
