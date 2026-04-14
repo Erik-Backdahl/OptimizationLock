@@ -395,11 +395,11 @@
         EnvironmentMapFormat            "BC6H"       // These values don't seem to be able to be changed but this should change the texture format          [def: "BC6H"]
         EnvironmentMapPreviewFormat     "BC6H"       // ^                                                                                                   [def: "BC6H"]
 
-        EnvironmentMapColorSpace        "linear"
+        EnvironmentMapColorSpace        "linear"     // Colorspace. Options should be gamma or linear.                                                      [def: "linear"]
         EnvironmentMapMipProcessor      "GGXCubeMapBlur"
         // Build cubemaps into a cube array instead of individual cubemaps.
-        "EnvironmentMapUseCubeArray"    "1"
-        "EnvironmentMapCacheSizeTools"  "3"
+        EnvironmentMapUseCubeArray      "1"          // I don't know why disabling this would cause any problems
+        EnvironmentMapCacheSizeTools    "300"        // Not sure what this does yet                                                                         [def: "300"]
         BindlessSceneObjectDesc         "CitadelBindlessDesc"
         GrassCastsShadows               "0"
     }

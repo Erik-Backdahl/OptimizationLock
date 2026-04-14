@@ -385,24 +385,24 @@
 
     SceneSystem
     {
-        GpuLightBinner 1
-        FogCachedShadowAtlasWidth 2048
-        FogCachedShadowAtlasHeight 2048
-        FogCachedShadowTileSize 128
-        GpuLightBinnerSunLightFastPath 1
-        CSMCascadeResolution 2048
-        SunLightManagerCount 0
-        SunLightManagerCountTools 0
-        DefaultShadowTextureWidth 6144
-        DefaultShadowTextureHeight 6144
-        DynamicShadowResolution 1
+        GpuLightBinner                  1
+        FogCachedShadowAtlasWidth       2048
+        FogCachedShadowAtlasHeight      2048
+        FogCachedShadowTileSize         128
+        GpuLightBinnerSunLightFastPath  1
+        CSMCascadeResolution            2048
+        SunLightManagerCount            0
+        SunLightManagerCountTools       0
+        DefaultShadowTextureWidth       6144
+        DefaultShadowTextureHeight      6144
+        DynamicShadowResolution         1
 
-        TransformTextureRowCount    1024
+        TransformTextureRowCount        1024
         TransformTextureRowCountToolsMode 6144
-        SunLightMaxCascadeSize      4
-        SunLightShadowRenderMode    Depth
-        LayerBatchThresholdFullsort 20
-        NonTexturedGradientFog      1
+        SunLightMaxCascadeSize          4
+        SunLightShadowRenderMode        Depth
+        LayerBatchThresholdFullsort     20
+        NonTexturedGradientFog          1
         // Temp till I can add support in citadel shaders
         DisableLateAllocatedTransformBuffer 1
         MinimumLateAllocatedVertexCacheBufferSizeMB 64
