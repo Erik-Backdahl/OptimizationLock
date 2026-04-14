@@ -1,18 +1,18 @@
 //      If you would like to donate as a means of showing thanks I have a kofi.     \\
 //      https://ko-fi.com/sqooky                                                    \\
-//           ...       ....       
-//        ...   ..   ..    ...     
-//       .        . .  o      . 
-//      .          v           . 
-//      . o       ___     o    . 
-//      .     _---   -_      .  
-//     o .   /^        '\     .   
-//        . /   _- /|.  |  o    
-//          |f1/0   @\Y?u\       
+//           ...       ....
+//        ...   ..   ..    ...
+//       .        . .  o      .
+//      .          v           .
+//      . o       ___     o    .
+//      .     _---   -_      .
+//     o .   /^        '\     .
+//        . /   _- /|.  |  o
+//          |f1/0   @\Y?u\
 //      o   /u'\_ v _/ f:j|    o
-//         /!#%|'-_- '\%k*|  
-//     o   |*@/        \_/      
-//         \)&|                  
+//         /!#%|'-_- '\%k*|
+//     o   |*@/        \_/
+//         \)&|
 // OptimizationLock v1.5.1 by Sqooky with help from others <3
 
 "GameInfo"
@@ -30,12 +30,12 @@
     }
     nodegraph 0
     perfwizard 0
-    tonemapping 0 
+    tonemapping 0
     GameData    "citadel.fgd"
 
     DisallowGameInfoConditionals 0
     PGIVersion "6E09D3ED5A47F6A97443813F0E00F90BAA435918F82DF0C9B5DA46D27A33D903"
-    
+
     Localize
     {
         DuplicateTokensAssert   1
@@ -62,9 +62,9 @@
         "turkish" "3"
         "ukrainian" "3"
     }
-    
+
     FileSystem
-    {   
+    {
         //
         // The code that loads this file automatically does a few things here:
         //
@@ -78,23 +78,23 @@
         //
         // Search paths are relative to the exe directory\..\
         //
-    
+
 // Deadlock Mod Manager - Start
 
         SearchPaths
-        {  
+        {
             Game_Language       citadel_*LANGUAGE*
             Game                citadel/addons
             Mod                 citadel
-            Write               citadel          
+            Write               citadel
             Game                citadel
             Mod                 core
             Write               core
-            Game                core        
+            Game                core
         }
 // Deadlock Mod Manager - End
     }
-    
+
     MaterialSystem2
     {
         RenderModes
@@ -138,43 +138,44 @@
 
     RenderSystem
     {
-		IndexBufferPoolSizeMB                       "64"        // Not fully sure.                          [def: "32"]
+		IndexBufferPoolSizeMB                       "32"        // Not fully sure.                          [def: "32"]
 		UseReverseDepth                             "1"         // Also not fully sure.                     [def: "1"]
 		Use32BitDepthBuffer                         "0"         //      [def: "0"]
-		Use32BitDepthBufferWithoutStencil           "1"         //      [def: "0"]
-		SwapChainSampleableDepth                    "1"         //      [def: ""]
-		VulkanMutableSwapchain                      "1"         //      [def: ""]
-		LowLatency                                  "1"         //      [def: ""]
-		VulkanOnly_Linux                            "1"         //      [def: ""]
-		VulkanRequireSubgroupWaveOpSupport          "1"         //      [def: ""] 
+		Use32BitDepthBufferWithoutStencil           "0"         //      [def: "0"]
+		SwapChainSampleableDepth                    "1"         //      [def: "1"]
+		VulkanMutableSwapchain                      "1"         //      [def: "1"]
+		LowLatency                                  "1"         //      [def: "1"]
+		VulkanOnly_Linux                            "1"         //      [def: "1"]
+		VulkanRequireSubgroupWaveOpSupport          "1"         //      [def: "1"]
 		VulkanRequireDescriptorIndexing             "1"         // Setting this command to zero causes my wayland compositor to crash upon launching the game. I would imagine don't fiddle with it      [def: "1"]
-		VulkanSteamShaderCache                      "1"         //      [def: ""]
-		VulkanSteamAppShaderCache                   "1"         //      [def: ""]
-		VulkanSteamDownloadedShaderCache            "1"         //      [def: ""]
+		VulkanSteamShaderCache                      "1"         //      [def: "1"]
+		VulkanSteamAppShaderCache                   "1"         //      [def: "1"]
+		VulkanSteamDownloadedShaderCache            "1"         //      [def: "1"]
 		VulkanAdditionalShaderCache                 "vulkan_shader_cache.foz"
-		VulkanStagingPMBSizeLimitMB                 "1"         //I am going to assume pmb is shorthand for "primitive mesh" and this is the size of memory allowed to be allocated to a mesh? not fully sure.
+		VulkanStagingPMBSizeLimitMB                 "384"         //I am going to assume pmb is shorthand for "primitive mesh" and this is the size of memory allowed to be allocated to a mesh? not fully sure.
 		GraphicsPipelineLibrary                     "1"         // This seemed to discard precompiled shaders when set to 0            [def: "1"]
-		VulkanOnlyTestProbability                   "1"
-		VulkanDefrag                                "1"
-		MinStreamingPoolSizeMB                      "1024"
-		MinStreamingPoolSizeMBTools                 "2048"
+		VulkanOnlyTestProbability                   "0"         //      [def: "0"]
+		VulkanDefrag                                "1"         //      [def: "1"]
+		MinStreamingPoolSizeMB                      "1024"      //      [def: "1024"]
+		MinStreamingPoolSizeMBTools                 "2048"      //      [def: "2048"]
     }
 
     NVNGX
     {
-        AppID 103371621
-        SupportsDLSS 1
+        AppID                                               "103371621"
+        SupportsDLSS                                        "1"
     }
 
     Engine2
     {
-        HasModAppSystems 1
-        Capable64Bit 1
+        HasModAppSystems                                    "1"
+        Capable64Bit                                        "1"
         URLName citadel
         RenderingPipeline
         {
-            SupportsMSAA 0
-            DistanceField 0
+            SupportsMSAA                                    "0"         //                                                      [def: "0"]
+            DistanceField                                   "1"         // Setting this to zero crashes the game on vulkan      [def: "1"]
+          //AmbientOcclusionProxies                         "0"         // I believe this is from pidjan, I am unsure of what it does [def: "?"]
         }
         PauseSinglePlayerOnGameOverlay 1
         DefensiveConCommands 1
@@ -183,75 +184,75 @@
 
     ContentBuilder
     {
-        ResourceCompilerDirectXUsesWARP "0"
+        ResourceCompilerDirectXUsesWARP                     "0"
     }
 
     SoundSystem
     {
-        SteamAudioEnabled            "1"
-        WaveDataCacheSizeMB          "256"
-        "UsePlatTime"            "1"
+        SteamAudioEnabled                                   "1"
+        WaveDataCacheSizeMB                                 "256"
+        "UsePlatTime"                                       "1"
     }
     Sounds
     {
-        HierarchicalEncodingFiles    "1"
+        HierarchicalEncodingFiles                           "1"
     }
 
     ToolsEnvironment
     {
-        "Engine"    "Source 2"
-        "ToolsDir"  "../sdktools"   // NOTE: Default Tools path. This is relative to the mod path.
+        "Engine"                                            "Source 2"
+        "ToolsDir"                                          "../sdktools"   // NOTE: Default Tools path. This is relative to the mod path.
     }
-    
+
     pulse
     {
-        "pulse_enabled"                 "1"
+        "pulse_enabled"                                     "1"
     }
 
     Hammer
     {
-        "fgd"                   "citadel.fgd"   // NOTE: This is relative to the 'game' path.
-        "GameFeatureSet"        "Citadel"
-        "DefaultSolidEntity"    "trigger_multiple"
-        "DefaultPointEntity"    "info_player_start"
-        "NavMarkupEntity"       "func_nav_markup"
-        "OverlayBoxSize"            "8"
-        "TileMeshesEnabled"         "1"
-        "RenderMode"                "ToolsVis"
-        "CreateRenderClusters"      "1"
-        "DefaultMinDrawVolumeSize"  "2048"
-        "DefaultMinTrianglesPerCluster" "16384"
-        "TileGridSupportsBlendHeight"   "1"
-        "TileGridBlendDefaultColor" "0 255 0"
-        "LoadScriptEntities" "0"
-        "UsesBakedLighting" "1"
-        "UseAnalyticGrid" "0"
-        "SupportsDisplacementMapping" "0"
-        "SteamAudioEnabled"             "1"
-        "LatticeDeformerEnabled"        "1"
-        "ShadowAtlasWidth" "16384"
-        "ShadowAtlasHeight" "16384"
-        "TimeSlicedShadowMapRendering" "1"
+        "fgd"                                               "citadel.fgd"   // NOTE: This is relative to the 'game' path.
+        "GameFeatureSet"                                    "Citadel"
+        "DefaultSolidEntity"                                "trigger_multiple"
+        "DefaultPointEntity"                                "info_player_start"
+        "NavMarkupEntity"                                   "func_nav_markup"
+        "OverlayBoxSize"                                    "8"
+        "TileMeshesEnabled"                                 "1"
+        "RenderMode"                                        "ToolsVis"
+        "CreateRenderClusters"                              "1"
+        "DefaultMinDrawVolumeSize"                          "2048"
+        "DefaultMinTrianglesPerCluster"                     "16384"
+        "TileGridSupportsBlendHeight"                       "1"
+        "TileGridBlendDefaultColor"                         "0 255 0"
+        "LoadScriptEntities"                                "0"
+        "UsesBakedLighting"                                 "1"
+        "UseAnalyticGrid"                                   "0"
+        "SupportsDisplacementMapping"                       "0"
+        "SteamAudioEnabled"                                 "1"
+        "LatticeDeformerEnabled"                            "1"
+        "ShadowAtlasWidth"                                  "16384"
+        "ShadowAtlasHeight"                                 "16384"
+        "TimeSlicedShadowMapRendering"                      "1"
     }
 
     SoundTool
     {
-        "DefaultSoundEventType" "src1_3d"
+        "DefaultSoundEventType"                             "src1_3d"
 
         SoundEventBaseOptions
         {
-            "Base.Announcer.VO.2d" ""
-            "Base.World.VO.Emitter.3d" ""
-            "Base.Hero.VO.Ping.2d" ""
-            "Base.Hero.VO.2d" ""
-            "Base.Hero.VO.3d" ""
-            "Base.Hero.VO.Ability.3d" ""
-            "Base.Hero.VO.Ultimate.3d" ""
-            "Base.Hero.VO.Dash.3d" ""
-            "Base.Hero.VO.Effort.3d" ""
-            "Base.Hero.VO.Pain.3d" ""
-            "Base.Hero.VO.Melee.3d" ""
-            "Base.Hero.VO.Death.3d" ""
+            "Base.Announcer.VO.2d"                          ""
+            "Base.World.VO.Emitter.3d"                      ""
+            "Base.Hero.VO.Ping.2d"                          ""
+            "Base.Hero.VO.2d"                               ""
+            "Base.Hero.VO.3d"                               ""
+            "Base.Hero.VO.Ability.3d"                       ""
+            "Base.Hero.VO.Ultimate.3d"                      ""
+            "Base.Hero.VO.Dash.3d"                          ""
+            "Base.Hero.VO.Effort.3d"                        ""
+            "Base.Hero.VO.Pain.3d"                          ""
+            "Base.Hero.VO.Melee.3d"                         ""
+            "Base.Hero.VO.Death.3d"                         ""
         }
     }
 
@@ -266,131 +267,131 @@
         // steps. Additionally this controls which builders are displayed in the hammer build dialog.
         DefaultMapBuilders
         {
-            "bakedlighting" "1" // Enable lightmapping during compile time      
-            "envmap"    "0" // turned off since it currently causes an assert and doesn't work due to some build issue
-            "nav"       "1" // Generate nav mesh data
+            "bakedlighting"                                "1" // Enable lightmapping during compile time
+            "envmap"                                       "0" // turned off since it currently causes an assert and doesn't work due to some build issue
+            "nav"                                          "1" // Generate nav mesh data
         }
 
         MeshCompiler
         {
-            OptimizeForMeshlets 1
-            TrianglesPerMeshlet 64  // Maximum valid value currently is 126
-            UseMikkTSpace 1
-            EncodeVertexBuffer 1
-            EncodeVertexBufferVersion 1
-            EncodeVertexBufferLevel 3
-            EncodeIndexBuffer 1
-            SplitDepthStream 1
+            OptimizeForMeshlets                            "1"
+            TrianglesPerMeshlet                            "64"  // Maximum valid value currently is 126
+            UseMikkTSpace                                  "1"
+            EncodeVertexBuffer                             "1"
+            EncodeVertexBufferVersion                      "1"
+            EncodeVertexBufferLevel                        "3"
+            EncodeIndexBuffer                              "1"
+            SplitDepthStream                               "1"
         }
 
         WorldRendererBuilder
         {
-            VisibilityGuidedMeshClustering      "1"
-            MinimumTrianglesPerClusteredMesh    "8192"
-            MinimumVerticesPerClusteredMesh     "8192"
-            MinimumVolumePerClusteredMesh       "8192"       // ~20x20x20 cube
-            MaxPrecomputedVisClusterMembership  "96"
-            MaxCullingBoundsGroups              "128"
-            UseAggregateInstances               "1"
-            AggregateInstancingMeshlets         "1"
-            BakePropsWithExtraVertexStreams     "1"
+            VisibilityGuidedMeshClustering                 "1"
+            MinimumTrianglesPerClusteredMesh               "8192"
+            MinimumVerticesPerClusteredMesh                "8192"
+            MinimumVolumePerClusteredMesh                  "8192"       // ~20x20x20 cube
+            MaxPrecomputedVisClusterMembership             "96"
+            MaxCullingBoundsGroups                         "128"
+            UseAggregateInstances                          "1"
+            AggregateInstancingMeshlets                    "1"
+            BakePropsWithExtraVertexStreams                "1"
         }
 
         BakedLighting
         {
-            Version 4
-            ImportanceVolumeTransitionRegion 512            // distance we transition from high to low resolution charts 
+            Version                                        "4"
+            ImportanceVolumeTransitionRegion               "512"            // distance we transition from high to low resolution charts
             LightmapChannels
             {
-                direct_light_shadows 1
-                debug_chart_color 1
-                directional_irradiance_sh2_dc 1
-                
+                direct_light_shadows                       "1"
+                debug_chart_color                          "1"
+                directional_irradiance_sh2_dc              "1"
+
                 directional_irradiance_sh2_r
                 {
-                    CompressedFormat DXT1
+                    CompressedFormat                       "DXT1"
                 }
-                
+
                 directional_irradiance_sh2_g
                 {
-                    CompressedFormat DXT1
+                    CompressedFormat                       "DXT1"
                 }
-                
+
                 directional_irradiance_sh2_b
                 {
-                    CompressedFormat DXT1
+                    CompressedFormat                       "DXT1"
                 }
             }
-            LightmapGutterSize 2 // For bicubic filtering
-            UseStaticLightProbes 0
-            LPVAtlas 1
-            BC6HHueShiftFixup 0 // Causes more artifacts than it solves atm
-            Repack2 1
+            LightmapGutterSize                             "2" // For bicubic filtering
+            UseStaticLightProbes                           "0"
+            LPVAtlas                                       "1"
+            BC6HHueShiftFixup                              "0" // Causes more artifacts than it solves atm
+            Repack2                                        "1"
         }
 
         SteamAudio
         {
             ReverbDefaults
             {
-                GridSpacing         "3.0"
-                HeightAboveFloor    "1.5"
-                RebakeOption        "0"                     // 0: cleanup, 1: manual, 2: auto
-                NumRays             "32768"
-                NumBounces          "64"
-                IRDuration          "1.0"
-                AmbisonicsOrder     "1"
+                GridSpacing                                "3.0"
+                HeightAboveFloor                           "1.5"
+                RebakeOption                               "0"                     // 0: cleanup, 1: manual, 2: auto
+                NumRays                                    "32768"
+                NumBounces                                 "64"
+                IRDuration                                 "1.0"
+                AmbisonicsOrder                            "1"
             }
             PathingDefaults
             {
-                GridSpacing         "3.0"
-                HeightAboveFloor    "1.5"
-                RebakeOption        "0"                     // 0: cleanup, 1: manual, 2: auto
-                NumVisSamples       "1"
-                ProbeVisRadius      "0"
-                ProbeVisThreshold   "0.1"
-                ProbeVisPathRange   "1000.0"
+                GridSpacing                                "3.0"
+                HeightAboveFloor                           "1.5"
+                RebakeOption                               "0"                     // 0: cleanup, 1: manual, 2: auto
+                NumVisSamples                              "1"
+                ProbeVisRadius                             "0"
+                ProbeVisThreshold                          "0.1"
+                ProbeVisPathRange                          "1000.0"
             }
         }
         SoundStackScripts
         {
-            CompileStacksStrict "1"
+            CompileStacksStrict                            "1"
         }
         VisBuilder
         {
-            MaxVisClusters "4096"
-            PreMergeOpenSpaceDistanceThreshold "128.0"
-            PreMergeOpenSpaceMaxDimension "2048.0"
-            PreMergeOpenSpaceMaxRatio "8.0"
-            PreMergeSmallRegionsSizeThreshold "20.0"
+            MaxVisClusters                                 "4096"
+            PreMergeOpenSpaceDistanceThreshold             "128.0"
+            PreMergeOpenSpaceMaxDimension                  "2048.0"
+            PreMergeOpenSpaceMaxRatio                      "8.0"
+            PreMergeSmallRegionsSizeThreshold              "20.0"
         }
 
         VDataLocalization
         {
-            GameOutputPath  "resource/localization/citadel_vdata"
-            TokenPrefix     "Citadel_VData_"
+            GameOutputPath                                 "resource/localization/citadel_vdata"
+            TokenPrefix                                    "Citadel_VData_"
         }
-        
+
         TextureCompiler
         {
-            //Compressor              "lz4"
-            //CompressMipsOnDisk      "1"
-            //CompressMinRatio        "95"
-            AllowNP2Textures        "1"
-            AllowPanoramaMipGeneration  "1"
-            //PublicToolsDefaultMaxRes "2048"
+            //Compressor                                   "lz4"
+            //CompressMipsOnDisk                           "1"
+            //CompressMinRatio                             "95"
+            AllowNP2Textures                               "1"
+            AllowPanoramaMipGeneration                     "1"
+            //PublicToolsDefaultMaxRes                     "2048"
         }
     }
 
     Source1Import
     {
         // this is just copied from the left4dead3 gameinfo.gi
-        "forcevtxfileupconvert" 1
+        "forcevtxfileupconvert"                            "1"
     }
 
     WorldRenderer
     {
         EnvironmentMaps                 "1"
-        EnvironmentMapFaceSize          "256"       // 
+        EnvironmentMapFaceSize          "256"       //
         EnvironmentMapRenderSize        "512"       // There does not seem to be any downside to lowering this value so it is currently in experimentation. [def: "1024"]
         EnvironmentMapFormat            "BC6H"       // These values don't seem to be able to be changed but this should change the texture format          [def: "BC6H"]
         EnvironmentMapPreviewFormat     "BC6H"       // ^                                                                                                   [def: "BC6H"]
@@ -491,7 +492,7 @@
     }
 
     ConVars
-    {    
+    {
 //      If you would like to donate as a means of showing thanks I have a kofi.     \\
 //      https://ko-fi.com/sqooky                                                    \\
 
@@ -515,7 +516,7 @@ r_aspectratio                               "2.80"          //                  
 // r_aspectratio changes the zoom of the camera which in turn doesn't make the punch zoom in as jarring, but the command is not as intuitive.
 
 // --- 3. HUD ---
-citadel_damage_text_batching_window_ability "1000"          // How long to wait until batching damage text.             
+citadel_damage_text_batching_window_ability "1000"          // How long to wait until batching damage text.
 citadel_unit_status_use_new                 "1"             // This uses new Health Bar, to use old Health Bar change "true" to "false".    [def: "0"]
 //citadel_unit_status_use_v2                "0"             // Set to 1 to enable the new health bar that allows you to  see enemy stamina. [def: "0"]
 //citadel_unit_status_use_v2_for_nonplayers "0"             // Set to 1 to enable the new health bar but for troopers, objs, and camps.     [def: "0"]
@@ -562,10 +563,10 @@ r_texturefilteringquality                   "3"             // Texture filtering
 r_farz                                      "7000"          // This controls the far clipping plane, ie building/player popin   [def: "-1"]
 r_mapextents                                "7000"          // Far clipping plane, this will make buildings pop in and out      [def: "16384"] damn that's an oddly specific number
 
-// ================ IMPORTANT ================ 
+// ================ IMPORTANT ================
 r_particle_max_size_cull                    "999"           //                                                                  [def: "1200"]
-// Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway 
-// So particle culling is handled by the CPU in deadlock, if you have GPU overhead to spare, consider lowering this value. 
+// Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway
+// So particle culling is handled by the CPU in deadlock, if you have GPU overhead to spare, consider lowering this value.
 
 // ================= UI ================
 r_citadel_enable_pano_world_blur            "true"
@@ -684,10 +685,10 @@ particle_cluster_nodraw                     "1"             // Skips drawing par
 r_physics_particle_op_spawn_scale           "0"             // Prevents physics-based particle spawns.                          [def: "1"]
 r_RainParticleDensity                       "0"             // Density of Particle Rain 0-1.                                    [def: "1"]
 r_world_wind_strength                       "0"             // Disables wind effects, cosmetic only.                            [def: "40"]
-cl_particle_fallback_base                   "10"            // Base for falling back to cheaper effects under load.             [def: "0"] 
+cl_particle_fallback_base                   "10"            // Base for falling back to cheaper effects under load.             [def: "0"]
 cl_particle_fallback_multiplier             "20"            // Multiplier for falling back to cheaper effects under load.       [def: "0"]
-cl_particle_sim_fallback_base_multiplier    "40"            // How aggressive the switch to fallbacks will be depending on how far over the cl_particle_sim_fallback_threshold_ms the sim time is.  Higher numbers are more aggressive. [def: "5"] 
-cl_particle_sim_fallback_threshold_ms       "0.001"         // Amount of simulation time that can elapse before new systems start falling back to cheaper versions [def: "6"] 
+cl_particle_sim_fallback_base_multiplier    "40"            // How aggressive the switch to fallbacks will be depending on how far over the cl_particle_sim_fallback_threshold_ms the sim time is.  Higher numbers are more aggressive. [def: "5"]
+cl_particle_sim_fallback_threshold_ms       "0.001"         // Amount of simulation time that can elapse before new systems start falling back to cheaper versions [def: "6"]
 r_particle_skip_postsim                     "true"          // Not entirely sure what it does, going off of the name I'd imagine it skips the post simulation, this is a testvar [def: "false"]
 r_particle_timescale                        "1.1"           // Speeds up particle simulation, thus making them end sooner, however this causes visual desyncs, most notably with big effects that last a while such as infernus ult. Please tweak this to what you are comfortable with. [def: "1"]
 cl_particle_batch_mode                      "1"             // Has a range of 1 or 2, 2 will make celeste's auto rebound look weird and 0 will make them not batch [def: "1"]
@@ -769,12 +770,12 @@ csm_viewmodel_shadows                       "false"         // All of these comm
 
 
 // =============== No Clue What These do But it's Probably Important. ===============
-//If you test these please report to me on your findings 
+//If you test these please report to me on your findings
 //r_pipeline_stats_flush_before_sleeping true
 //r_pipeline_stats_present_flush true
 //r_wait_on_present true
 
-// ================ Convars You Shouldn't/Can't Mess With But I Want to Maintain the Documentation ================ 
+// ================ Convars You Shouldn't/Can't Mess With But I Want to Maintain the Documentation ================
 //cl_particle_max_count                     "1500"          // Maximum allowed particles. Setting it too low will cause issues. [def: "0"]
 //cl_phys_enabled                           "false"         // You can disable physics and might see an improvement in framerate, however a lot will be buggy.   [def: "true"]
 gpu_level                                   "1"             // GPU level literally doesn't matter, gets set to 2 in the engine
@@ -791,17 +792,17 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
 
 
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
-//- Sqooky:           Manager of the GitHub.  
-//- JasperP:          My personal hero.  
-//- Boot:             Provided the csm cvars which had a notable performance improvement.  
-//- Kin:              Did an insane amount of benchmarking unprompted.  
-//- Brullee:          Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config  
-//- Kaizuchaneru:     While not directly invovled in the deveopment, they tested most cvars  
-//- Artemon121:       Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game.  
-//- Jaden:            Nice guy and helped both test and support various newcomers.  
-//- Piggy:            Let me mirror his config.  
-//- Tamara Mochaccina Contributed vindicta scope fix and the fog fix.  
-//- Maihdenless:      Started the original OptimisationLock & its Discord.  
+//- Sqooky:           Manager of the GitHub.
+//- JasperP:          My personal hero.
+//- Boot:             Provided the csm cvars which had a notable performance improvement.
+//- Kin:              Did an insane amount of benchmarking unprompted.
+//- Brullee:          Removed fake cvars, redundant commands, added cvarlist.md, and reformatted config
+//- Kaizuchaneru:     While not directly invovled in the deveopment, they tested most cvars
+//- Artemon121:       Made the Citadel cvar unhider, which helped Abdalla fetch cvars and test in-game.
+//- Jaden:            Nice guy and helped both test and support various newcomers.
+//- Piggy:            Let me mirror his config.
+//- Tamara Mochaccina Contributed vindicta scope fix and the fog fix.
+//- Maihdenless:      Started the original OptimisationLock & its Discord.
 //- Soulx:            Gave me five dollars and told me about spirolactone (fucking sick I love you)
 // --------------------------------- END OF CONFIG OptimizationLock -- ver. 1.5.1 ------------------------------- \\
 
@@ -840,7 +841,7 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
         "snd_steamaudio_invalid_path_length"    "0.0"
         "cl_disconnect_soundevent"              "citadel.convar.stop_all_game_layer_soundevents"
         "snd_event_browser_default_stack"       "citadel_default_3d"
-        
+
         // voip
         "voice_in_process"                      "1"
 
@@ -851,7 +852,7 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
         "snd_sos_max_event_base_depth" "10"
         "sos_use_guid_filter" "1"
 
-        "voice_always_sample_mic"               
+        "voice_always_sample_mic"
         {
             "version"   "2"
             "default"   "0"
@@ -867,7 +868,7 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
 
         // For perf reasons, since we don't use source-based DSP:
         "disable_source_soundscape_trace"       "1"
-        
+
         // Networking - Induced latency (pred offset)
         "cl_tickpacket_recvmargin_desired" "5"                  // 5 ms base, min. floor for protecting against thrashing the queue
         "cl_tickpacket_desired_queuelength" "0"                 // 0 = attempt to always reach the queue's min floor
@@ -883,7 +884,7 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
         // Convars that control spatialization of UI audio.
         "snd_ui_positional"                             "false"
         "snd_ui_spatialization_spread"                  "2.4"
-        
+
         // sound volume rate change limiting
         "snd_envelope_rate"                             "100.0"
         "snd_soundmixer_update_maximum_frame_rate"      "0"
@@ -907,10 +908,10 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
         "snd_event_browser_focus_events" "true"
 
         "cl_max_particle_pvs_aabb_edge_length" "100"
-        
+
         // Allow aggregation of particles (for perf)
         "cl_aggregate_particles" "false"
-        
+
         "citadel_enable_vdata_sound_preload" "true"
     }
 
@@ -923,5 +924,3 @@ r_citadel_npr_outlines                      "false"         // Enable outlines o
         "ShowLowAvailableVirtualMemoryMessageBox" "1"
     }
 }
-
-

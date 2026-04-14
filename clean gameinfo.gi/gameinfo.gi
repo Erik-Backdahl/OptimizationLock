@@ -118,26 +118,26 @@
 
     RenderSystem
     {
-        IndexBufferPoolSizeMB 32
-        UseReverseDepth 1
-        Use32BitDepthBuffer 0
-        Use32BitDepthBufferWithoutStencil 0
-        SwapChainSampleableDepth 1
-        VulkanMutableSwapchain 1
+        IndexBufferPoolSizeMB                       "32"
+        UseReverseDepth                             "1"
+        Use32BitDepthBuffer                         "0"
+        Use32BitDepthBufferWithoutStencil           "0"
+        SwapChainSampleableDepth                    "1"
+        VulkanMutableSwapchain                      "1"
         "LowLatency"                                "1"
         "VulkanOnly_Linux"                          "1"
         "VulkanRequireSubgroupWaveOpSupport"        "1"
         "VulkanRequireDescriptorIndexing"           "1"
-        "VulkanSteamShaderCache" "1"
-        "VulkanSteamAppShaderCache" "1"
-        "VulkanSteamDownloadedShaderCache" "1"
-        "VulkanAdditionalShaderCache" "vulkan_shader_cache.foz"
-        "VulkanStagingPMBSizeLimitMB" "384"
-        "GraphicsPipelineLibrary"   "1"
-        "VulkanOnlyTestProbability" "0"
-        "VulkanDefrag"              "1"
-        "MinStreamingPoolSizeMB"    "1024"
-        "MinStreamingPoolSizeMBTools" "2048"
+        "VulkanSteamShaderCache"                    "1"
+        "VulkanSteamAppShaderCache"                 "1"
+        "VulkanSteamDownloadedShaderCache"          "1"
+        "VulkanAdditionalShaderCache"               "vulkan_shader_cache.foz"
+        "VulkanStagingPMBSizeLimitMB"               "384"
+        "GraphicsPipelineLibrary"                   "1"
+        "VulkanOnlyTestProbability"                 "0"
+        "VulkanDefrag"                              "1"
+        "MinStreamingPoolSizeMB"                    "1024"
+        "MinStreamingPoolSizeMBTools"               "2048"
     }
 
     NVNGX
