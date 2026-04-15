@@ -115,25 +115,25 @@
 
     MaterialEditor
     {
-        "DefaultShader"                             "environment_texture_set"
+        "DefaultShader"                                     "environment_texture_set"
     }
 
     NetworkSystem
     {
         BetaUniverse
         {
-            FakeLag                                 "0"         // I am confident these do as they say      [def: "40"]
-            FakeLoss                                "0"         //                                          [def: "0.1"]
-            //FakeReorderPct                        "0.05"
-            //FakeReorderDelay                      "10"
-            //FakeJitter                            "low"
+            FakeLag                                         "0"         // I am confident these do as they say      [def: "40"]
+            FakeLoss                                        "0"         //                                          [def: "0.1"]
+            //FakeReorderPct                                "0.05"
+            //FakeReorderDelay                              "10"
+            //FakeJitter                                    "low"
             // Turning off fake jitter for now while I work on making the CQ totally solid
-            FakeReorderPct                          "0"
-            FakeReorderDelay                        "0"
-            FakeJitter                              "off"
+            FakeReorderPct                                  "0"
+            FakeReorderDelay                                "0"
+            FakeJitter                                      "off"
         }
 
-        SkipRedundantChangeCallbacks                "1"
+        SkipRedundantChangeCallbacks                        "1"
     }
 
     RenderSystem
@@ -145,16 +145,16 @@
 		SwapChainSampleableDepth                    "1"         //      [def: "1"]
 		VulkanMutableSwapchain                      "1"         //      [def: "1"]
 		LowLatency                                  "1"         //      [def: "1"]
-		VulkanOnly_Linux                            "1"         //      [def: "1"]
+		VulkanOnly_Linux                            "0"         //      [def: "1"]
 		VulkanRequireSubgroupWaveOpSupport          "1"         //      [def: "1"]
 		VulkanRequireDescriptorIndexing             "1"         // Setting this command to zero causes my wayland compositor to crash upon launching the game. I would imagine don't fiddle with it      [def: "1"]
 		VulkanSteamShaderCache                      "1"         //      [def: "1"]
 		VulkanSteamAppShaderCache                   "1"         //      [def: "1"]
 		VulkanSteamDownloadedShaderCache            "1"         //      [def: "1"]
 		VulkanAdditionalShaderCache                 "vulkan_shader_cache.foz"
-		VulkanStagingPMBSizeLimitMB                 "384"         //I am going to assume pmb is shorthand for "primitive mesh" and this is the size of memory allowed to be allocated to a mesh? not fully sure.
+		VulkanStagingPMBSizeLimitMB                 "16"        // I am going to assume pmb is shorthand for "primitive mesh" and this is the size of memory allowed to be allocated to a mesh? not fully sure.
 		GraphicsPipelineLibrary                     "1"         // This seemed to discard precompiled shaders when set to 0            [def: "1"]
-		VulkanOnlyTestProbability                   "0"         //      [def: "0"]
+		VulkanOnlyTestProbability                   "1"         //      [def: "0"]
 		VulkanDefrag                                "1"         //      [def: "1"]
 		MinStreamingPoolSizeMB                      "1024"      //      [def: "1024"]
 		MinStreamingPoolSizeMBTools                 "2048"      //      [def: "2048"]
@@ -506,6 +506,7 @@
 // ================ Preferences ================
 
 // --- 1. Outlines ---
+citadel_trooper_glow_disabled               "1"             // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
 citadel_damage_offscreen_indicator_disabled "true"          // The little trooper portraits that show up behind walls.          [def: "true"]
 citadel_unit_status_allies_see_thru_walls_max_distance "40" // How far to make allied players' unit status show through walls.  [def: "0"] (0 means no limit)
 
@@ -780,7 +781,7 @@ csm_viewmodel_shadows                       "false"         // All of these comm
 //cl_phys_enabled                           "false"         // You can disable physics and might see an improvement in framerate, however a lot will be buggy.   [def: "true"]
 gpu_level                                   "1"             // GPU level literally doesn't matter, gets set to 2 in the engine
 r_citadel_npr_force_solid_outline           "false"         // Causes odd visual bugs with dragons and neutrals when set to true    [def: "false"]
-r_drawskybox                                "true"          // Can't be changed anymore                                             [def: "true"]
+r_drawskybox                                "true"          // Can't be changed anymore                                         [def: "true"]
 citadel_trooper_glow_disabled               "1"             // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
 citadel_boss_glow_disabled                  "1"             // Disables boss and walker glow/highlight effect.                  [def: "0]
 citadel_player_glow_disabled                "0"             // Disables player glow/highlight effect when pinged.               [def: "0"]
