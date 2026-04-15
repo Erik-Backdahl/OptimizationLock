@@ -506,7 +506,7 @@ r_aspectratio                               "2.10"          // this comma
 
 // --- 3. HUD ---
 citadel_damage_text_batching_window_ability "1000"          // How long to wait until batching damage text.             
-citadel_unit_status_use_new                 "1"             // This uses new Health Bar, to use old Health Bar change "true" to "false".    [def: "0"]
+citadel_unit_status_use_new                 "0"             // This uses new Health Bar, to use old Health Bar change "true" to "false".    [def: "0"]
 //citadel_unit_status_use_v2                "0"             // Set to 1 to enable the new health bar that allows you to  see enemy stamina. [def: "0"]
 //citadel_unit_status_use_v2_for_nonplayers "0"             // Set to 1 to enable the new health bar but for troopers, objs, and camps.     [def: "0"]
 citadel_hud_objective_health_enabled        "2"             // 0=Off, 1=Shrines, 2=T1/T2, 3=Barracks.                           [def: "2"]
