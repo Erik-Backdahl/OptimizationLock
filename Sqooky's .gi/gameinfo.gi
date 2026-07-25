@@ -669,8 +669,8 @@ GameInfo
 
         // --- 2. Field of View ---
         // These commands both affect fov but do so in different ways. citadel_camera_hero_fov changes the field of view using typical degrees but doesn't modify the punch zoom in. This means that if you have a high fov value the zoom in can be disorienting.
-        citadel_camera_hero_fov "106" // The field of view angle of the camera when following a hero.     [def: "90"]
-        //r_aspectratio                                     "3.1"        // This command is commented out, represented by the // at the beginning of the line. Editing it will not do anything. To mess with it remove the //
+        //citadel_camera_hero_fov "106" // The field of view angle of the camera when following a hero.     [def: "90"]
+        r_aspectratio                                     "2.5"        // This command is commented out, represented by the // at the beginning of the line. Editing it will not do anything. To mess with it remove the //
         // r_aspectratio changes the zoom of the camera which in turn doesn't make the punch zoom in as jarring, but the command is not as intuitive to set precisely
         // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).
 
