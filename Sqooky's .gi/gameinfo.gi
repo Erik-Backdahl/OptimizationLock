@@ -46,6 +46,21 @@
 //- exazinho:       First person to subscribe to me on kofi. That's amazing. Huge thank you exazinho. I'm glad you saw my little doodle <3
 //- Shotty:         Left an incredibly nice donation message and gave me THIRTY DOLLAR. I'm honored please take care.
 //- TheLastFriendly: GAVE ME 100 DOLLARS FOR CLOTHES  I LOVE YOU SO MUCH
+//- Olly/Moozen:    Has been an incredible friend for putting up with me. Also gave me thirty bucks for working on some stuff for them ily <3
+//- Neytir:         Extremely fun person to talk to and consitent viewer of my streams. Gave me twenty bucks and subscribed on twitch so I could buy balatro! Much love
+//- Bytenode:       Taught me everything I know about hud editing, gave me EIGHTY BUCKS AND FIVE CENTS gave me pronoun palace, subscribed on twitch, and is incredibly nice across the board. Much much much love.
+//- John Dreamerman: Gave me money in my dream after I explained what r_farz did to him. Isn't bytenode.
+//- Martinchodou:   Gave me ONE DOLLAR. Much love. Please take care.
+//- HaloKat/June:   Gave me FIVE dollar for breast reduction surgery. Incredible bestie.
+//- 6Daves:         Incredibly nice person and has been continually supportive for the duration I have been working on the project. Gave me two dollars and subscribed on twitch. Much love. <3
+//- Ehmed:          First twitch subscriber and certified awesome person.
+//- NawyLo3b:       A twitch sub :D
+//- leroyaxrs:      Incredibly kind and supportive person I'm so glad I met. Thank you for being a delight to talk with.
+//- eleanordl:      First person to recognize me ingame and was super nice. Also subscribed on twitch which was incredibly nice.
+//- LokiSquared:    Incredibly polite and fun person to talk to. Also gave me a twitch sub :D
+//- Mr. Miyagi:     Made my summer and gave me slay the spire 2 on steam. My goat fr fr
+
+
 
 // Translators
 //- Egyptianscale: Translated to Russian
