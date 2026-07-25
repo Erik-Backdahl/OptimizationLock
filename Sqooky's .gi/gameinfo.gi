@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock v2.6.3 by Sqooky with help from others <3
+// OptimizationLock v2.7 by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -635,7 +635,7 @@ GameInfo
         //      If you would like to donate as a means of showing thanks I have a kofi.     \\
         //      https://ko-fi.com/sqooky                                                    \\
 
-        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.6.3 -------- \\
+        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.7 -------- \\
         // The github is here https://github.com/Sqooky/OptimizationLock  \\
         // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
         // The gamebanana:https://gamebanana.com/mods/656341 (it's usually behind, please check the github) \\
@@ -648,6 +648,7 @@ GameInfo
         // Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway
         // So particle culling is handled by the CPU in deadlock, if you have GPU overhead to spare, consider lowering this value.
         steam_inputhandler_enabled "true" // This disables controller support when set to false. Setting to false should improve performance if you're not on a steam deck, but some people are, and I don't want an influx of "why no work with controller"  [def: "true"]
+        r_citadel_enable_pano_world_blur                   "false"  // This command disables the blur in the shop and improves the performance of the shop DRAMATICALLY however it can cause visual issues with the pause menu on nvidia systems running vulkan. Please experiment. [def: "true"]
 
         // --- 1. Outlines ---
         citadel_unit_status_allies_see_thru_walls              "true" // Do you want to see allied player outlines through walls          [def: "true"]
@@ -681,9 +682,9 @@ GameInfo
         //citadel_unit_status_single_bar_mode                 "true"      // This makes the v2 halth bar be one bar as opposed to multiple, which I find more easily readable [def: "false"]
 
         // --- 4. Lighting & Shadows ---
-        lb_enable_baked_shadows     "0" // *Disables baked shadows (game looks bright if this is on while stationary lights = 1). [def: "1"]
-        lb_enable_dynamic_lights    "0" // *Disables dynamic lights eg. walker, shop, tp, character abilities etc. (hero silhouettes go dark in menus as a side effect) [def: "1"]
-        lb_enable_stationary_lights "0" // *Disables stationary lights (map looks flatter but more performant).         [def: "1"]
+        lb_enable_baked_shadows     "false" // *Disables baked shadows (game looks bright if this is on while stationary lights = 1). [def: "1"]
+        lb_enable_dynamic_lights    "false" // *Disables dynamic lights eg. walker, shop, tp, character abilities etc. (hero silhouettes go dark in menus as a side effect) [def: "1"]
+        lb_enable_stationary_lights "false" // *Disables stationary lights (map looks flatter but more performant).         [def: "1"]
 
 
         // --- 5. FPS Caps & Minimized Throttling ---
@@ -719,8 +720,8 @@ GameInfo
         // --- 8. Texture Quality ---
         r_texture_budget_threshold     "0.7" // Reduce texture memory pool size when this percentage of the budget is full. [def: "0.8"]
         r_texture_budget_update_period "0.5" // Time (in seconds) between updating texture memory budget.        [def: "0.1"]
-        //r_texture_stream_mip_bias      "3"   // Worth adjusting, practically how good your textures will look.   [def: "1"]
-        r_texturefilteringquality "0" // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
+        r_texture_stream_mip_bias      "3"   // Worth adjusting, practically how good your textures will look.   [def: "1"]
+        r_texturefilteringquality      "0"   // Texture filtering, has very low fps impact. 0: Bilinear, 1: Trilinear, 2: Aniso 2x, 3: Aniso 4x, 4: Aniso 8x, 5: Aniso 16x
 
         // --- 9. Render Distance ---
         r_farz       "7000" // This controls the far clipping plane, ie building/player popin   [def: "-1"]
@@ -729,7 +730,7 @@ GameInfo
         r_nearz "20" // Opposite of r_farz. removes things closer to you. [def: "-1"]
 
         // ================ IMPORTANT ================
-        thread_pool_option "-1" // If I understand correctly, this should be how threads are handled relative to the game, but there isn't a clear indication of what changing it even does. For now I have it at -1 which is the default, but your mileage may vary. [def: "-1"]
+        thread_pool_option "2" // If I understand correctly, this should be how threads are handled relative to the game, but there isn't a clear indication of what changing it even does. For now I have it at -1 which is the default, but your mileage may vary. [def: "-1"]
         // 1 gives "GlobalThreadPoolMode" "efficiency"
         // 2 removes it from boot.vcfg
         // 3 gives "GlobalThreadPoolMode" "undifferentiated"
@@ -772,7 +773,7 @@ GameInfo
         sparseshadowtree_enable_rendering        "0"    // Enables Sparse Shadow Tree, rendering static geometry into shadow cascades.      [def: "0"]
 
         // ================ Lighting ================
-        mat_max_lighting_complexity                 "1"     // Doesn't seem to do anything but throwing it in for posterity.    [def: "8"]
+        mat_max_lighting_complexity                 "0"     // Doesn't seem to do anything but throwing it in for posterity.    [def: "8"]
         cl_retire_low_priority_lights               "1"     // Replaces/drops low-priority dynamic lights when higher-priority lights are present (helps cap dlight clutter/cost). [def: "0"]
         mat_async_shader_load                       "1"     // I have no reason to believe the name doesn't match the function  [def: "0"]
         mat_set_shader_quality                      "0"     // Force shader quality setting (valid values are 0 or 1).          [def: null]
@@ -781,11 +782,11 @@ GameInfo
         r_citadel_ssao_thin_occluder_compensation   "0"     // Disables special handling for thin occluders in SSAO (cheaper).  [def: "0.5"]
         r_citadel_sun_shadow_slope_scale_depth_bias "0"     // \\                                                               [def: "3.54"]
         r_directlighting                            "false" // Set to true to have your characters not be black in the shop     [def:"true"]
-        r_distancefield_enable                      "1"     // Disables/ Enables distance-field system (used by some lighting/shadowing/occlusion features). [def: "1"]
-        r_light_flickering_enabled                  "1"     // Enables light flicker effects where used.                        [def: "1"]
+        r_distancefield_enable                      "0"     // Disables/ Enables distance-field system (used by some lighting/shadowing/occlusion features). [def: "1"]
+        r_light_flickering_enabled                  "0"     // Enables light flicker effects where used.                        [def: "1"]
         r_lightmap_bicubic_filtering                "1"     // Enables bicubic filtering on lightmaps.                          [def: "1"]
         r_lightmap_size                             "2048"  // Maximum lightmap resolution..                                    [def: "65536"]
-        r_lightmap_size_directional_irradiance      "4"     // Sets directional irradiance lightmap data size (lower = less detail) (-1 = uses value of r_lightmap_size ). [def: "-1"]
+        r_lightmap_size_directional_irradiance      "0"     // Sets directional irradiance lightmap data size (lower = less detail) (-1 = uses value of r_lightmap_size ). [def: "-1"]
         r_multiscattering                           "1"     // Enables multi-scattering lighting approximation.                 [def: "1"]
         r_rendersun                                 "0"     // Disables sun lighting.                                           [def: "1"]
         r_ssao                                      "0"     // Disables screen-space ambient occlusion.                         [def: "1"]
@@ -914,19 +915,39 @@ GameInfo
 
 
         // ================ Misc ================
+        r_drawtracers_firstperson                 "false"
+        citadel_bullet_shot_offset_fade_time      "0"
+        r_drawviewmodel                           "false"
+        r_citadel_gpu_preview_denoise_passes      "0"
+        r_citadel_cloak_blur_amount               "0"
+        r_drawropes                               "false"
+        viewmodel_fov                             "0"
+        csm_viewmodel_farz                        "1"
+        sparseshadowtree_leaf_precision_viewmodel "1"
+        csm_viewmodel_max_shadow_dist             "1"
+        csm_viewmodel_max_visible_dist            "1"
+        csm_viewmodel_nearz                       "512"
+        debug_draw_enable                         "false"
+        default_fov                               "0"
+        citadel_show_survey                       "true"
+        citadel_test_ranked_summary               "true"
+        r_particle_newinput                       "true"
+
+        r_enable_gradient_fog                              "false"      // These commands just disable fog. I don't think you can disable fog via cvars (In this config I accomplish it through scenesystem), but in the event that they save us a render pass they are disabled
+        r_enable_rigid_animation                           "false"
+        r_enable_volume_fog                                "false"
+        r_enable_cubemap_fog                               "false"
         cl_enable_eye_occlusion         "false" // [def: "true"]
         ent_joint_lines                 "false" // [def: "true"]        // These shouldn't be needed?
         ent_joint_names                 "false" // [def: "true"]        //
         r_render_hair                   "false" // [def: "true"]
         r_citadel_glow_health_bar_debug "false" // This seems to be a command controlling the rendering of a debug tool. Seeing as its inclusion doesn't benefit us I have disabled it [def: "true"]
-        //cl_frametime_summary_report_detailed              "false"  // Might cause issues for devs but we shouldn't need this           [def: "true"]
         citadel_perf_interval_report_s  "100000" // The interval that we record performance stats to the log at measured in seconds [def: "60"]
         disable_source_soundscape_trace "true"   // Bypasses lookup of soundscapes for indvidual audio sources when enabled. [def: "false"]
         cc_captiontrace                 "0"      // Show missing closecaptions (0 = no, 1 = devconsole, 2 = show in hud) [def: "1"]
         r_particle_model_new            "false"  // Jasper stated that these variables aren't used by deadlock so I'm disabling them to be safe :steam_happy:    [def: "false"]
         r_particle_model_new8           "false"  // Jasper stated that these variables aren't used by deadlock so I'm disabling them to be safe :steam_happy:    [def: "true"]
         r_pixelvisibility_partial       "false"  // As far as I am aware this disables the pixel visibility system which should reduce visual fidelity but saves you from drawing a ray (I THINK) [def: "true"]
-        // r_pipeline_stats_use_flush_api                 "false"  // Experimental: Set to 1 to use the ID3D11DeviceContext11::Flush() to flush the GPU pipeline instead of queries. [def: "true"]
         r_skip_precache_validation_check                  "true"  // I believe this checks to see if things are properly cached in a debug context, which we shouldn't need   [def: "false"]
         cl_batch_entity_list_ops_during_latch             "true"  // Batch entity list adds / removes while latching interpolated variables to avoid mutex contention.        [def: "false"]
         cl_interp_parallel                                "true"  // Run interpolation in parallel for entities with no children.     [def: "false"]
@@ -936,12 +957,12 @@ GameInfo
         parallel_perform_invalidate_physics               "false" // Not sure                                                         [def: "false"]
         r_async_compute_fog                               "true"  // Just whether to asyncroniously render fog                        [def: "false"]
         r_citadel_depth_prepass_dynamic_objects           "false" // Should be not prepassing entities that move                      [def: "true"]
-        //r_low_latency                                     "0"      // This acts as the convar which enables low latency, hardware dependent    [def: "1"]
         r_renderdoc_auto_shader_pdbs "false" // Automatically generate shader debug info on capture.             [def: "true"]
         save_parallel                "true"  // Absolutely no idea but typically paralell processing is good.    [def: "false"]
-        //sc_force_materials_batchable                      "true"   // I would imagine this functions as the variable is named.         [def: "false"]
         r_max_portal_render_targets "2" // Maxium number of Doorman doors to allow rendering.               [def: "0"]
         // ^ This will cause visual bugs when set to 1, either set it to 2 or 0 to disable them.
+        //r_low_latency                                     "0"      // This acts as the convar which enables low latency, hardware dependent    [def: "1"]
+        //sc_force_materials_batchable                      "true"   // I would imagine this functions as the variable is named.         [def: "false"]
 
         // ================ Grass ================
         r_grass_end_fade   "0" // When to cull grass when far                                      [def: "300"]
@@ -960,7 +981,7 @@ GameInfo
         snd_soundmixer_version                "2"     // [def: "2"]
         snd_steamaudio_reverb_order_rendering "0"     // The amount of directional detail in the rendered audio by Steam Audio. [def: "0"]
         snd_ui_positional                     "false" // Disables positional audio to save cpu                            [def: "true"]
-        snd_steamaudio_num_threads            "4"     // Audio thread count                                               [def: "4"]
+        snd_steamaudio_num_threads            "6"     // Audio thread count                                               [def: "4"]
         // README This ^ probably depends on how good your cpu is, the better it is the more threads you can allow
 
         // ================ Csm Shadows. ================
@@ -980,25 +1001,18 @@ GameInfo
         csm_res_override_3                       "1"     // All of these commands should reduce shadow quality.
         csm_viewmodel_shadows                    "false" // All of these commands should reduce shadow quality.
 
-        // ============ 2.6.1 convars. I am unsure as to whether most of these do anything but am including them because them did seem to help ============
-        r_drawtracers_firstperson                 "false"
-        citadel_crosshair_clip_bullet_gap         "0"
-        citadel_bullet_shot_offset_fade_time      "0"
-        r_drawviewmodel                           "false"
-        r_citadel_gpu_preview_denoise_passes      "0"
-        r_citadel_cloak_blur_amount               "0"
-        r_drawropes                               "false"
-        viewmodel_fov                             "0"
-        csm_viewmodel_farz                        "1"
-        sparseshadowtree_leaf_precision_viewmodel "1"
-        csm_viewmodel_max_shadow_dist             "1"
-        csm_viewmodel_max_visible_dist            "1"
-        csm_viewmodel_nearz                       "512"
-        debug_draw_enable                         "false"
-        default_fov                               "0"
-        citadel_show_survey                       "true"
-        citadel_test_ranked_summary               "true"
-        r_particle_newinput                       "true"
+
+        // ================ Disabling Inverse Kinematics ================
+        // This segment just disables everything pertaining to inverse kinematics. As far as I can tell it doesn't produce animation artifacts and marginally improves performance
+        ik_constraints_enabled                             "false"
+        ik_debug_dogleg3bone_enabled                       "false"
+        ik_debug_fabrik_backwards_enabled                  "false"
+        ik_debug_fabrik_forwards_enabled                   "false"
+        ik_enable                                          "false"
+        ik_fabrik_backwards_enabled                        "false"
+        ik_fabrik_forwards_enabled                         "false"
+        ik_final_fixup_enable                              "false"
+        ik_planetilt_enable                                "false"
 
         // =============== No Clue What These do But it's Probably Important. ===============
         //If you test these please report to me on your findings
@@ -1007,6 +1021,10 @@ GameInfo
         // r_wait_on_present                      "true"
 
         // ================ Convars You Shouldn't/Can't Mess With But I Want to Maintain the Documentation ================
+
+        //r_opaque              false            // makes the map invisible
+        //r_skinning_enabled    false  // makes players a pose
+        //r_translucent         false       // Messes up all particles
 
         //panorama_temp_comp_layer_min_dimension "128"   // Based on the name I'm implied to believe this is the minimum size for panorama compositing, ie blur, rounded corners, etc. [def: "512"]
         //citadel_damage_text_show_effectiveness    "0"     // Shows extra “effectiveness” info in damage text (e.g., resist/weakness style feedback). As far as I can tell this is unfinished right now [def: "0"]
@@ -1052,8 +1070,10 @@ GameInfo
         //r_wait_on_present                         "true"  // Seems to cause frame rate to artificially lower
         //r_drawtracers                             "0"     // Makes lash's ground slam marker invisible. I would enable it anyway but I don't like getting fifty trillion "how do I fix this" dms
         //citadel_outer_radius_scaler               "0"     // For some reason setting this to zero disables ping wheel input.
+        //citadel_weapon_spread_debug               true    // Doesn't seem to do anything.
+        //subtick_buttons_enabled                   true    // Makes it so people on windows systems cannot move
 
-        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.6.3 ------------------------------- \\
+        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.7 ------------------------------- \\
 
 
 
