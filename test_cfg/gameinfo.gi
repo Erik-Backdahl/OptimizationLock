@@ -670,8 +670,8 @@ GameInfo
 
         // --- 2. Field of View ---
         // These commands both affect fov but do so in different ways. citadel_camera_hero_fov changes the field of view using typical degrees but doesn't modify the punch zoom in. This means that if you have a high fov value the zoom in can be disorienting.
-        citadel_camera_hero_fov "106" // The field of view angle of the camera when following a hero.     [def: "90"]
-        //r_aspectratio                                     "3.1"        // This command is commented out, represented by the // at the beginning of the line. Editing it will not do anything. To mess with it remove the //
+        //citadel_camera_hero_fov "106" // The field of view angle of the camera when following a hero.     [def: "90"]
+        r_aspectratio                                     "3.3"        // This command is commented out, represented by the // at the beginning of the line. Editing it will not do anything. To mess with it remove the //
         // r_aspectratio changes the zoom of the camera which in turn doesn't make the punch zoom in as jarring, but the command is not as intuitive to set precisely
         // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).
 
@@ -1072,25 +1072,23 @@ GameInfo
         // --------------------------------- END OF CONFIG OptimizationLock -- ver. testing ------------------------------- \\
 
 
-        sc_screen_size_lod_scale_override               "0.55" // Personal preference setting
+        //sc_screen_size_lod_scale_override               "0.55" // Personal preference setting
         //cl_hold_game_events_until_server_tick         "false"
         //engine_client_tick_pad_enable                 "true"
         //host_force_frametime_to_equal_tick_interval   "true"
         //host_force_max_frametime_to_tick_interval     "true"
         //sc_fade_distance_scale_override               "10"
+        //cl_phys_enabled                                 "false" // Disables all physics. This means ragdolls just maintain the last pose and boxes don't fall over
+        //r_postprocess_enable                            "false" // Disables colorcorrection and other similar effects so the game will look duller
 
-
-
+        cl_disable_ragdolls                             true
         citadel_player_glow_disabled                       "true"
         citadel_player_glow_from_teammate_vision_max_range "0"
         citadel_player_outline_enemies                     "false"
-
         r_drawtracers                                   "false" // disables lash's ground strike indicator
         sc_screen_size_lod_scale_override               "0.001"
         citadel_portrait_world_renderer_off             "true" // Disables character models in shop
         cl_ragdoll_limit                                "0"
-        //cl_phys_enabled                                 "false" // Disables all physics. This means ragdolls just maintain the last pose and boxes don't fall over
-        //r_postprocess_enable                            "false" // Disables colorcorrection and other similar effects so the game will look duller
         animgraph_footlock_enabled                      "false"
         animgraph_slowdownonslopes_enabled              "false"
         audio_enable_spawn_mask_mix_layer               "false"
