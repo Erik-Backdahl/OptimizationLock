@@ -565,6 +565,14 @@ GameInfo
         TransformTextureRowCount                    "1024"       // [def: "1024"]
         TransformTextureRowCountToolsMode           "6144"       // [def: "6144"]
         VolumetricFog                               "0"          // [def: "1"]
+        SelfShadowStrength                          "0"          // dll var
+        ShadowAtlas                                 "0"          // dll var
+        ShadowDepth                                 "0"
+        ShadowDepthBuffer                           "0"
+        EnableSunlight                              "0"
+        EnableViewModelSunlight                     "0"
+
+
 
 
 
