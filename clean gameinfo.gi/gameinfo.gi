@@ -17,7 +17,7 @@ GameInfo
     GameData    "citadel.fgd"
 
     DisallowGameInfoConditionals "1"
-    PGIVersion                   "6E09D3ED5A47F6A97443813F0E00F90BAA435918F82DF0C9B5DA46D27A33D903"
+    PGIVersion                   "5F91238F16576E941DAB5C3F730738838AF8777BC361578713B03EF09E686957"
 
     Localize
     {
@@ -102,11 +102,11 @@ GameInfo
     {
         BetaUniverse
         {
-            FakeLag             "40"
-            FakeLoss            ".1"
-            // FakeReorderPct   "0.05"
-            // FakeReorderDelay "10"
-            // FakeJitter       "low"
+            FakeLag  "40"
+            FakeLoss ".1"
+            //FakeReorderPct 0.05
+            //FakeReorderDelay 10
+            //FakeJitter "low"
             // Turning off fake jitter for now while I work on making the CQ totally solid
             FakeReorderPct   "0"
             FakeReorderDelay "0"
@@ -159,6 +159,7 @@ GameInfo
         PauseSinglePlayerOnGameOverlay "1"
         DefensiveConCommands           "1"
         DisableLoadingPlaque           "1"
+        LocalServerClientAccess        "1"
     }
 
     ContentBuilder
@@ -352,12 +353,12 @@ GameInfo
 
         TextureCompiler
         {
-            // Compressor               "lz4"
-            // CompressMipsOnDisk       "1"
-            // CompressMinRatio         "95"
-            AllowNP2Textures            "1"
-            AllowPanoramaMipGeneration  "1"
-            // PublicToolsDefaultMaxRes "2048"
+            //Compressor              "lz4"
+            //CompressMipsOnDisk      "1"
+            //CompressMinRatio        "95"
+            AllowNP2Textures           "1"
+            AllowPanoramaMipGeneration "1"
+            //PublicToolsDefaultMaxRes "2048"
         }
     }
 
