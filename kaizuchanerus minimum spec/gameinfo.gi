@@ -600,7 +600,7 @@ GameInfo
         cl_particle_fallback_base                "10"
         cl_particle_fallback_multiplier          "10"    //was 10
         cl_particle_sim_fallback_base_multiplier "100"   //default 10
-        r_particle_min_timestep                  "0.016" // default "0", every old config "0.001" ,"0.016" (caps particle sim to 60fps smoother) or "0.033" (caps to 30fps more stable perf)
+        r_particle_min_timestep                  "0.01" // default "0", every old config "0.001" ,"0.016" (caps particle sim to 60fps smoother) or "0.033" (caps to 30fps more stable perf)
 
         // ================ PHYSICS & CLOTH ================
         cloth_update               "1" // [FPS IMPACT] 0=Off (cosmetic only, +FPS) | 1=On (cloth physics enabled)
@@ -1030,7 +1030,7 @@ GameInfo
         //"cl_particle_max_count" "500"       // hard cap should play with this value to find the best hardcap
         sc_instanced_gpu_culling "1"
 
-        r_particle_gpu_implicit      "0"
+        r_particle_gpu_implicit      "1"
         r_force_thick_hair           "0"
         r_hairsort                   "0"
         r_hair_meshshader            "0"
