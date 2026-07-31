@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock v2.8 by Sqooky with help from others <3
+// OptimizationLock v2.8.1 hotfix by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -659,7 +659,7 @@ GameInfo
         //      If you would like to donate as a means of showing thanks I have a kofi.     \\
         //      https://ko-fi.com/sqooky                                                    \\
 
-        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.8 -------- \\
+        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.8.1 hotfix -------- \\
         // The github is here https://github.com/Sqooky/OptimizationLock  \\
         // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
         // The gamebanana:https://gamebanana.com/mods/656341 (it's usually behind, please check the github) \\
@@ -668,7 +668,7 @@ GameInfo
         // ================ Preferences ================
         // --- 0. IMPORTANT ---
         citadel_trooper_glow_disabled     "1"      // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
-        cl_phys_enabled                   "false"  // Disables all physics. This means ragdolls just maintain the last pose and boxes don't fall over [def: "true"]
+        cl_phys_enabled                   "true"  // Disables all physics. This means ragdolls just maintain the last pose and boxes don't fall over [def: "true"]
         r_citadel_enable_pano_world_blur  "false"  // This command disables the blur in the shop and improves the performance of the shop DRAMATICALLY however it can cause visual issues with the pause menu on nvidia systems running vulkan. Please experiment. [def: "true"]
         r_particle_explicit_fetch         "false"  // [def: "false"]        // I believe this improves performance but will make soul orbs a bit difficult to see
         r_particle_max_size_cull          "900"    // [def: "1200"] // Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway. // So particle culling is handled by the CPU in deadlock, if you have GPU overhead to spare, consider lowering this value.
@@ -1087,7 +1087,7 @@ GameInfo
         // sc_throw_away_all_layers                 "true"          // Disables rendering, ie the screen is black.          [def: "false"]
         // subtick_buttons_enabled                  "true"          // Makes it so people on windows systems cannot move
 
-        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.8 ------------------------------- \\
+        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.8.1 hotfix ------------------------------- \\
 
 
 
