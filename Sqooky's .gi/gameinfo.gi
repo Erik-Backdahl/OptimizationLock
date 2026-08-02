@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock v2.8.1 hotfix by Sqooky with help from others <3
+// OptimizationLock v2.8.2 hotfix by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -659,7 +659,7 @@ GameInfo
         //      If you would like to donate as a means of showing thanks I have a kofi.     \\
         //      https://ko-fi.com/sqooky                                                    \\
 
-        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.8.1 hotfix -------- \\
+        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.8.2 hotfix -------- \\
         // The github is here https://github.com/Sqooky/OptimizationLock  \\
         // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
         // The gamebanana:https://gamebanana.com/mods/656341 (it's usually behind, please check the github) \\
@@ -759,7 +759,6 @@ GameInfo
         panorama_allow_transitions            "false" // Turns off UI anim (shop,etc)                                     [def: "1"]
         panorama_disable_blur                 "true"  // Disables UI blur effects in the UI.                              [def: "false"]
         panorama_disable_box_shadow           "true"  // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "false"]
-        panorama_enable_secondary_layout_pass "false" // [def: "true"]
         panorama_panel_occlusion              "false" // [def: "true"]
         r_dashboard_render_quality            "1"     // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
 
@@ -1087,7 +1086,7 @@ GameInfo
         // sc_throw_away_all_layers                 "true"          // Disables rendering, ie the screen is black.          [def: "false"]
         // subtick_buttons_enabled                  "true"          // Makes it so people on windows systems cannot move
 
-        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.8.1 hotfix ------------------------------- \\
+        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.8.2 hotfix ------------------------------- \\
 
 
 
