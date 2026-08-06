@@ -598,8 +598,8 @@ GameInfo
         //"r_limit_particle_job_duration" "1"
         cl_particle_sim_fallback_threshold_ms    "2" // [ADJUST] Lower = more aggressive fallback to simple particles (higher FPS, less detail)
         cl_particle_fallback_base                "10"
-        cl_particle_fallback_multiplier          "10"    //was 10
-        cl_particle_sim_fallback_base_multiplier "100"   //default 10
+        cl_particle_fallback_multiplier          "10"   //was 10
+        cl_particle_sim_fallback_base_multiplier "100"  //default 10
         r_particle_min_timestep                  "0.01" // default "0", every old config "0.001" ,"0.016" (caps particle sim to 60fps smoother) or "0.033" (caps to 30fps more stable perf)
 
         // ================ PHYSICS & CLOTH ================
