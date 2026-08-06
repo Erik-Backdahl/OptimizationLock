@@ -757,13 +757,12 @@ GameInfo
 
 
         // ================= UI ================
-        closecaption                          "false" // I assume this does what it says on the tin                       [def: "false"]
-        panorama_allow_transitions            "false" // Turns off UI anim (shop,etc)                                     [def: "1"]
-        panorama_disable_blur                 "true"  // Disables UI blur effects in the UI.                              [def: "false"]
-        panorama_disable_box_shadow           "true"  // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "false"]
-        panorama_enable_secondary_layout_pass "false" // [def: "true"]
-        panorama_panel_occlusion              "false" // [def: "true"]
-        r_dashboard_render_quality            "1"     // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
+        closecaption                "false" // I assume this does what it says on the tin                       [def: "false"]
+        panorama_allow_transitions  "false" // Turns off UI anim (shop,etc)                                     [def: "1"]
+        panorama_disable_blur       "true"  // Disables UI blur effects in the UI.                              [def: "false"]
+        panorama_disable_box_shadow "true"  // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "false"]
+        panorama_panel_occlusion    "true"  // According to John Valve this is an optimization feature that stops rendering of panels underneath the top level. [def: "true"]
+        r_dashboard_render_quality  "1"     // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
 
         // ================ Shadows ================
         cl_globallight_shadow_mode               "2"    // No idea. It is disabled based on the name.                       [def: "2"]

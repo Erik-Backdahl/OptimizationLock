@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock v2.8.2 hotfix by Sqooky with help from others <3
+// OptimizationLock v2.8.3 hotfix by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -755,12 +755,12 @@ GameInfo
 
 
         // ================= UI ================
-        closecaption                          "false" // I assume this does what it says on the tin                       [def: "false"]
-        panorama_allow_transitions            "false" // Turns off UI anim (shop,etc)                                     [def: "1"]
-        panorama_disable_blur                 "true"  // Disables UI blur effects in the UI.                              [def: "false"]
-        panorama_disable_box_shadow           "true"  // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "false"]
-        panorama_panel_occlusion              "false" // [def: "true"]
-        r_dashboard_render_quality            "1"     // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
+        closecaption                "false" // I assume this does what it says on the tin                       [def: "false"]
+        panorama_allow_transitions  "false" // Turns off UI anim (shop,etc)                                     [def: "1"]
+        panorama_disable_blur       "true"  // Disables UI blur effects in the UI.                              [def: "false"]
+        panorama_disable_box_shadow "true"  // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "false"]
+        panorama_panel_occlusion    "true"  // According to John Valve this is an optimization feature that stops rendering of panels underneath the top level. [def: "true"]
+        r_dashboard_render_quality  "1"     // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
 
         // ================ Shadows ================
         cl_globallight_shadow_mode               "2"    // No idea. It is disabled based on the name.                       [def: "2"]
@@ -824,7 +824,7 @@ GameInfo
         // ================ Visual Clarity ================
         cl_show_splashes                     "0"     // Disables splash effects (water/impact splashes).                 [def: "1"]
         mat_colorcorrection                  "1"     // Disables/ Enables color correction (game looks less vibrant when off).   [def: "1"]
-        r_character_decal_resolution         "1"     // Resolution of character decal texture.                           [def: "1024"]
+        r_character_decal_resolution         "4"     // Resolution of character decal textures.                          [def: "1024"]
         r_decals                             "1"     // Maximum number of decals allowed. (lower = fewer bullet holes/blood/impact marks). [def: "2048"]
         r_decals_default_fade_duration       "1"     // How quickly decals (bullet holes) fade                           [def: "3"]
         r_depth_of_field                     "0"     // Disables depth of field.                                         [def: "1"]
@@ -1086,7 +1086,7 @@ GameInfo
         // sc_throw_away_all_layers                 "true"          // Disables rendering, ie the screen is black.          [def: "false"]
         // subtick_buttons_enabled                  "true"          // Makes it so people on windows systems cannot move
 
-        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.8.2 hotfix ------------------------------- \\
+        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.8.3 hotfix ------------------------------- \\
 
 
 
