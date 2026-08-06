@@ -628,14 +628,14 @@ GameInfo
         r_directlighting                       "0"         // Disable direct lighting (cheat)
         r_arealights                           "0"         // Disable area lights
         r_directional_lightmaps                "0"         // Disable directional lightmaps
-        r_lightmap_bicubic_filtering           "0"         // Bilinear lightmap filtering instead of bicubic
+        //r_lightmap_bicubic_filtering           "0"         // Bilinear lightmap filtering instead of bicubic
         r_lightmap_size                        "1"         // 1px lightmap max (default 65536). Lightmaps cheap/disabled anyway
         r_lightmap_size_directional_irradiance "0"         // 0px directional irradiance (default -1 = use r_lightmap_size)
         r_light_flickering_enabled             "0"         // Disable dynamic light flicker (devonly, default true)
         r_rendersun                            "0"         // Disable sun lighting (cheat)
         lb_ssss_samples                        "1"         // Disable subsurface scattering on characters (default 11 samples). Big GPU saver
         mat_max_lighting_complexity            "0"         // Cap lighting complexity at cheapest (cheat, default 8)
-        r_cubemap_normalization                "0"         // Skip cubemap normalization pass (devonly, default true). Minor GPU saver
+        //r_cubemap_normalization                "0"         // Skip cubemap normalization pass (devonly, default true). Minor GPU saver
         r_dashboard_render_quality             "0"         // Lower dashboard render quality (devonly, default true)
         mat_async_shader_load                  "1"         // Async shader compile load (release, default false). Reduces shader-compile stutter
         r_environment_map_roughness_range      "0.01 0.01" // Fade region for envmap sampling (default "0.2 0.3"). Rougher values skip envmaps; 0.01 0.01 = basically turn off map reflections
