@@ -26,6 +26,7 @@ If you see me in game say hi! My username is "I want to eat flowers!"
 I've probably put *at least* five hundred hours into working on this project. I want it to be free forever, but I'm dirt poor and if you would like to donate as a means of showing thanks I have a kofi here! https://ko-fi.com/sqooky and I will love you forever
 
 **Donors!**
+
 - Boot:           Gave me FIVE DOLLARS and is just a wonderful person and friend at a baseline
 - Sonny:          Gave me FIVE DOLLARS and waited through me setting up a paypal account and didn't change their mind
 - Soulx:          Gave me FIVE DOLLARS and told me about spirolactone
@@ -45,7 +46,31 @@ I've probably put *at least* five hundred hours into working on this project. I 
 - noelle:         Gave me FIVE DOLLAR and is nice with a cool username. Tyyyy
 - exazinho:       First person to subscribe to me on kofi. That's amazing. Huge thank you exazinho. I'm glad you saw my little doodle <3
 - Shotty:         Left an incredibly nice donation message and gave me THIRTY DOLLAR. I'm honored please take care.
-- TheLastFriendly: GAVE ME 100 DOLLARS FOR CLOTHES  I LOVE YOU SO MUCH 
+- TheLastFriendly: GAVE ME 100 DOLLARS FOR CLOTHES  I LOVE YOU SO MUCH
+- Olly/Moozen:    Has been an incredible friend for putting up with me. Also gave me thirty bucks for working on some stuff for them ily <3
+- Neytir:         Extremely fun person to talk to and consitent viewer of my streams. Gave me twenty bucks and subscribed on twitch so I could buy balatro! Much love
+- Bytenode:       Taught me everything I know about hud editing, gave me EIGHTY BUCKS AND FIVE CENTS gave me pronoun palace, subscribed on twitch, and is incredibly nice across the board. Much much much love.
+- John Dreamerman: Gave me money in my dream after I explained what r_farz did to him. Isn't bytenode.
+- Martinchodou:   Gave me ONE DOLLAR. Much love. Please take care.
+- HaloKat/June:   Gave me FIVE dollar for breast reduction surgery. Incredible bestie.
+- 6Daves:         Incredibly nice person and has been continually supportive for the duration I have been working on the project. Gave me two dollars and subscribed on twitch. Much love. <3
+- Ehmed:          First twitch subscriber and certified awesome person.
+- NawyLo3b:       A twitch sub :D
+- leroyaxrs:      Incredibly kind and supportive person I'm so glad I met. Thank you for being a delight to talk with.
+- eleanordl:      First person to recognize me ingame and was super nice. Also subscribed on twitch which was incredibly nice.
+- LokiSquared:    Incredibly polite and fun person to talk to. Also gave me a twitch sub :D
+- Mr. Miyagi:     Made my summer and gave me slay the spire 2 on steam. My goat fr fr
+- Connermadethis: Donated FORTY DOLLAR OH MINE GOTT THANK YOU
+- Noelle:         Gave me FIVE DOLLAR and invited me to her matrix instance. I love you :D
+- Blerg:          Gave me FIFTY FIVE DOLLARS OH MY GOD TY please let me know if I can help
+- Drykdap:        Gave me TEN DOLLAR thank youuuuuuuuuuuuuuuuuuuuuuuuu please call me if need be
+- Salem:          Gave me FIVE DOLLAR for helping them with performance and tech support in the official deadlock server. thank youuuuuuuu
+- attention seeker: for donating 18 dollars (one dollar for each % improvement of 1% lows lol)
+- DungeonMaestro: Gave me a dollar for a bit
+- Smugfox:        Gave me five DOLLAR out of kindness :)
+- TheTurtlezsz:   Gave me FIVE DOLLAR asking for tech support :D
+- Supporter:      Gave me two dollar anoymously.
+- Umah:           Gave me TEN DoLLAR for cute clothes. I love you so much thank you
 
 
 <div>
@@ -61,12 +86,12 @@ Here is a list of each config provided in this repository.
 | Config File                                                                                                                     | Purpose                                                                                                              | Screenshots |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------| --- |
 | [Sqooky's Config/Optimizationlock Default](https://github.com/Sqooky/OptimizationLock/blob/main/Sqooky's%20.gi/gameinfo.gi)                                    | Performance oriented with the intent of not making the game ugly. I would recommend this for most users. | Screenshots avalible [here](https://github.com/Sqooky/OptimizationLock/tree/main/Sqooky's%20.gi) |
-| [Test_Cfg](https://github.com/Sqooky/OptimizationLock/blob/main/test_cfg/gameinfo.gi) | Sqooky's config but the test branch. Might cause minor issues but should perform better. | No screenshots.                                                                                         |
+| [Sqooky's Max FPS Config](https://github.com/Sqooky/OptimizationLock/blob/main/test_cfg/gameinfo.gi) | Sqooky's Max Fps config. It is currently under development and as such isn't fully documented, but this config gives the best overall fps I am aware of. | No screenshots.                                                                                         |
 | [Boot's Max Fps](https://github.com/Sqooky/OptimizationLock/blob/main/boot's%20maxium%20fps%20config/gameinfo.gi)                                    | Heavily performance oriented, currently this config gives the best fps out of all configs tested. | Screenshots avalible [here](https://github.com/Sqooky/OptimizationLock/tree/main/boot's%20maxium%20fps%20config) |                   |
 | [Kaizuchaneru's Minimum Spec](https://github.com/Sqooky/OptimizationLock/blob/main/kaizuchanerus%20minimum%20spec/gameinfo.gi) | This config prioritizes fps above all else and dramatically reduces graphical quality. Recommended for bad computers |  Screenshots avalible [here](https://github.com/Sqooky/OptimizationLock/tree/main/kaizuchanerus%20minimum%20spec)                     |
 | [Piggy's gameinfo.gi](https://github.com/Sqooky/OptimizationLock/tree/main/piggy's%20config%20(comparatively%20outdated))                                    |  As of current piggy's config is outdated, but it is here for if you want to use his config                                                     |                    |
 | [Convars.txt](https://github.com/Sqooky/OptimizationLock/blob/main/convars.txt)                                                 | Every single convar in the game's code. Not a proper config but instead a reference.                                 |                    |
-| [Base_convars.txt](https://github.com/Sqooky/OptimizationLock/blob/main/base_convars.txt)                                       | All of the convars used in optimizationlock's defaults in case you want to add them manually.                        |                    |
+[comment]: <> | [Base_convars.txt](https://github.com/Sqooky/OptimizationLock/blob/main/base_convars.txt)                                       | All of the convars used in optimizationlock's defaults in case you want to add them manually.                        |                    |
 
 
 
