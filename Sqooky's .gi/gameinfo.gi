@@ -65,6 +65,11 @@
 //- Drykdap:        Gave me TEN DOLLAR thank youuuuuuuuuuuuuuuuuuuuuuuuu please call me if need be
 //- Salem:          Gave me FIVE DOLLAR for helping them with performance and tech support in the official deadlock server. thank youuuuuuuu
 //- attention seeker: for donating 18 dollars (one dollar for each % improvement of 1% lows lol)
+//- DungeonMaestro: Gave me a dollar for a bit
+//- Smugfox:        Gave me five DOLLAR out of kindness :)
+//- TheTurtlezsz:   Gave me FIVE DOLLAR asking for tech support :D
+//- Supporter:      Gave me two dollar anoymously.
+//- Umah:           Gave me TEN DoLLAR for cute clothes. I love you so much thank you
 
 
 
