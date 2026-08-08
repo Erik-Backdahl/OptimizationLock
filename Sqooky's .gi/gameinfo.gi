@@ -59,6 +59,12 @@
 //- eleanordl:      First person to recognize me ingame and was super nice. Also subscribed on twitch which was incredibly nice.
 //- LokiSquared:    Incredibly polite and fun person to talk to. Also gave me a twitch sub :D
 //- Mr. Miyagi:     Made my summer and gave me slay the spire 2 on steam. My goat fr fr
+//- Connermadethis: Donated FORTY DOLLAR OH MINE GOTT THANK YOU
+//- Noelle:         Gave me FIVE DOLLAR and invited me to her matrix instance. I love you :D
+//- Blerg:          Gave me FIFTY FIVE DOLLARS OH MY GOD TY please let me know if I can help
+//- Drykdap:        Gave me TEN DOLLAR thank youuuuuuuuuuuuuuuuuuuuuuuuu please call me if need be
+//- Salem:          Gave me FIVE DOLLAR for helping them with performance and tech support in the official deadlock server. thank youuuuuuuu
+//- attention seeker: for donating 18 dollars (one dollar for each % improvement of 1% lows lol)
 
 
 
