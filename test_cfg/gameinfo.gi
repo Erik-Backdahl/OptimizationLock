@@ -59,6 +59,17 @@
 //- eleanordl:      First person to recognize me ingame and was super nice. Also subscribed on twitch which was incredibly nice.
 //- LokiSquared:    Incredibly polite and fun person to talk to. Also gave me a twitch sub :D
 //- Mr. Miyagi:     Made my summer and gave me slay the spire 2 on steam. My goat fr fr
+//- Connermadethis: Donated FORTY DOLLAR OH MINE GOTT THANK YOU
+//- Noelle:         Gave me FIVE DOLLAR and invited me to her matrix instance. I love you :D
+//- Blerg:          Gave me FIFTY FIVE DOLLARS OH MY GOD TY please let me know if I can help
+//- Drykdap:        Gave me TEN DOLLAR thank youuuuuuuuuuuuuuuuuuuuuuuuu please call me if need be
+//- Salem:          Gave me FIVE DOLLAR for helping them with performance and tech support in the official deadlock server. thank youuuuuuuu
+//- attention seeker: for donating 18 dollars (one dollar for each % improvement of 1% lows lol)
+//- DungeonMaestro: Gave me a dollar for a bit
+//- Smugfox:        Gave me five DOLLAR out of kindness :)
+//- TheTurtlezsz:   Gave me FIVE DOLLAR asking for tech support :D
+//- Supporter:      Gave me two dollar anoymously.
+//- Umah:           Gave me TEN DoLLAR for cute clothes. I love you so much thank you
 
 
 
@@ -726,7 +737,7 @@ GameInfo
         // citadel_camera_listening_offset    "-1"   // To be completely honest I have no idea but I want to test this.  [def: "0"]
         citadel_camera_soft_collision_angle         "360"   //                                                                  [def: "75"]
         citadel_camera_use_vmdl_flatten_horizontal  "false" // From my understanding of how these commands work, they slightly smooth camera inputs. This should make the camera more responsive?   [def: "true"]
-        citadel_camera_use_vmdl_flatten_vertical    "false" //                                                                                                                                      [def: "true"]
+        citadel_camera_use_vmdl_flatten_vertical    "false" // This command makes rem and venator's cameras move slightly downwards when aiming down scope. Not exactly a dealbreaker byt might be undesirable for some.                                                                                                                                      [def: "true"]
         citadel_camera_wobble_disable               "true"  // I believe this disables the camera wobble when heavy melee'd or talking walker/guardian damage. I like it
         engine_accurate_input_processing_delta_time "true"  // When true, elapsed time given to the input processing will be the time elapsed since the last input processing. This is only relevant when input is processed multiple times per frame ( i.e. multiple ticks per frame) [def: false]
         r_citadel_clip_sphere_min_opacity           "0"     // Removes the blur from the pinhole camera                         [def: "40"]
