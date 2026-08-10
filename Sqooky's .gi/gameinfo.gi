@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock v2.8.4 hotfix by Sqooky with help from others <3
+// OptimizationLock v2.8.5 by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -670,7 +670,7 @@ GameInfo
         //      If you would like to donate as a means of showing thanks I have a kofi.     \\
         //      https://ko-fi.com/sqooky                                                    \\
 
-        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.8.4 hotfix -------- \\
+        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.8.5 hotfix -------- \\
         // The github is here https://github.com/Sqooky/OptimizationLock  \\
         // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
         // The gamebanana:https://gamebanana.com/mods/656341 (it's usually behind, please check the github) \\
@@ -1097,7 +1097,7 @@ GameInfo
         // citadel_perf_interval_report_s          "100000" // The interval that we record performance stats to the log at measured in seconds [def: "60"]
 
 
-        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.8.4 ------------------------------- \\
+        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.8.5 ------------------------------- \\
 
 
 
