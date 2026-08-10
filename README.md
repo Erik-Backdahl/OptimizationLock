@@ -114,7 +114,7 @@ Press ctrl+f in your text editor and type in the string you want.
 - "How do I restore a value to default"  
 Comment it out.  
 - "What does commenting mean"  
-to comment a line put ``//`` at the front of the line. It will make it not executed by the config.  
+To comment a line put ``//`` at the front of the line. It will make it not executed by the config.  
 - "Why are my characters dark in the portraits on the end screen and shop"  
 ``lb_enable_dynamic_lights`` set it to ``true``
 - "Why are buildings popping in and out"  
@@ -122,11 +122,11 @@ to comment a line put ``//`` at the front of the line. It will make it not execu
 - "How do I change my fov"  
 ``citadel_camera_hero_fov`` or ``r_aspectratio`` Comment this out or lower the value.  
 - "The config broke this patch"  
-the gameinfo.gi gets overwritten every major update. You need to manually replace it again.  
+The gameinfo.gi gets overwritten every major update. You need to manually replace it again.  
 - "I can't see boxes past a certain distance"  
 ``r_size_cull_threshold "0.7"``
 - "I can't see trooper healthbars past a certain distance"  
-change the values ``r_size_cull_threshold`` ``sc_fade_distance_scale_override``
+Change the values ``r_size_cull_threshold`` ``sc_fade_distance_scale_override``
 - "Can't see the Doorman ult indicator"  
 Set ``cl_ragdoll_limit`` to `` "-1"``
 - "There's holes in victor and paige at certain angles"  
@@ -139,8 +139,10 @@ Comment out ``sc_screen_size_lod_scale_override`` or increase the value.
 ``r_drawdecals`` comment it out or set it to true  
 - "Can't see blast vent wind at range"  
 ``sc_fade_distance_scale_override`` comment it out  
-- "I'm using boot's/kaiz's config and I can't read the inworld text (soul pickups, bridge buffs, statue buffs, etc)  
-comment out or increase the value of ``citadel_in_world_item_panel_dpi``
+- "I'm using the testing config/boot's/kaiz's config and I can't read the inworld text (soul pickups, bridge buffs, statue buffs, etc)  
+Comment out or increase the value of ``citadel_in_world_item_panel_dpi``
+- When I aim down sights (right click) as rem or venator my camera moves down.
+``citadel_camera_use_vmdl_flatten_vertical`` Comment it out or set it to ``true``
 
 # Mod Support
 Every variation of the config included in this repository has mod support added. For those who wish to remove or add it back in, remove ``Game                citadel/addons`` From the searchpaths bracket.
