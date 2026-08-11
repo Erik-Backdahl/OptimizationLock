@@ -80,7 +80,7 @@ Comment out ``sc_screen_size_lod_scale_override`` or increase the value.
 ``r_drawdecals`` comment it out or set it to true  
 - "Can't see blast vent wind at range"  
 ``sc_fade_distance_scale_override`` comment it out  
-- "I'm using the testing config/boot's/kaiz's config and I can't read the inworld text (soul pickups, bridge buffs, statue buffs, etc)  
+- "I'm using the maxfps testing config/boot's/kaiz's config and I can't read the inworld text (soul pickups, bridge buffs, statue buffs, etc)  
 Comment out or increase the value of ``citadel_in_world_item_panel_dpi``
 - When I aim down sights (right click) as rem or venator my camera moves down.
 ``citadel_camera_use_vmdl_flatten_vertical`` Comment it out or set it to ``true``
