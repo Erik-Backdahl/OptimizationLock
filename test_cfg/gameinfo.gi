@@ -248,7 +248,7 @@ GameInfo
 
         // Stolen from CS2
         AllowPartialMipChainImmediateTexLoads "1"
-        //UseHardwareGammaRamp                  "0" // Fullscreen gamma controlled in postprocessing
+        UseHardwareGammaRamp                  "0" // Fullscreen gamma controlled in postprocessing
         // End of stolen from CS2
 
         GraphicsPipelineLibrary            "1"    // This seemed to discard precompiled shaders when set to 0             [def: "1"]
@@ -680,13 +680,14 @@ GameInfo
 
         // ================ Preferences ================
         // --- 0. IMPORTANT ---
-        citadel_trooper_glow_disabled            "1"     // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
-        cl_phys_enabled                          "true"  // Disables all physics. This means ragdolls just maintain the last pose and boxes don't fall over [def: "true"]
-        r_citadel_enable_pano_world_blur         "true"  // This command disables the blur in the shop and improves the performance of the shop DRAMATICALLY however it can cause visual issues with the pause menu on nvidia systems running vulkan. Please experiment. [def: "true"]
-        r_particle_explicit_fetch                "false" // [def: "false"]        // I believe this improves performance but will make soul orbs a bit difficult to see
-        r_particle_max_size_cull                 "900"   // [def: "1200"] // Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway. // So particle culling is handled by the CPU in deadlock, if you have GPU overhead to spare, consider lowering this value.
-        sc_screen_size_lod_scale_override        "0.55"  // Controls LOD scale. Lower values will make sinners and playermodels look worse "my sinner's lights are little triangles" [def: "-1"]
-        steam_inputhandler_enabled               "true"  // This disables controller support when set to false. Setting to false should improve performance if you're not on a steam deck, but some people are, and I don't want an influx of "why no work with controller"  [def: "true"]
+        citadel_trooper_glow_disabled     "1"      // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
+        cl_phys_enabled                   "false"  // Disables all physics. This means ragdolls just maintain the last pose and boxes don't fall over [def: "true"]
+        r_citadel_enable_pano_world_blur  "true"   // This command disables the blur in the shop and improves the performance of the shop DRAMATICALLY however it can cause visual issues with the pause menu on nvidia systems running vulkan. Please experiment. [def: "true"]
+        r_particle_explicit_fetch         "false"  // [def: "false"]        // I believe this improves performance but will make soul orbs a bit difficult to see
+        r_particle_max_size_cull          "900"    // [def: "1200"] // Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway. // So particle culling is handled by the CPU in deadlock, if you have GPU overhead to spare, consider lowering this value.
+        sc_screen_size_lod_scale_override "0.0001" // Controls LOD scale. Lower values will make sinners and playermodels look worse "my sinner's lights are little triangles" [def: "-1"]
+        steam_inputhandler_enabled        "true"   // This disables controller support when set to false. Setting to false should improve performance if you're not on a steam deck, but some people are, and I don't want an influx of "why no work with controller"  [def: "true"]
+
         citadel_camera_use_vmdl_flatten_vertical "false" // This command makes rem and venator's cameras move slightly downwards when aiming down scope. Not exactly a dealbreaker byt might be undesirable for some.                                                                                                                                      [def: "true"]
 
         // --- 1. Outlines ---
@@ -700,7 +701,7 @@ GameInfo
         // --- 2. Field of View ---
         // These commands both affect fov but do so in different ways. citadel_camera_hero_fov changes the field of view using typical degrees but doesn't modify the punch zoom in. This means that if you have a high fov value the zoom in can be disorienting.
         //citadel_camera_hero_fov "106" // The field of view angle of the camera when following a hero.     [def: "90"]
-        r_aspectratio "3.3" // This command is commented out, represented by the // at the beginning of the line. Editing it will not do anything. To mess with it remove the //
+        r_aspectratio "2.5" // This command is commented out, represented by the // at the beginning of the line. Editing it will not do anything. To mess with it remove the //
         // r_aspectratio changes the zoom of the camera which in turn doesn't make the punch zoom in as jarring, but the command is not as intuitive to set precisely
         // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).
 
@@ -712,10 +713,7 @@ GameInfo
         citadel_hideout_ball_show_juggle_fx             "1"     // Shows juggle visual FX for hideout ball minigame.                [def: "0"]
         citadel_hud_objective_health_debug_show_midboss "false" // This makes midboss' health bar visible whenever it's able to be rendered. I like it, you might not [def: "false"]
         citadel_hud_objective_health_enabled            "2"     // 0=Off, 1=Shrines, 2=T1/T2, 3=Barracks.                           [def: "2"]
-        citadel_show_chat_wheel_angle_threshold         "30"    // (degrees) Increase this to change how much you have to move your camera angle to make the Chat Wheel instantly visible while holding Ping. [def: "16"]
-        citadel_show_chat_wheel_time                    "15"
-        citadel_auto_ping_window                        "0"
-        citadel_ping_wheel_activation_radius            "1"
+        citadel_show_chat_wheel_angle_threshold         "0"     // (degrees) Increase this to change how much you have to move your camera angle to make the Chat Wheel instantly visible while holding Ping. [def: "16"]
         citadel_unit_status_old_update_rate             "15"    // How frequently health bars can update. Lowering it should improve performance    [def: "30"]
         citadel_unit_status_single_bar_mode             "false" // This makes the v2 halth bar be one bar as opposed to multiple, which I find more easily readable [def: "false"]
         citadel_unit_status_use_new                     "false" // This uses new Health Bar, to use old Health Bar change "true" to "false".    [def: "false"]
@@ -818,7 +816,7 @@ GameInfo
         r_ssao_strength                             "0"     // AO strength multiplier (0 = no AO contribution).                 [def: "1.2"]
 
         // ================ Ragdolls ================
-        cl_disable_ragdolls "0" // Keep set to 0 - enabling this (disabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
+        cl_disable_ragdolls "1" // Keep set to 0 - enabling this (disabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
         cl_ragdoll_limit    "0" // Limit of how many ragdolls can be rendered at once.              [def: "-1"]
 
         // ================ Models ================
@@ -1317,4 +1315,3 @@ GameInfo
         ShowLowAvailableVirtualMemoryMessageBox "1"
     }
 }
-
