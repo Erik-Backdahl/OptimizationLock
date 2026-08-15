@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock v2.8.5 by Sqooky with help from others <3
+// OptimizationLock v2.9 by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -670,7 +670,7 @@ GameInfo
         //      If you would like to donate as a means of showing thanks I have a kofi.     \\
         //      https://ko-fi.com/sqooky                                                    \\
 
-        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.8.5 hotfix -------- \\
+        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.9 -------- \\
         // The github is here https://github.com/Sqooky/OptimizationLock  \\
         // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
         // The gamebanana:https://gamebanana.com/mods/656341 (it's usually behind, please check the github) \\
@@ -678,14 +678,16 @@ GameInfo
 
         // ================ Preferences ================
         // --- 0. IMPORTANT ---
+        citadel_camera_use_vmdl_flatten_vertical "false" // This command makes rem and venator's cameras move slightly downwards when aiming down scope. Not exactly a dealbreaker byt might be undesirable for some.                                                                                                                                      [def: "true"]
+        citadel_portrait_world_renderer_off      "true"  // Disables character models in shop
         citadel_trooper_glow_disabled            "1"     // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
         cl_phys_enabled                          "true"  // Disables all physics. This means ragdolls just maintain the last pose and boxes don't fall over [def: "true"]
         r_citadel_enable_pano_world_blur         "true"  // This command disables the blur in the shop and improves the performance of the shop DRAMATICALLY however it can cause visual issues with the pause menu on nvidia systems running vulkan. Please experiment. [def: "true"]
         r_particle_explicit_fetch                "false" // [def: "false"]        // I believe this improves performance but will make soul orbs a bit difficult to see
         r_particle_max_size_cull                 "900"   // [def: "1200"] // Particle systems larger than this in every dimension skip culling to save CPU.  They will be drawn anyway. // So particle culling is handled by the CPU in deadlock, if you have GPU overhead to spare, consider lowering this value.
+        r_postprocess_enable                     "true"  // Disables colorcorrection and other similar effects so the game will look duller
         sc_screen_size_lod_scale_override        "0.55"  // Controls LOD scale. Lower values will make sinners and playermodels look worse "my sinner's lights are little triangles" [def: "-1"]
         steam_inputhandler_enabled               "true"  // This disables controller support when set to false. Setting to false should improve performance if you're not on a steam deck, but some people are, and I don't want an influx of "why no work with controller"  [def: "true"]
-        citadel_camera_use_vmdl_flatten_vertical "false" // This command makes rem and venator's cameras move slightly downwards when aiming down scope. Not exactly a dealbreaker byt might be undesirable for some.                                                                                                                                      [def: "true"]
 
         // --- 1. Outlines ---
         citadel_boss_glow_disabled                             "1"    // Disables boss and walker glow/highlight effect.                  [def: "0]
@@ -737,6 +739,7 @@ GameInfo
         citadel_camera_soft_collision_angle         "75"    //                                                                  [def: "75"]
         citadel_camera_use_vmdl_flatten_horizontal  "false" // From my understanding of how these commands work, they slightly smooth camera inputs. This should make the camera more responsive?   [def: "true"]
         citadel_camera_wobble_disable               "true"  // I believe this disables the camera wobble when heavy melee'd or talking walker/guardian damage. I like it
+        citadel_melee_shake_amplitude               "0"     // I believe this properly disables the camera shake on heavy melee                 [def: 0.55]
         engine_accurate_input_processing_delta_time "true"  // When true, elapsed time given to the input processing will be the time elapsed since the last input processing. This is only relevant when input is processed multiple times per frame ( i.e. multiple ticks per frame) [def: false]
         r_citadel_clip_sphere_min_opacity           "0"     // Removes the blur from the pinhole camera                         [def: "40"]
 
@@ -749,7 +752,7 @@ GameInfo
         // --- 9. Render Distance ---
         r_farz       "7000" // This controls the far clipping plane, ie building/player popin   [def: "-1"]
         r_mapextents "7000" // Far clipping plane, this will make buildings pop in and out      [def: "16384"]
-        r_nearz      "7"   // Opposite of r_farz. removes things closer to you. [def: "-1"]
+        r_nearz      "7"    // Opposite of r_farz. removes things closer to you. [def: "-1"]
 
         // ================ IMPORTANT ================
         thread_pool_option "2" // If I understand correctly, this should be how threads are handled relative to the game, but there isn't a clear indication of what changing it even does. For now I have it at -1 which is the default, but your mileage may vary. [def: "-1"]
@@ -916,7 +919,8 @@ GameInfo
 
 
         // ================ Misc ================
-        r_hair_ao                                         "0" // Disables hair ambient occlusion/shading pass.                    [def: "1"]
+        instant_replay                                    "false" // Ngl idk [def: "true"]
+        r_hair_ao                                         "0"     // Disables hair ambient occlusion/shading pass.                    [def: "1"]
         r_drawtracers_firstperson                         "false"
         citadel_bullet_shot_offset_fade_time              "0"
         r_drawviewmodel                                   "false"
@@ -968,14 +972,18 @@ GameInfo
         cl_simulate_dormant_entities "false" // Based on the name I would imagine it does what it says.          [def: "true"]
 
         // ================ Audio ================
-        audio_enable_vmix_mastering           "false" // Whether the engine uses vmix to master the audio, might be a dev command [def: "true"]
-        snd_mixahead                          "0.05"  // Adds some latency that shouldn't be percivable to save cpu       [def: "0.001"]
-        snd_occlusion_bounces                 "0"     // Limits audio occlusion to save cpu                               [def: "1"]
-        snd_occlusion_rays                    "0"     // Occlusion bounces, this effectively disables them.               [def: "4"]
-        snd_soundmixer_version                "2"     // [def: "2"]
-        snd_steamaudio_reverb_order_rendering "0"     // The amount of directional detail in the rendered audio by Steam Audio. [def: "0"]
-        snd_ui_positional                     "false" // Disables positional audio to save cpu                            [def: "true"]
-        snd_steamaudio_num_threads            "6"     // Audio thread count                                               [def: "4"]
+        audio_enable_vmix_mastering              "false" // Whether the engine uses vmix to master the audio, might be a dev command [def: "true"]
+        snd_mixahead                             "0.05"  // Adds some latency that shouldn't be percivable to save cpu       [def: "0.001"]
+        snd_occlusion_bounces                    "0"     // Limits audio occlusion to save cpu                               [def: "1"]
+        snd_occlusion_rays                       "0"     // Occlusion bounces, this effectively disables them.               [def: "4"]
+        snd_soundmixer_version                   "2"     // [def: "2"]
+        snd_steamaudio_reverb_order_rendering    "0"     // The amount of directional detail in the rendered audio by Steam Audio. [def: "0"]
+        snd_ui_positional                        "false" // Disables positional audio to save cpu                            [def: "true"]
+        snd_steamaudio_num_threads               "6"     // Audio thread count                                               [def: "4"]
+        audio_enable_spawn_mask_mix_layer        "false" // Disabling these should help with performance, Yay! [def: "true"]
+        snd_boxverb_simd                         "false" // Disabling these should help with performance, Yay! [def: "true"]
+        snd_enable_subgraph_corenull_passthrough "false" // Disabling these should help with performance, Yay! [def: "true"]
+
         // README This ^ probably depends on how good your cpu is, the better it is the more threads you can allow
 
         // ================ Csm Shadows. ================
@@ -997,6 +1005,7 @@ GameInfo
 
         // ================ Disabling Inverse Kinematics ================
         // This segment just disables everything pertaining to inverse kinematics. As far as I can tell it doesn't produce animation artifacts and marginally improves performance
+        enable_boneflex                   "false"
         ik_constraints_enabled            "false"
         ik_debug_dogleg3bone_enabled      "false"
         ik_debug_fabrik_backwards_enabled "false"
@@ -1008,7 +1017,7 @@ GameInfo
         ik_planetilt_enable               "false"
 
         // ================ Disabling Animgraph Stuff ================
-        // Don't think these hard visuals
+        // Don't think these impact visuals
         animgraph_footlock_calculate_tilt       "false"
         animgraph_footlock_enabled              "false"
         animgraph_footlock_ground_roll          "false"
@@ -1020,6 +1029,9 @@ GameInfo
 
 
         // ================ Convars You Shouldn't/Can't Mess With But I Want to Maintain the Documentation ================
+        fog_enable               "false"
+        fog_enableskybox         "false" // I doubt the fog commands actually are modifiable but I am maintaining their inclusion for posterity
+        volume_fog_enable_jitter "false" // Don't think I can
         //music_hideout_debug_enabled               "true"          // Doesn't do anything
         // citadel_crosshair_hit_marker_duration    "0.00001"       // Removes the hitmarker when shooting people.                      [def: "0.1"]
         // citadel_damage_text_show_effectiveness   "0"             // Shows extra “effectiveness” info in damage text (e.g., resist/weakness style feedback). As far as I can tell this is unfinished right now [def: "0"]
@@ -1047,7 +1059,7 @@ GameInfo
         // phys_batch_ray_test                      "16"            // Don't know what this does? shouldn't be needed deadlock doesn't have many physics objects  [def: "0"]
         // r_citadel_gpu_culling_two_pass           "false"         // Setting this to false will cause issues with frametime [def: "true"]
         // r_citadel_npr_force_solid_outline        "false"         // Causes odd visual bugs with dragons and neutrals when set to true    [def: "false"]
-        // r_citadel_npr_outlines                   "false"         // Enable outlines on enemy players.                                [def: "true"]
+        // r_citadel_npr_outlines                   "false"         // Enable the little black outlines on players. Unfortunately this was disabled and no longer works a few months ago.                                [def: "true"]
         // r_citadel_npr_outlines_max_dist          "1"             // Limits outline distance to reduce unnecessary processing.        [def: "1000"]
         // r_citadel_selection_outline2_alpha       "0.2"           // Outlines on enemy players and abilities on a scale of 0-1.       [def: "0.8"]
         // r_dopixelvisibility                      "0"             // Causes issues with boxes being invisible
@@ -1095,11 +1107,66 @@ GameInfo
         // parallel_perform_invalidate_physics     "false"  // Not sure                                                         [def: "false"]
         citadel_npc_force_animate_every_tick "false" // Don't change this, it does what it says on the tin.              [def: "true"]
         // citadel_perf_interval_report_s          "100000" // The interval that we record performance stats to the log at measured in seconds [def: "60"]
+        // citadel_hideout_enable_testing_tools    "true"   // Unfortunately this doesn't work    [def: "false"]
 
 
-        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.8.5 ------------------------------- \\
+        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.9 ------------------------------- \\
 
-
+        // cl_hold_game_events_until_server_tick           "false"
+        // engine_client_tick_pad_enable                   "true"
+        // host_force_frametime_to_equal_tick_interval     "true"
+        // host_force_max_frametime_to_tick_interval       "true"
+        // panorama_min_comp_layer_cache_cost              "16"
+        // panorama_reload_animations                      "10"
+        // panorama_render_target_cache_max_size           "16384"
+        // r_indirectlighting                              "false"
+        // r_shadowtile_waveops                            flase
+        //citadel_minimap_local_player_width                 "3"
+        citadel_client_status_cycle_delay                  "8"
+        citadel_enable_new_ping_particle                   "true"
+        citadel_minimap_overlap_scan_distance              "0"
+        citadel_orb_debug_draw_state                       "1"
+        citadel_player_glow_disabled                       "true"
+        citadel_player_glow_from_teammate_vision_max_range "0"
+        citadel_player_outline_enemies                     "false"
+        citadel_portrait_unit_ag2_enable                   "false"
+        citadel_unit_status_hide_names                     "true"
+        cl_clock_buffer_ticks                              "0"
+        cl_clockdrift_max_ticks                            "1"
+        cl_globallight_freeze                              "true"
+        cl_poll_network_early                              "true"
+        cl_skel_constraints_enable                         "false"
+        cl_skip_hierarchy_update_for_unchanged_entities    "true"
+        cl_skip_update_animations                          "false"
+        cl_vsnd_morph_override_ease_enabled                "false"
+        cloth_filter_transform_stateless                   "true"
+        con_enable                                         "true"
+        debug_draw_enable                                  "false"
+        engine_low_latency_sleep_after_client_tick         "true"
+        lb_allow_time_sliced_shadow_map_rendering          "false"
+        lb_bin_slices                                      "0"
+        lb_enable_fog_mixed_shadows                        "false"
+        lb_enable_lights                                   "false"
+        lb_enable_newsum                                   "false"
+        lb_enable_shadow_casting                           "false"
+        lb_enable_stationary_lights                        "false"
+        lb_enable_sunlight                                 "false"
+        lb_mixed_shadows                                   "false"
+        lb_precomputed_shadowmap_enable                    "false"
+        r_citadel_fsr_enable_mip_bias                      "false"
+        r_enable_cubemap_fog                               "false"
+        r_enable_gradient_fog                              "false"
+        r_enable_rigid_animation                           "false"
+        r_enable_volume_fog                                "false"
+        r_morphing_enabled                                 "false"
+        sc_aggregate_gpu_vis_culling                       "true"
+        sc_instanced_mesh_enable                           "false"
+        sc_instanced_mesh_gpu_density_culling              "false"
+        sc_screen_size_lod_scale_override                  "0.001"
+        sparseshadowtree_disable_add_layers                "false"
+        steam_inputhandler_enabled                         "false"
+        tv_enable_delta_frames                             "false"
+        vis_sunlight_enable                                "false"
 
         rate
         {
