@@ -679,7 +679,7 @@ GameInfo
         // ================ Preferences ================
         // --- 0. IMPORTANT ---
         citadel_camera_use_vmdl_flatten_vertical "false" // This command makes rem and venator's cameras move slightly downwards when aiming down scope. Not exactly a dealbreaker byt might be undesirable for some.                                                                                                                                      [def: "true"]
-        citadel_portrait_world_renderer_off      "true"  // Disables character models in shop
+        citadel_portrait_world_renderer_off      "false"  // Disables character models in shop and endgame screen                                                       [def: "false"]
         citadel_trooper_glow_disabled            "1"     // 1 = Disable friendly/enemy minion glow.                          [def: "0"]
         cl_phys_enabled                          "true"  // Disables all physics. This means ragdolls just maintain the last pose and boxes don't fall over [def: "true"]
         r_citadel_enable_pano_world_blur         "true"  // This command disables the blur in the shop and improves the performance of the shop DRAMATICALLY however it can cause visual issues with the pause menu on nvidia systems running vulkan. Please experiment. [def: "true"]
@@ -1111,62 +1111,6 @@ GameInfo
 
 
         // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.9 ------------------------------- \\
-
-        // cl_hold_game_events_until_server_tick           "false"
-        // engine_client_tick_pad_enable                   "true"
-        // host_force_frametime_to_equal_tick_interval     "true"
-        // host_force_max_frametime_to_tick_interval       "true"
-        // panorama_min_comp_layer_cache_cost              "16"
-        // panorama_reload_animations                      "10"
-        // panorama_render_target_cache_max_size           "16384"
-        // r_indirectlighting                              "false"
-        // r_shadowtile_waveops                            flase
-        //citadel_minimap_local_player_width                 "3"
-        citadel_client_status_cycle_delay                  "8"
-        citadel_enable_new_ping_particle                   "true"
-        citadel_minimap_overlap_scan_distance              "0"
-        citadel_orb_debug_draw_state                       "1"
-        citadel_player_glow_disabled                       "true"
-        citadel_player_glow_from_teammate_vision_max_range "0"
-        citadel_player_outline_enemies                     "false"
-        citadel_portrait_unit_ag2_enable                   "false"
-        citadel_unit_status_hide_names                     "true"
-        cl_clock_buffer_ticks                              "0"
-        cl_clockdrift_max_ticks                            "1"
-        cl_globallight_freeze                              "true"
-        cl_poll_network_early                              "true"
-        cl_skel_constraints_enable                         "false"
-        cl_skip_hierarchy_update_for_unchanged_entities    "true"
-        cl_skip_update_animations                          "false"
-        cl_vsnd_morph_override_ease_enabled                "false"
-        cloth_filter_transform_stateless                   "true"
-        con_enable                                         "true"
-        debug_draw_enable                                  "false"
-        engine_low_latency_sleep_after_client_tick         "true"
-        lb_allow_time_sliced_shadow_map_rendering          "false"
-        lb_bin_slices                                      "0"
-        lb_enable_fog_mixed_shadows                        "false"
-        lb_enable_lights                                   "false"
-        lb_enable_newsum                                   "false"
-        lb_enable_shadow_casting                           "false"
-        lb_enable_stationary_lights                        "false"
-        lb_enable_sunlight                                 "false"
-        lb_mixed_shadows                                   "false"
-        lb_precomputed_shadowmap_enable                    "false"
-        r_citadel_fsr_enable_mip_bias                      "false"
-        r_enable_cubemap_fog                               "false"
-        r_enable_gradient_fog                              "false"
-        r_enable_rigid_animation                           "false"
-        r_enable_volume_fog                                "false"
-        r_morphing_enabled                                 "false"
-        sc_aggregate_gpu_vis_culling                       "true"
-        sc_instanced_mesh_enable                           "false"
-        sc_instanced_mesh_gpu_density_culling              "false"
-        sc_screen_size_lod_scale_override                  "0.001"
-        sparseshadowtree_disable_add_layers                "false"
-        steam_inputhandler_enabled                         "false"
-        tv_enable_delta_frames                             "false"
-        vis_sunlight_enable                                "false"
 
         rate
         {
