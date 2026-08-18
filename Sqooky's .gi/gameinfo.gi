@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock v2.9 by Sqooky with help from others <3
+// OptimizationLock v2.9.1 by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -670,7 +670,7 @@ GameInfo
         //      If you would like to donate as a means of showing thanks I have a kofi.     \\
         //      https://ko-fi.com/sqooky                                                    \\
 
-        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.9 -------- \\
+        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 2.9.1 -------- \\
         // The github is here https://github.com/Sqooky/OptimizationLock  \\
         // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
         // The gamebanana:https://gamebanana.com/mods/656341 (it's usually behind, please check the github) \\
@@ -772,7 +772,7 @@ GameInfo
         closecaption                "false" // I assume this does what it says on the tin                       [def: "false"]
         panorama_allow_transitions  "false" // Turns off UI anim (shop,etc)                                     [def: "1"]
         panorama_disable_blur       "true"  // Disables UI blur effects in the UI.                              [def: "false"]
-        panorama_disable_box_shadow "true"  // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "false"]
+        //panorama_disable_box_shadow "true"  // Disables UI box shadows in the UI (less GPU/UI cost).            [def: "false"]
         panorama_panel_occlusion    "true"  // According to John Valve this is an optimization feature that stops rendering of panels underneath the top level. [def: "true"]
         r_dashboard_render_quality  "1"     // Sets dashboard/UI render quality (lower = cheaper UI rendering). [def: "1"]
 
@@ -919,7 +919,6 @@ GameInfo
 
 
         // ================ Misc ================
-        instant_replay                                    "false" // Ngl idk [def: "true"]
         r_hair_ao                                         "0"     // Disables hair ambient occlusion/shading pass.                    [def: "1"]
         r_drawtracers_firstperson                         "false"
         citadel_bullet_shot_offset_fade_time              "0"
@@ -1029,6 +1028,7 @@ GameInfo
 
 
         // ================ Convars You Shouldn't/Can't Mess With But I Want to Maintain the Documentation ================
+        //instant_replay                            "true" // enables/disables the replay system. If set to false players will be in the idle animation in replays [def: "true"]
         fog_enable               "false"
         fog_enableskybox         "false" // I doubt the fog commands actually are modifiable but I am maintaining their inclusion for posterity
         volume_fog_enable_jitter "false" // Don't think I can
@@ -1105,12 +1105,12 @@ GameInfo
         // phys_threaded_transform_update          "1"      // Same as above                                                    [def: "0"]
         // particle_cluster_nodraw                 "1"      // Skips drawing particle “clusters”/grouped particle batches (performance, fewer small effects). [def: "0"]
         // parallel_perform_invalidate_physics     "false"  // Not sure                                                         [def: "false"]
-        citadel_npc_force_animate_every_tick "false" // Don't change this, it does what it says on the tin.              [def: "true"]
+        //citadel_npc_force_animate_every_tick "false" // Don't change this, it does what it says on the tin.              [def: "true"]
         // citadel_perf_interval_report_s          "100000" // The interval that we record performance stats to the log at measured in seconds [def: "60"]
         // citadel_hideout_enable_testing_tools    "true"   // Unfortunately this doesn't work    [def: "false"]
 
 
-        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.9 ------------------------------- \\
+        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.9.1 ------------------------------- \\
 
         rate
         {
