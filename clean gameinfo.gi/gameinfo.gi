@@ -14,7 +14,11 @@ GameInfo
     nodegraph   "0"
     perfwizard  "0"
     tonemapping "0"
-    GameData    "\"citadel.fgd\" PGIVersion \"39A735A413003C88A806B364C32DFC6D077E551B9E4EC6C7B11D41E8E67BFA0C\" Localize"
+    GameData    "citadel.fgd"
+
+    DisallowGameInfoConditionals "0"
+    PGIVersion                   "39A735A413003C88A806B364C32DFC6D077E551B9E4EC6C7B11D41E8E67BFA0C"
+    Localize
     {
         DuplicateTokensAssert "1"
     }

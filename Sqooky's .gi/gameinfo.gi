@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock v2.12 by Sqooky with help from others <3
+// OptimizationLock v2.12.1 by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -144,7 +144,11 @@ GameInfo
     nodegraph   "0"
     perfwizard  "0"
     tonemapping "0"
-    GameData    "\"citadel.fgd\" PGIVersion \"39A735A413003C88A806B364C32DFC6D077E551B9E4EC6C7B11D41E8E67BFA0C\" Localize"
+    GameData    "citadel.fgd"
+
+    DisallowGameInfoConditionals "0"
+    PGIVersion                   "39A735A413003C88A806B364C32DFC6D077E551B9E4EC6C7B11D41E8E67BFA0C"
+    Localize
     {
         DuplicateTokensAssert "1"
     }
