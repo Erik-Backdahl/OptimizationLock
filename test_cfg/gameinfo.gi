@@ -70,6 +70,19 @@
 //- TheTurtlezsz:   Gave me FIVE DOLLAR asking for tech support :D
 //- Supporter:      Gave me two dollar anoymously.
 //- Umah:           Gave me TEN DoLLAR for cute clothes. I love you so much thank you
+//- Connormadethis: Gave ne FORTY DOLLAR.... too much.... heroic....
+//- Cele:           Gave me FIVE DOLLAR and was very respectful asking a question
+//- faux_astre:     Gave me FIVE DOLLAR and lef a very kind message
+//- MidnightSojuTv: Gave me five dollars for providing an answer to their question <3
+//- blert:          Gave me seben dollar for clothes... <33
+//- Shinjoto:       Gave me ten dollars (love you)
+//- Yawn:           Gave me way too much money and support, I owe them a kidney.
+//- TurtleBoy:      Gave me Fifteen dollars! many thanksss
+//- Supporter:      GAVE ME TWENTY OOG
+//- Ludo:           GAVE ME TOO MUCH MONEY IN THE FORM OF 120 DOLLARS OOOOOG I OWE THEM MY LIVER
+//- odie:           Commissioned me!
+//- sixsav:         GAVE ME TWENTY DOLLAR... wonderful and I owe them
+//- salvator:       Game me FVIE DOLLAR and is lovely
 
 
 
@@ -131,16 +144,9 @@ GameInfo
     nodegraph   "0"
     perfwizard  "0"
     tonemapping "0"
-    GameData    "citadel.fgd"
-
-    DisallowGameInfoConditionals "0"
-    PGIVersion                   "5F91238F16576E941DAB5C3F730738838AF8777BC361578713B03EF09E686957"
-
-    Localize
+    GameData    "\"citadel.fgd\" PGIVersion \"39A735A413003C88A806B364C32DFC6D077E551B9E4EC6C7B11D41E8E67BFA0C\" Localize"
     {
-        DuplicateTokensAssert   "1"
-        DisallowTokenContexts   "1"
-        LocalServerClientAccess "1"
+        DuplicateTokensAssert "1"
     }
 
     SupportedLanguages
@@ -238,11 +244,8 @@ GameInfo
             FakeReorderDelay "0"
             FakeJitter       "off"
         }
-
         SkipRedundantChangeCallbacks "1"
-        UseSerializedEntityPool      "1"
     }
-
     RenderSystem
     {
 
@@ -304,8 +307,10 @@ GameInfo
             AmbientOcclusionProxies "0" // In the dll, no default value
         }
         PauseSinglePlayerOnGameOverlay "1"
+        PauseOnCtrlConsole             "0" // Src2 issues a 'setpause' on holding down CTRL + toggleconsole key, disable this for Deadlock.
         DefensiveConCommands           "1"
         DisableLoadingPlaque           "1"
+        LocalServerClientAccess        "1 \"MapMaxCoord\" \"32768\""
     }
 
     ContentBuilder
@@ -349,6 +354,7 @@ GameInfo
         LoadScriptEntities            "0"
         NavMarkupEntity               "func_nav_markup"
         OverlayBoxSize                "8"
+        TileMeshesEnabled             "1"
         RenderMode                    "ToolsVis"
         ShadowAtlasHeight             "0"
         ShadowAtlasWidth              "0"
@@ -402,6 +408,13 @@ GameInfo
             bakedlighting "1" // Enable lightmapping during compile time
             envmap        "0" // turned off since it currently causes an assert and doesn't work due to some build issue
             nav           "1" // Generate nav mesh data
+            sareverb      "0" // Bake Steam Audio reverb
+            sapaths       "0" // Bake Steam Audio pathing
+            sacustomdata  "1" // Bake Steam Audio custom data
+        } // Game specific steps run after the map has been built, in the order they are listed here
+        GameSpecificPostMapBuildSteps
+        {
+            pve_nav_cache "1" // Bake the spots the PVE directors spawn things on
         }
 
         MeshCompiler
@@ -427,6 +440,7 @@ GameInfo
             UseAggregateInstances              "1"
             AggregateInstancingMeshlets        "1"
             BakePropsWithExtraVertexStreams    "1"
+            MergeTranslucents                  "1"
         }
 
         BakedLighting
@@ -618,13 +632,9 @@ GameInfo
     {
         NavTileSize   "128.0"
         NavCellSize   "1.5"
-        NavCellHeight "2.0"
-
-        // Hull definitions live in scripts/nav_hulls.vdata
+        NavCellHeight "2.0" // Hull definitions live in scripts/nav_hulls.vdata
         // Preset definitions live in scripts/nav_hulls_presets.vdata
-        NavHullsPreset "default"
-
-        NavRegionMinSize              "8"
+        NavHullsPreset                "\"default\" \"NavRegionMinSize\" \"8\""
         NavRegionMergeSize            "20"
         NavEdgeMaxLen                 "1200"
         NavEdgeMaxError               "51.0"
@@ -698,7 +708,6 @@ GameInfo
         // --- 1. Outlines ---
         citadel_boss_glow_disabled                             "1"    // Disables boss and walker glow/highlight effect.                  [def: "0]
         citadel_damage_offscreen_indicator_disabled            "true" // The little trooper portraits that show up behind walls.          [def: "true"]
-        citadel_player_glow_disabled                           "0"    // Disables player glow/highlight effect when pinged.               [def: "0"]
         citadel_unit_status_allies_see_thru_walls              "true" // Do you want to see allied player outlines through walls          [def: "true"]
         citadel_unit_status_allies_see_thru_walls_max_distance "40"   // How far to make allied players' unit status show through walls.  [def: "0"] (0 means no limit)
         citadel_unit_status_dpi                                "10"   // This increases the size of the health bar. Unfortunately I think this lowers performance. A shame. [def: "10"]
@@ -707,7 +716,7 @@ GameInfo
         // These commands both affect fov but do so in different ways. citadel_camera_hero_fov changes the field of view using typical degrees but doesn't modify the punch zoom in. This means that if you have a high fov value the zoom in can be disorienting.
         // r_aspectratio changes the zoom of the camera which in turn doesn't make the punch zoom in as jarring, but the command is not as intuitive to set precisely
         // citadel_camera_hero_fov "106" // The field of view angle of the camera when following a hero.     [def: "90"]
-        r_aspectratio "3.3" // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).
+        r_aspectratio "2.5" // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).
 
         // --- 3. HUD ---
         citadel_damage_report_enable                    "1"     // Enables/Disables incoming/outgoing damage tab (tuning this off is very questionable but okay). [def: "1"]
@@ -743,7 +752,7 @@ GameInfo
         panorama_max_overlay_fps                   "30"    // Fps In the settings/esc menu.                                    [def: "60"]
 
         // --- 6. Object Culling ---
-        r_size_cull_threshold "2.4" // *Culls small objects sooner based on screen size threshold (higher = more culling). [def: "0.8"]
+        r_size_cull_threshold "1.6" // *Culls small objects sooner based on screen size threshold (higher = more culling). [def: "0.8"]
 
         // --- 7. Camera Tweaks ---
         // citadel_camera_listening_offset    "-1"   // To be completely honest I have no idea but I want to test this.  [def: "0"]
@@ -820,29 +829,26 @@ GameInfo
         r_citadel_gpu_culling_shadows            "1"    // Enables GPU-driven culling for shadow casters (performance).     [def: "0"]
         r_citadel_shadow_caching                 "true" // We disable all shadows so this shouldn't be needed               [def: "true"]
         r_citadel_shadow_quality                 "0"    // Deadlock/Citadel shadow quality level (0 = lowest).              [def: "2"]
-        r_shadows                                "0"    // Disables dynamic shadows.                                        [def: "1"]
         r_size_cull_threshold_shadow             "2.4"  // Threshold of shadow map size percentage below which objects get culled (higher = cull more to save shadow cost). [def: "0.2"]
-        sc_disable_spotlight_shadows             "1"    // Disables spotlight shadows.                                      [def: "0"]
         sparseshadowtree_disable_for_viewmodel   "1"    // Disable SST generation and runtime for viewmodel (use original CSM rendering).   [def: "1"]
         sparseshadowtree_enable_rendering        "0"    // Enables Sparse Shadow Tree, rendering static geometry into shadow cascades.      [def: "0"]
 
         // ================ Lighting ================
-        cl_retire_low_priority_lights               "1"     // Replaces/drops low-priority dynamic lights when higher-priority lights are present (helps cap dlight clutter/cost). [def: "0"]
-        mat_async_shader_load                       "1"     // I have no reason to believe the name doesn't match the function  [def: "0"]
-        mat_max_lighting_complexity                 "0"     // Doesn't seem to do anything but throwing it in for posterity.    [def: "8"]
-        r_citadel_distancefield_farfield_enable     "0"     // Disables long-range distance field effects.                      [def: "1"]
-        r_citadel_ssao_quality                      "0"     // SSAO quality level (0 = lowest/off-ish).                         [def: "3"]
-        r_citadel_ssao_thin_occluder_compensation   "0"     // Disables special handling for thin occluders in SSAO (cheaper).  [def: "0.5"]
-        r_citadel_sun_shadow_slope_scale_depth_bias "0"     // \\                                                               [def: "3.54"]
-        r_directlighting                            "false" // Set to true to have your characters not be black in the shop     [def:"true"]
-        r_distancefield_enable                      "1"     // Disables/ Enables distance-field system (used by some lighting/shadowing/occlusion features). [def: "1"]
-        r_lightmap_bicubic_filtering                "1"     // Enables bicubic filtering on lightmaps.                          [def: "1"]
-        r_lightmap_size                             "2048"  // Maximum lightmap resolution..                                    [def: "65536"]
-        r_lightmap_size_directional_irradiance      "0"     // Sets directional irradiance lightmap data size (lower = less detail) (-1 = uses value of r_lightmap_size ). [def: "-1"]
-        r_multiscattering                           "1"     // Enables multi-scattering lighting approximation.                 [def: "1"]
-        r_rendersun                                 "0"     // Disables sun lighting.                                           [def: "1"]
-        r_ssao                                      "0"     // Disables screen-space ambient occlusion.                         [def: "1"]
-        r_ssao_strength                             "0"     // AO strength multiplier (0 = no AO contribution).                 [def: "1.2"]
+        cl_retire_low_priority_lights               "1"    // Replaces/drops low-priority dynamic lights when higher-priority lights are present (helps cap dlight clutter/cost). [def: "0"]
+        mat_async_shader_load                       "1"    // I have no reason to believe the name doesn't match the function  [def: "0"]
+        mat_max_lighting_complexity                 "0"    // Doesn't seem to do anything but throwing it in for posterity.    [def: "8"]
+        r_citadel_distancefield_farfield_enable     "0"    // Disables long-range distance field effects.                      [def: "1"]
+        r_citadel_ssao_quality                      "0"    // SSAO quality level (0 = lowest/off-ish).                         [def: "3"]
+        r_citadel_ssao_thin_occluder_compensation   "0"    // Disables special handling for thin occluders in SSAO (cheaper).  [def: "0.5"]
+        r_citadel_sun_shadow_slope_scale_depth_bias "0"    // \\                                                               [def: "3.54"]
+        r_distancefield_enable                      "1"    // Disables/ Enables distance-field system (used by some lighting/shadowing/occlusion features). [def: "1"]
+        r_lightmap_bicubic_filtering                "1"    // Enables bicubic filtering on lightmaps.                          [def: "1"]
+        r_lightmap_size                             "2048" // Maximum lightmap resolution..                                    [def: "65536"]
+        r_lightmap_size_directional_irradiance      "0"    // Sets directional irradiance lightmap data size (lower = less detail) (-1 = uses value of r_lightmap_size ). [def: "-1"]
+        r_multiscattering                           "1"    // Enables multi-scattering lighting approximation.                 [def: "1"]
+        r_rendersun                                 "0"    // Disables sun lighting.                                           [def: "1"]
+        r_ssao                                      "0"    // Disables screen-space ambient occlusion.                         [def: "1"]
+        r_ssao_strength                             "0"    // AO strength multiplier (0 = no AO contribution).                 [def: "1.2"]
 
         // ================ Ragdolls ================
         cl_disable_ragdolls "1" // Keep set to 0 - enabling this (disabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
@@ -896,14 +902,12 @@ GameInfo
         //r_particle_timescale                  "1"      // Speeds up particle simulation, thus making them end sooner, however this causes visual desyncs, most notably with big effects that last a while such as infernus ult. Please tweak this to what you are comfortable with. [def: "1"]
         cl_aggregate_particles                   "true"    // Doesn't seem to cause any issues but a benchmark proper should be conducted [def: "false"]
         cl_particle_batch_mode                   "1"       // Has a range of 1 or 2, 2 will make celeste's auto rebound look weird and 0 will make them not batch [def: "1"]
-        r_RainParticleDensity                    "0"       // Density of Particle Rain 0-1.                                    [def: "1"]
         r_citadel_screenspace_particles_full_res "true"    // Render screen space particles at full resolution. This could introduce readability issues but should be fine. [def: "true"]
         r_draw_particle_children_with_parents    "1"       // I believe this handles the drawing of little visual flourish particles. [def: "-1"]
         r_limit_particle_job_duration            "true"    // Seems to help with particle clutter, although I am not sure.             [def: "false"]
         r_particle_allowprerender                "true"    // I imagine it renders particles prematurely, which we do not care for.    [def: "true"]
         r_particle_batch_collections             "true"    // Batches collections of particles, typically batch rendering is faster so this is set to true. [def: "false"]
         r_particle_fixedrandomseeds              "true"    // I need to properly test this, but I'm pretty sure that setting this to true marginally increases performance. That being said it does make flames from paige 1 always appear on the left, so your call ig [def: "false"]
-        r_particle_max_detail_level              "1"       // The maximum detail level of particle to create.                  [def: "3"]
         r_particle_max_texture_layers            "4"       // Anything below 4 will make infernus afterburn, paige fire, and drifter's passive look very weird and blocky [def: "-1"]
         r_particle_min_timestep                  "0.00241" // Minimum amount of time for particles to update. Higher values will have particles stutter, while lower values could negatively impact performance. [def: "0"]
         r_particle_model_per_thread_count        "64"      // I believe it is how many particle models a thread is allowed to handle.  [def: "32"]
@@ -969,17 +973,13 @@ GameInfo
         default_fov                                       "0"     //
         engine_max_ticks_to_simulate                      "2"     // Max number of ticks to simulate per frame, after which simulation will start to slow down compared to real time. [def: "-1"]
         r_async_compute_fog                               "true"  // Just whether to asyncroniously render fog                        [def: "false"]
-        r_citadel_cloak_blur_amount                       "0"     //
         r_citadel_depth_prepass_dynamic_objects           "false" // Should be not prepassing entities that move                      [def: "true"]
         r_citadel_glow_health_bar_debug                   "false" // This seems to be a command controlling the rendering of a debug tool. Seeing as its inclusion doesn't benefit us I have disabled it [def: "true"]
         r_citadel_gpu_preview_denoise_passes              "0"     // [def: "3"]
         r_drawropes                                       "false" // [def: "true"]
         r_drawtracers_firstperson                         "false" // [def: "true"]
         r_drawviewmodel                                   "false" // [def: "true"]
-        r_enable_cubemap_fog                              "false" // [def: "true"]
-        r_enable_gradient_fog                             "false" // These commands just disable fog. I don't think you can disable fog via cvars (In this config I accomplish it through scenesystem), but in the event that they save us a render pass they are disabled
         r_enable_rigid_animation                          "false" // [def: "true"]
-        r_enable_volume_fog                               "false" // [def: "true"]
         r_hair_ao                                         "0"     // Disables hair ambient occlusion/shading pass.                    [def: "1"]
         r_max_portal_render_targets                       "2"     // Maxium number of Doorman doors to allow rendering.               [def: "0"] // This will cause visual bugs when set to 1, either set it to 2 or 0 to disable them.
         r_particle_model_new                              "false" // Jasper stated that these variables aren't used by deadlock so I'm disabling them to be safe :steam_happy:    [def: "false"]
@@ -1025,7 +1025,6 @@ GameInfo
         csm_cascade3_override_dist               "0"     // All of these commands should reduce shadow quality.
         csm_max_dist_between_caster_and_receiver "0"     // All of these commands should reduce shadow quality.
         csm_max_num_cascades_override            "0"     // All of these commands should reduce shadow quality.
-        csm_max_shadow_dist_override             "0"     // All of these commands should reduce shadow quality.
         csm_max_visible_dist                     "0"     // All of these commands should reduce shadow quality.
         csm_res_override_0                       "1"     // All of these commands should reduce shadow quality.
         csm_res_override_1                       "1"     // All of these commands should reduce shadow quality.
@@ -1097,6 +1096,7 @@ GameInfo
         // r_draw_first_tri_only                    "true"          // Only draws the first triangle. Surprisingly this only supports dx11 [def: "false"]
         // r_draw_instances                         "0"             //causes boxes to freak out on dx11
         // r_draw_overlays                          "0"             //causes problems with the hud
+        // r_drawdecals                             "1"             // *Render decals. If not set to true lash's slam and warden's ult indicators become quite difficult to see.                                                  [def: "1"]
         // r_drawskybox                             "true"          // Can't be changed anymore                                             [def: "true"]
         // r_drawtracers                            "0"             // Makes lash's ground slam marker invisible. I would enable it anyway but I don't like getting fifty trillion "how do I fix this" dms
         // r_drawtracers                            "false"         // disables lash's ground strike indicator
@@ -1124,158 +1124,6 @@ GameInfo
 
         // --------------------------------- END OF CONFIG OptimizationLock -- ver. testing ------------------------------- \\
 
-
-        ai_animgraph_lerp_movement_yaw                         "0"
-        ai_async_queue_debug                                   "0"
-        ai_async_queue_max_jobs                                "0"
-        ai_async_queue_stop_on_request                         "0"
-        ai_auto_contact_solver                                 "0"
-        ai_auto_select_enemy_finder                            "0"
-        ai_autoselect_class                                    "0"
-        ai_autoselect_class_settings                           "0"
-        ai_block_damage                                        "0"
-        ai_debug_decisionmaking                                "0"
-        ai_debug_detect_bad_schedules                          "0"
-        ai_debug_detect_bad_schedules_print_conditions         "0"
-        ai_debug_directnavprobe                                "0"
-        ai_debug_doors                                         "0"
-        ai_debug_dyninteractions                               "0"
-        ai_debug_enemies                                       "0"
-        ai_debug_enemy_position                                "0"
-        ai_debug_initial_position                              "0"
-        ai_debug_interrupt_paths                               "0"
-        ai_debug_loners                                        "0"
-        ai_debug_los                                           "0"
-        ai_debug_nav                                           "0"
-        ai_debug_navlinks                                      "0"
-        ai_debug_phys_force                                    "0"
-        ai_debug_radial_goal                                   "0"
-        ai_debug_ragdoll_magnets                               "0"
-        ai_debug_schedule_stoppages                            "0"
-        ai_debug_scripted_sequence                             "0"
-        ai_debug_shoot_positions                               "0"
-        ai_debug_speech                                        "0"
-        ai_debug_squads                                        "0"
-        ai_debug_squadslotusage                                "0"
-        ai_debug_volumetric_event                              "0"
-        ai_debug_volumetric_event_duration                     "0"
-        ai_debugscriptconditions                               "0"
-        ai_doors_force_animation                               "0"
-        ai_drop_hint                                           "0"
-        ai_dump_hints                                          "0"
-        ai_elude_time                                          "0"
-        ai_facingservices_debug_reasonablefacing               "0"
-        ai_facingservices_debug_spew                           "0"
-        ai_facingservices_draw_entity_facing                   "0"
-        ai_facingservices_generated_target_min_duration        "0"
-        ai_foot_sweep_debug                                    "0"
-        ai_foot_sweep_enable                                   "0"
-        ai_foot_sweep_hit_impulse                              "0"
-        ai_foot_sweep_hit_impulse_min_mass                     "0"
-        ai_foot_sweep_move_scale                               "0"
-        ai_foot_sweep_perp_apply                               "0"
-        ai_foot_sweep_perp_base                                "0"
-        ai_foot_sweep_perp_scale                               "0"
-        ai_footstep_delay                                      "0"
-        ai_force_serverside_ragdoll                            "0"
-        ai_gather_conditions_async                             "0"
-        ai_hull_trace_epsilon                                  "0"
-        ai_ignore_collision_player_noclip                      "0"
-        ai_inhibit_spawners                                    "0"
-        ai_keep_interrupt_path_across_schedules                "0"
-        ai_local_navigator_direct_test_versus_static_collision "0"
-        ai_local_navigator_navmesh_enable                      "0"
-        ai_lod_auto_enabled                                    "0"
-        ai_lod_debug_display                                   "0"
-        ai_motor_debug                                         "0"
-        ai_motor_debug_additional_movement_settings            "0"
-        ai_motor_debug_ag1_path                                "0"
-        ai_motor_debug_hop                                     "0"
-        ai_motor_debug_idle_turn                               "0"
-        ai_motor_debug_move_heading                            "0"
-        ai_motor_debug_move_heading_bad_zones                  "0"
-        ai_motor_debug_override_path                           "0"
-        ai_motor_debug_show_current_state                      "0"
-        ai_motor_debug_show_speed_info                         "0"
-        ai_motor_debug_state_deadlocks                         "0"
-        ai_motor_debug_stop                                    "0"
-        ai_motor_debug_transitions                             "0"
-        ai_motor_enable_move_heading_bad_zones                 "0"
-        ai_motor_ground_enable_detailed_debug_data             "0"
-        ai_motor_max_state_time_active                         "0"
-        ai_motor_move_direction_lookahead                      "0"
-        ai_motor_nav_links_force_facing_time                   "0"
-        ai_motor_path_alignment_max_angular_velocity           "0"
-        ai_motor_planted_turn_lookahead_distance               "0"
-        ai_motor_planted_turn_lookahead_distance_speed         "0"
-        ai_motor_procedural_idle_turn_speed                    "0"
-        ai_motor_procedural_idle_turn_threshold                "0"
-        ai_motor_procedural_turn_while_stopping_threshold      "0"
-        ai_motor_use_fast_move_heading_bad_zone_pass           "0"
-        ai_moveprobe_debug                                     "0"
-        ai_moveprobe_jump_debug                                "0"
-        ai_navigator_clipped_path_save                         "0"
-        ai_navigator_clipped_path_use_interrupt                "0"
-        ai_navigator_disable_collision_on_stuck                "0"
-        ai_navigator_draw_type_change                          "0"
-        ai_navigator_draw_wait_for_facing                      "0"
-        ai_navigator_place_waypoints_on_ground                 "0"
-        ai_navigator_repath_enable                             "0"
-        ai_navigator_repath_on_change                          "0"
-        ai_navigator_repath_tolerance_alpha                    "0"
-        ai_navigator_repath_tolerance_max                      "0"
-        ai_navigator_repath_tolerance_min                      "0"
-        ai_navigator_repath_tolerance_min_speed                "0"
-        ai_navigator_snap_to_ground_goal                       "0"
-        ai_navigator_use_arrival_direction                     "0"
-        ai_no_steer                                            "0"
-        ai_off_nav_show_nearest                                "0"
-        ai_path_draw_active                                    "0"
-        ai_path_draw_cached_values                             "0"
-        ai_path_draw_fail                                      "0"
-        ai_path_draw_on_calc                                   "0"
-        ai_path_draw_selected                                  "0"
-        ai_path_draw_src                                       "0"
-        ai_path_draw_waypoint_mark                             "0"
-        ai_path_draw_waypoint_type_label                       "0"
-        ai_path_draw_yaw                                       "0"
-        ai_path_return_a                                       "0"
-        ai_path_return_d                                       "0"
-        ai_path_return_parallel_speed                          "0"
-        ai_path_return_t                                       "0"
-        ai_path_show_discard_immediately                       "0"
-        ai_plane_solver_debug                                  "0"
-        ai_plane_solver_use_navmesh                            "0"
-        ai_ragdoll_phys_death_multiplier                       "0"
-        ai_report_task_timings_on_limit                        "0"
-        ai_resume                                              "0"
-        ai_select_box_alpha                                    "0"
-        ai_select_box_style                                    "0"
-        ai_sequence_debug                                      "0"
-        ai_set_move_height_epsilon                             "0"
-        ai_setenabled                                          "0"
-        ai_show_gravity                                        "0"
-        ai_show_hints                                          "0"
-        ai_show_hitlocation                                    "0"
-        ai_show_task_fail                                      "0"
-        ai_show_think_tolerance                                "0"
-        ai_step                                                "0"
-        ai_strong_optimizations_no_checkstand                  "0"
-        ai_temp_difference_for_instant_ignite                  "0"
-        ai_test_los_from_player_pov                            "0"
-        ai_test_moveprobe_ignoresmall                          "0"
-        ai_think_interval                                      "0"
-        ai_think_interval_lod_low                              "0"
-        ai_think_interval_lod_med                              "0"
-        ai_think_interval_lod_very_low                         "0"
-        ai_think_limit_label                                   "0"
-        ai_threaded_pathfind                                   "0"
-        ai_time_to_ignite                                      "0"
-        ai_use_async_ragdoll_fixup                             "0"
-        ai_use_visibility_cache                                "0"
-        ai_use_visibility_cache_reciprocation                  "0"
-        ai_vehicle_avoidance                                   "0"
-        ai_waypoint_arrival_tolerance                          "0"
 
         // ====================== SVV commands we cannot change but I want to maintain documentation for ======================
         // skeleton_instance_lod_optimization      "false"  // Compute LOD mask internally like since 2016, i.e. force all LOD groups' bones to compute [def: "false"]
@@ -1308,7 +1156,6 @@ GameInfo
         // panorama_min_comp_layer_cache_cost              "16"
         // panorama_reload_animations                      "10"
         // panorama_render_target_cache_max_size           "16384"
-        // r_citadel_disable_npr_lighting                  "true"
         // r_indirectlighting                              "false"
         // r_postprocess_enable                            "false" // Disables colorcorrection and other similar effects so the game will look duller
         // r_shadowtile_waveops                            flase
@@ -1316,65 +1163,61 @@ GameInfo
         //citadel_minimap_local_player_width                 "3"
         //cl_clock_buffer_ticks                              "0"
         //cl_clockdrift_max_ticks                            "1"
-        audio_enable_spawn_mask_mix_layer                  "false"
-        citadel_enable_new_ping_particle                   "true"
-        citadel_fibonnaci_sphere_trace_los_max             "80"
-        citadel_hideout_enable_testing_tools               "true"
-        citadel_in_world_item_panel_dpi                    "0"
-        citadel_melee_shake_amplitude                      "0"
-        citadel_minimap_overlap_scan_distance              "0"
-        citadel_orb_debug_draw_state                       "1"
-        citadel_player_glow_disabled                       "true"
-        citadel_player_glow_from_teammate_vision_max_range "0"
-        citadel_player_outline_enemies                     "false"
-        citadel_portrait_unit_ag2_enable                   "false"
-        citadel_portrait_world_renderer_off                "true" // Disables character models in shop
-        citadel_unit_status_hide_names                     "true"
-        cl_clock_buffer_ticks                              "0"
-        cl_clockdrift_max_ticks                            "1"
-        cl_globallight_freeze                              "true"
-        cl_poll_network_early                              "true"
-        cl_skel_constraints_enable                         "false"
-        cl_skip_hierarchy_update_for_unchanged_entities    "true"
-        cl_skip_update_animations                          "false"
-        cl_vsnd_morph_override_ease_enabled                "false"
-        cloth_filter_transform_stateless                   "true"
-        con_enable                                         "true"
-        debug_draw_enable                                  "false"
-        enable_boneflex                                    "false"
-        engine_low_latency_sleep_after_client_tick         "true"
-        fog_enable                                         "false"
-        fog_enableskybox                                   "false"
-        instant_replay                                     "false"
-        lb_allow_time_sliced_shadow_map_rendering          "false"
-        lb_bin_slices                                      "0"
-        lb_enable_fog_mixed_shadows                        "false"
-        lb_enable_lights                                   "false"
-        lb_enable_newsum                                   "false"
-        lb_enable_shadow_casting                           "false"
-        lb_enable_stationary_lights                        "false"
-        lb_enable_sunlight                                 "false"
-        lb_mixed_shadows                                   "false"
-        lb_precomputed_shadowmap_enable                    "false"
-        r_citadel_fsr_enable_mip_bias                      "false"
-        r_enable_cubemap_fog                               "false"
-        r_enable_gradient_fog                              "false"
-        r_enable_rigid_animation                           "false"
-        r_enable_volume_fog                                "false"
-        r_morphing_enabled                                 "false"
-        sc_aggregate_gpu_vis_culling                       "true"
-        sc_disable_baked_lighting                          "true"
-        sc_hdr_enabled_override                            "0"
-        sc_instanced_mesh_enable                           "false"
-        sc_instanced_mesh_gpu_density_culling              "false"
-        sc_screen_size_lod_scale_override                  "0.001"
-        snd_boxverb_simd                                   "false"
-        snd_enable_subgraph_corenull_passthrough           "false"
-        sparseshadowtree_disable_add_layers                "false"
-        steam_inputhandler_enabled                         "false"
-        tv_enable_delta_frames                             "false"
-        vis_sunlight_enable                                "false"
-        volume_fog_enable_jitter                           "false"
+        audio_enable_spawn_mask_mix_layer      "false"
+        citadel_enable_new_ping_particle       "true"
+        citadel_fibonnaci_sphere_trace_los_max "80"
+        citadel_hideout_enable_testing_tools   "true"
+        citadel_in_world_item_panel_dpi        "0"
+        citadel_melee_shake_amplitude          "0"
+        citadel_minimap_overlap_scan_distance  "0"
+        citadel_orb_debug_draw_state           "1"
+        citadel_player_outline_enemies         "false"
+        citadel_portrait_unit_ag2_enable       "false"
+        citadel_portrait_world_renderer_off    "true" // Disables character models in shop
+        citadel_unit_status_hide_names         "true"
+        //cl_disable_ragdolls                                "true"
+        //cl_globallight_freeze                              "true"
+        //cl_poll_network_early                              "true"
+        //cl_ragdoll_limit                                   "0"
+        //cl_skel_constraints_enable                         "false"
+        //cl_skip_hierarchy_update_for_unchanged_entities    "true"
+        //cl_skip_update_animations                          "false"
+        //cl_vsnd_morph_override_ease_enabled                "false"
+        //cloth_filter_transform_stateless                   "true"
+        con_enable                                 "true"
+        debug_draw_enable                          "false"
+        enable_boneflex                            "false"
+        engine_low_latency_sleep_after_client_tick "true"
+        fog_enable                                 "false"
+        fog_enableskybox                           "false"
+        lb_allow_time_sliced_shadow_map_rendering  "false"
+        lb_bin_slices                              "0"
+        lb_enable_fog_mixed_shadows                "false"
+        lb_enable_lights                           "false"
+        lb_enable_newsum                           "false"
+        lb_enable_shadow_casting                   "false"
+        lb_enable_stationary_lights                "false"
+        lb_enable_sunlight                         "false"
+        lb_mixed_shadows                           "false"
+        lb_precomputed_shadowmap_enable            "false"
+        r_citadel_fsr_enable_mip_bias              "false"
+        r_enable_cubemap_fog                       "false"
+        r_enable_gradient_fog                      "false"
+        r_enable_rigid_animation                   "false"
+        r_enable_volume_fog                        "false"
+        r_morphing_enabled                         "false"
+        sc_aggregate_gpu_vis_culling               "true"
+        sc_hdr_enabled_override                    "0"
+        sc_instanced_mesh_enable                   "false"
+        sc_instanced_mesh_gpu_density_culling      "false"
+        sc_screen_size_lod_scale_override          "0.001"
+        snd_boxverb_simd                           "false"
+        snd_enable_subgraph_corenull_passthrough   "false"
+        sparseshadowtree_disable_add_layers        "false"
+        steam_inputhandler_enabled                 "false"
+        tv_enable_delta_frames                     "false"
+        vis_sunlight_enable                        "false"
+        volume_fog_enable_jitter                   "false"
 
 
 
@@ -1483,31 +1326,28 @@ GameInfo
         cq_buffer_bloat_msecs_max "120"
 
         snd_soundmixer                   "Default_Mix"
-        cloth_filter_transform_stateless "0"
+        cloth_filter_transform_stateless "\"0\" \"cl_joystick_enabled\" \"0\""
+        panorama_joystick_enabled        "\"0\" \"snd_event_browser_focus_events\" \"true\" \"cl_max_particle_pvs_aabb_edge_length\" \"100\""
 
-        cl_joystick_enabled       "0"
-        panorama_joystick_enabled "0"
+        // Particles
+        cl_aggregate_particles       "true"
+        r_particle_batch_collections "1"
 
-        snd_event_browser_focus_events "true"
-
-        cl_max_particle_pvs_aabb_edge_length "100"
-
-        // Allow aggregation of particles (for perf)
-        cl_aggregate_particles "true"
-
-        citadel_enable_vdata_sound_preload "true"
-        r_add_views_in_pre_output          "1"
-
-
-
+        citadel_enable_vdata_sound_preload                             "\"true\" \"r_add_views_in_pre_output\" \"1\"" // Disable Cubemap Brightening
+        lb_cubemap_normalization_max                                   "\"1\" \"update_all_keyframed_in_spatial_partition_update\" \"0\""
+        parallel_update_surrounding_bounds_in_spatial_partition_update "1"
+        always_perform_full_spatial_partition_update                   "1"
+        cl_interp_parallel                                             "1"
+        parallel_perform_invalidate_physics                            "1"
+        phys_agg_world_compounds                                       "\"0\" \"cl_updaterate\" \"128\""
+        sv_parallel_checktransmit                                      "2"
+        net_gather_child_fields_only                                   "1"
     }
 
     Memory
     {
-        EstimatedMaxCPUMemUsageMB "1"
-        EstimatedMinGPUMemUsageMB "1"
-
-        ShowInsufficientPageFileMessageBox      "1"
+        EstimatedMaxCPUMemUsageMB               "1"
+        EstimatedMinGPUMemUsageMB               "\"1\" \"ShowInsufficientPageFileMessageBox\" \"1\""
         ShowLowAvailableVirtualMemoryMessageBox "1"
     }
 }

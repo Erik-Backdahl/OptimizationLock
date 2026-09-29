@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock v2.10 by Sqooky with help from others <3
+// OptimizationLock v2.12 by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -70,6 +70,19 @@
 //- TheTurtlezsz:   Gave me FIVE DOLLAR asking for tech support :D
 //- Supporter:      Gave me two dollar anoymously.
 //- Umah:           Gave me TEN DoLLAR for cute clothes. I love you so much thank you
+//- Connormadethis: Gave ne FORTY DOLLAR.... too much.... heroic....
+//- Cele:           Gave me FIVE DOLLAR and was very respectful asking a question
+//- faux_astre:     Gave me FIVE DOLLAR and lef a very kind message
+//- MidnightSojuTv: Gave me five dollars for providing an answer to their question <3
+//- blert:          Gave me seben dollar for clothes... <33
+//- Shinjoto:       Gave me ten dollars (love you)
+//- Yawn:           Gave me way too much money and support, I owe them a kidney.
+//- TurtleBoy:      Gave me Fifteen dollars! many thanksss
+//- Supporter:      GAVE ME TWENTY OOG
+//- Ludo:           GAVE ME TOO MUCH MONEY IN THE FORM OF 120 DOLLARS OOOOOG I OWE THEM MY LIVER
+//- odie:           Commissioned me!
+//- sixsav:         GAVE ME TWENTY DOLLAR... wonderful and I owe them
+//- salvator:       Game me FVIE DOLLAR and is lovely
 
 
 
@@ -131,16 +144,9 @@ GameInfo
     nodegraph   "0"
     perfwizard  "0"
     tonemapping "0"
-    GameData    "citadel.fgd"
-
-    DisallowGameInfoConditionals "0"
-    PGIVersion                   "5F91238F16576E941DAB5C3F730738838AF8777BC361578713B03EF09E686957"
-
-    Localize
+    GameData    "\"citadel.fgd\" PGIVersion \"39A735A413003C88A806B364C32DFC6D077E551B9E4EC6C7B11D41E8E67BFA0C\" Localize"
     {
-        DuplicateTokensAssert   "1"
-        DisallowTokenContexts   "1"
-        LocalServerClientAccess "1"
+        DuplicateTokensAssert "1"
     }
 
     SupportedLanguages
@@ -211,11 +217,8 @@ GameInfo
             game "Outline"
             game "Depth"
             game "FrontDepth"
-
-            dev "ToolsVis"       // Visualization modes for all shaders (lighting only, normal maps only, etc.)
-            dev "ToolsWireframe" // This should use the ToolsVis mode above instead of being its own mode\
-
-            tools "ToolsUtil" // Meant to be used to render tools sceneobjects that are mod-independent, like the origin grid
+            game "ShadowSilhouette dev ToolsVis" // Visualization modes for all shaders (lighting only, normal maps only, etc.)
+            dev  "ToolsWireframe"                // This should use the ToolsVis mode above instead of being its own mode\            tools ToolsUtil // Meant to be used to render tools sceneobjects that are mod-independent, like the origin grid
         }
     }
 
@@ -304,8 +307,10 @@ GameInfo
             AmbientOcclusionProxies "0" // In the dll, no default value
         }
         PauseSinglePlayerOnGameOverlay "1"
+        PauseOnCtrlConsole             "0" // Src2 issues a 'setpause' on holding down CTRL + toggleconsole key, disable this for Deadlock.
         DefensiveConCommands           "1"
         DisableLoadingPlaque           "1"
+        LocalServerClientAccess        "1 \"MapMaxCoord\" \"32768\""
     }
 
     ContentBuilder
@@ -349,6 +354,7 @@ GameInfo
         LoadScriptEntities            "0"
         NavMarkupEntity               "func_nav_markup"
         OverlayBoxSize                "8"
+        TileMeshesEnabled             "1"
         RenderMode                    "ToolsVis"
         ShadowAtlasHeight             "0"
         ShadowAtlasWidth              "0"
@@ -402,6 +408,13 @@ GameInfo
             bakedlighting "1" // Enable lightmapping during compile time
             envmap        "0" // turned off since it currently causes an assert and doesn't work due to some build issue
             nav           "1" // Generate nav mesh data
+            sareverb      "0" // Bake Steam Audio reverb
+            sapaths       "0" // Bake Steam Audio pathing
+            sacustomdata  "1" // Bake Steam Audio custom data
+        } // Game specific steps run after the map has been built, in the order they are listed here
+        GameSpecificPostMapBuildSteps
+        {
+            pve_nav_cache "1" // Bake the spots the PVE directors spawn things on
         }
 
         MeshCompiler
@@ -427,6 +440,7 @@ GameInfo
             UseAggregateInstances              "1"
             AggregateInstancingMeshlets        "1"
             BakePropsWithExtraVertexStreams    "1"
+            MergeTranslucents                  "1"
         }
 
         BakedLighting
@@ -690,13 +704,12 @@ GameInfo
         r_postprocess_enable                     "true"  // Disables colorcorrection and other similar effects so the game will look duller
         sc_screen_size_lod_scale_override        "0.55"  // Controls LOD scale. Lower values will make sinners and playermodels look worse "my sinner's lights are little triangles" [def: "-1"]
         steam_inputhandler_enabled               "true"  // This disables controller support when set to false. Setting to false should improve performance if you're not on a steam deck, but some people are, and I don't want an influx of "why no work with controller"  [def: "true"]
-        lb_enable_dynamic_lights                 "false" // SET THIS TO TRUE TO MAKE HERO PORTRAITS HAVE COLOR IN THE SHOP AND ENDGAME *Disables dynamic lights eg. walker, shop, tp, character abilities etc. (hero silhouettes go dark in menus as a side effect) [def: "1"]
+        lb_enable_dynamic_lights                 "true" // SET THIS TO TRUE TO MAKE HERO PORTRAITS HAVE COLOR IN THE SHOP AND ENDGAME *Disables dynamic lights eg. walker, shop, tp, character abilities etc. (hero silhouettes go dark in menus as a side effect) [def: "1"]
         // mm_prefer_solo_only                   "true"  // If I understand what this command does, this command controls whether or not you are matched with other solo queue players. For me this dramatically improved the solo queue performance but I am not sure if that is placebo. [def: "false"]
 
         // --- 1. Outlines ---
         citadel_boss_glow_disabled                             "1"    // Disables boss and walker glow/highlight effect.                  [def: "0]
         citadel_damage_offscreen_indicator_disabled            "true" // The little trooper portraits that show up behind walls.          [def: "true"]
-        citadel_player_glow_disabled                           "0"    // Disables player glow/highlight effect when pinged.               [def: "0"]
         citadel_unit_status_allies_see_thru_walls              "true" // Do you want to see allied player outlines through walls          [def: "true"]
         citadel_unit_status_allies_see_thru_walls_max_distance "40"   // How far to make allied players' unit status show through walls.  [def: "0"] (0 means no limit)
         citadel_unit_status_dpi                                "10"   // This increases the size of the health bar. Unfortunately I think this lowers performance. A shame. [def: "10"]
@@ -818,29 +831,26 @@ GameInfo
         r_citadel_gpu_culling_shadows            "1"    // Enables GPU-driven culling for shadow casters (performance).     [def: "0"]
         r_citadel_shadow_caching                 "true" // We disable all shadows so this shouldn't be needed               [def: "true"]
         r_citadel_shadow_quality                 "0"    // Deadlock/Citadel shadow quality level (0 = lowest).              [def: "2"]
-        r_shadows                                "0"    // Disables dynamic shadows.                                        [def: "1"]
         r_size_cull_threshold_shadow             "2.4"  // Threshold of shadow map size percentage below which objects get culled (higher = cull more to save shadow cost). [def: "0.2"]
-        sc_disable_spotlight_shadows             "1"    // Disables spotlight shadows.                                      [def: "0"]
         sparseshadowtree_disable_for_viewmodel   "1"    // Disable SST generation and runtime for viewmodel (use original CSM rendering).   [def: "1"]
         sparseshadowtree_enable_rendering        "0"    // Enables Sparse Shadow Tree, rendering static geometry into shadow cascades.      [def: "0"]
 
         // ================ Lighting ================
-        cl_retire_low_priority_lights               "1"     // Replaces/drops low-priority dynamic lights when higher-priority lights are present (helps cap dlight clutter/cost). [def: "0"]
-        mat_async_shader_load                       "1"     // I have no reason to believe the name doesn't match the function  [def: "0"]
-        mat_max_lighting_complexity                 "0"     // Doesn't seem to do anything but throwing it in for posterity.    [def: "8"]
-        r_citadel_distancefield_farfield_enable     "0"     // Disables long-range distance field effects.                      [def: "1"]
-        r_citadel_ssao_quality                      "0"     // SSAO quality level (0 = lowest/off-ish).                         [def: "3"]
-        r_citadel_ssao_thin_occluder_compensation   "0"     // Disables special handling for thin occluders in SSAO (cheaper).  [def: "0.5"]
-        r_citadel_sun_shadow_slope_scale_depth_bias "0"     // \\                                                               [def: "3.54"]
-        r_directlighting                            "false" // Set to true to have your characters not be black in the shop     [def:"true"]
-        r_distancefield_enable                      "1"     // Disables/ Enables distance-field system (used by some lighting/shadowing/occlusion features). [def: "1"]
-        r_lightmap_bicubic_filtering                "1"     // Enables bicubic filtering on lightmaps.                          [def: "1"]
-        r_lightmap_size                             "2048"  // Maximum lightmap resolution..                                    [def: "65536"]
-        r_lightmap_size_directional_irradiance      "0"     // Sets directional irradiance lightmap data size (lower = less detail) (-1 = uses value of r_lightmap_size ). [def: "-1"]
-        r_multiscattering                           "1"     // Enables multi-scattering lighting approximation.                 [def: "1"]
-        r_rendersun                                 "0"     // Disables sun lighting.                                           [def: "1"]
-        r_ssao                                      "0"     // Disables screen-space ambient occlusion.                         [def: "1"]
-        r_ssao_strength                             "0"     // AO strength multiplier (0 = no AO contribution).                 [def: "1.2"]
+        cl_retire_low_priority_lights               "1"    // Replaces/drops low-priority dynamic lights when higher-priority lights are present (helps cap dlight clutter/cost). [def: "0"]
+        mat_async_shader_load                       "1"    // I have no reason to believe the name doesn't match the function  [def: "0"]
+        mat_max_lighting_complexity                 "0"    // Doesn't seem to do anything but throwing it in for posterity.    [def: "8"]
+        r_citadel_distancefield_farfield_enable     "0"    // Disables long-range distance field effects.                      [def: "1"]
+        r_citadel_ssao_quality                      "0"    // SSAO quality level (0 = lowest/off-ish).                         [def: "3"]
+        r_citadel_ssao_thin_occluder_compensation   "0"    // Disables special handling for thin occluders in SSAO (cheaper).  [def: "0.5"]
+        r_citadel_sun_shadow_slope_scale_depth_bias "0"    // \\                                                               [def: "3.54"]
+        r_distancefield_enable                      "1"    // Disables/ Enables distance-field system (used by some lighting/shadowing/occlusion features). [def: "1"]
+        r_lightmap_bicubic_filtering                "1"    // Enables bicubic filtering on lightmaps.                          [def: "1"]
+        r_lightmap_size                             "2048" // Maximum lightmap resolution..                                    [def: "65536"]
+        r_lightmap_size_directional_irradiance      "0"    // Sets directional irradiance lightmap data size (lower = less detail) (-1 = uses value of r_lightmap_size ). [def: "-1"]
+        r_multiscattering                           "1"    // Enables multi-scattering lighting approximation.                 [def: "1"]
+        r_rendersun                                 "0"    // Disables sun lighting.                                           [def: "1"]
+        r_ssao                                      "0"    // Disables screen-space ambient occlusion.                         [def: "1"]
+        r_ssao_strength                             "0"    // AO strength multiplier (0 = no AO contribution).                 [def: "1.2"]
 
         // ================ Ragdolls ================
         cl_disable_ragdolls "0"  // Keep set to 0 - enabling this (disabling ragdolls) can cause issue with doorman's ultimate. [def: "0"]
@@ -894,14 +904,12 @@ GameInfo
         //r_particle_timescale                  "1"      // Speeds up particle simulation, thus making them end sooner, however this causes visual desyncs, most notably with big effects that last a while such as infernus ult. Please tweak this to what you are comfortable with. [def: "1"]
         cl_aggregate_particles                   "true"    // Doesn't seem to cause any issues but a benchmark proper should be conducted [def: "false"]
         cl_particle_batch_mode                   "1"       // Has a range of 1 or 2, 2 will make celeste's auto rebound look weird and 0 will make them not batch [def: "1"]
-        r_RainParticleDensity                    "0"       // Density of Particle Rain 0-1.                                    [def: "1"]
         r_citadel_screenspace_particles_full_res "true"    // Render screen space particles at full resolution. This could introduce readability issues but should be fine. [def: "true"]
         r_draw_particle_children_with_parents    "1"       // I believe this handles the drawing of little visual flourish particles. [def: "-1"]
         r_limit_particle_job_duration            "true"    // Seems to help with particle clutter, although I am not sure.             [def: "false"]
         r_particle_allowprerender                "true"    // I imagine it renders particles prematurely, which we do not care for.    [def: "true"]
         r_particle_batch_collections             "true"    // Batches collections of particles, typically batch rendering is faster so this is set to true. [def: "false"]
         r_particle_fixedrandomseeds              "true"    // I need to properly test this, but I'm pretty sure that setting this to true marginally increases performance. That being said it does make flames from paige 1 always appear on the left, so your call ig [def: "false"]
-        r_particle_max_detail_level              "1"       // The maximum detail level of particle to create.                  [def: "3"]
         r_particle_max_texture_layers            "4"       // Anything below 4 will make infernus afterburn, paige fire, and drifter's passive look very weird and blocky [def: "-1"]
         r_particle_min_timestep                  "0.00241" // Minimum amount of time for particles to update. Higher values will have particles stutter, while lower values could negatively impact performance. [def: "0"]
         r_particle_model_per_thread_count        "64"      // I believe it is how many particle models a thread is allowed to handle.  [def: "32"]
@@ -967,17 +975,13 @@ GameInfo
         default_fov                                       "0"     //
         engine_max_ticks_to_simulate                      "2"     // Max number of ticks to simulate per frame, after which simulation will start to slow down compared to real time. [def: "-1"]
         r_async_compute_fog                               "true"  // Just whether to asyncroniously render fog                        [def: "false"]
-        r_citadel_cloak_blur_amount                       "0"     //
         r_citadel_depth_prepass_dynamic_objects           "false" // Should be not prepassing entities that move                      [def: "true"]
         r_citadel_glow_health_bar_debug                   "false" // This seems to be a command controlling the rendering of a debug tool. Seeing as its inclusion doesn't benefit us I have disabled it [def: "true"]
         r_citadel_gpu_preview_denoise_passes              "0"     // [def: "3"]
         r_drawropes                                       "false" // [def: "true"]
         r_drawtracers_firstperson                         "false" // [def: "true"]
         r_drawviewmodel                                   "false" // [def: "true"]
-        r_enable_cubemap_fog                              "false" // [def: "true"]
-        r_enable_gradient_fog                             "false" // These commands just disable fog. I don't think you can disable fog via cvars (In this config I accomplish it through scenesystem), but in the event that they save us a render pass they are disabled
         r_enable_rigid_animation                          "false" // [def: "true"]
-        r_enable_volume_fog                               "false" // [def: "true"]
         r_hair_ao                                         "0"     // Disables hair ambient occlusion/shading pass.                    [def: "1"]
         r_max_portal_render_targets                       "2"     // Maxium number of Doorman doors to allow rendering.               [def: "0"] // This will cause visual bugs when set to 1, either set it to 2 or 0 to disable them.
         r_particle_model_new                              "false" // Jasper stated that these variables aren't used by deadlock so I'm disabling them to be safe :steam_happy:    [def: "false"]
@@ -1023,7 +1027,6 @@ GameInfo
         csm_cascade3_override_dist               "0"     // All of these commands should reduce shadow quality.
         csm_max_dist_between_caster_and_receiver "0"     // All of these commands should reduce shadow quality.
         csm_max_num_cascades_override            "0"     // All of these commands should reduce shadow quality.
-        csm_max_shadow_dist_override             "0"     // All of these commands should reduce shadow quality.
         csm_max_visible_dist                     "0"     // All of these commands should reduce shadow quality.
         csm_res_override_0                       "1"     // All of these commands should reduce shadow quality.
         csm_res_override_1                       "1"     // All of these commands should reduce shadow quality.
@@ -1095,6 +1098,7 @@ GameInfo
         // r_draw_first_tri_only                    "true"          // Only draws the first triangle. Surprisingly this only supports dx11 [def: "false"]
         // r_draw_instances                         "0"             //causes boxes to freak out on dx11
         // r_draw_overlays                          "0"             //causes problems with the hud
+        // r_drawdecals                             "1"             // *Render decals. If not set to true lash's slam and warden's ult indicators become quite difficult to see.                                                  [def: "1"]
         // r_drawskybox                             "true"          // Can't be changed anymore                                             [def: "true"]
         // r_drawtracers                            "0"             // Makes lash's ground slam marker invisible. I would enable it anyway but I don't like getting fifty trillion "how do I fix this" dms
         // r_drawtracers                            "false"         // disables lash's ground strike indicator
@@ -1142,7 +1146,7 @@ GameInfo
         // citadel_hideout_enable_testing_tools    "true"   // Unfortunately this doesn't work    [def: "false"]
 
 
-        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.10 ------------------------------- \\
+        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 2.12 ------------------------------- \\
 
         rate
         {
@@ -1238,31 +1242,28 @@ GameInfo
         cq_buffer_bloat_msecs_max "120"
 
         snd_soundmixer                   "Default_Mix"
-        cloth_filter_transform_stateless "0"
+        cloth_filter_transform_stateless "\"0\" \"cl_joystick_enabled\" \"0\""
+        panorama_joystick_enabled        "\"0\" \"snd_event_browser_focus_events\" \"true\" \"cl_max_particle_pvs_aabb_edge_length\" \"100\""
 
-        cl_joystick_enabled       "0"
-        panorama_joystick_enabled "0"
+        // Particles
+        cl_aggregate_particles       "true"
+        r_particle_batch_collections "1"
 
-        snd_event_browser_focus_events "true"
-
-        cl_max_particle_pvs_aabb_edge_length "100"
-
-        // Allow aggregation of particles (for perf)
-        cl_aggregate_particles "true"
-
-        citadel_enable_vdata_sound_preload "true"
-        r_add_views_in_pre_output          "1"
-
-
-
+        citadel_enable_vdata_sound_preload                             "\"true\" \"r_add_views_in_pre_output\" \"1\"" // Disable Cubemap Brightening
+        lb_cubemap_normalization_max                                   "\"1\" \"update_all_keyframed_in_spatial_partition_update\" \"0\""
+        parallel_update_surrounding_bounds_in_spatial_partition_update "1"
+        always_perform_full_spatial_partition_update                   "1"
+        cl_interp_parallel                                             "1"
+        parallel_perform_invalidate_physics                            "1"
+        phys_agg_world_compounds                                       "\"0\" \"cl_updaterate\" \"128\""
+        sv_parallel_checktransmit                                      "2"
+        net_gather_child_fields_only                                   "1"
     }
 
     Memory
     {
-        EstimatedMaxCPUMemUsageMB "1"
-        EstimatedMinGPUMemUsageMB "1"
-
-        ShowInsufficientPageFileMessageBox      "1"
+        EstimatedMaxCPUMemUsageMB               "1"
+        EstimatedMinGPUMemUsageMB               "\"1\" \"ShowInsufficientPageFileMessageBox\" \"1\""
         ShowLowAvailableVirtualMemoryMessageBox "1"
     }
 }
