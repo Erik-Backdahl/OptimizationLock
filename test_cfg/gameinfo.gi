@@ -195,15 +195,16 @@ GameInfo
             // *LANGUAGE* will be replaced with the actual language name. If not running a specific language, these paths will not be mounted
             // These currently hold localized images containing text, so they need to follow the UI language, not the audio language.
             // When we ship localized VO, it should go in a separate Game_AudioLanguage path (e.g. citadel_vo_*LANGUAGE*)
-            Game_UILanguage "citadel_*LANGUAGE*"
+            //Game                citadel/cvar_unlocker
+            Game_Language "citadel_*LANGUAGE*"
+            Game          "citadel/addons"
 
-            // These are optional low-violence paths. They will only get mounted if you're in a low-violence mode.
-            Game "citadel/addons"
-            Game_LowViolence "citadel_lv"
-
-            Game "citadel"
-            Game "core"
-        }
+            Mod   "citadel"
+            Write "citadel"
+            Game  "citadel"
+            Mod   "core"
+            Write "core"
+            Game  "core"        }
 
         UserSettingsPathID       "USRLOCAL"
         LegacyUserSettingsPathID "MOD"

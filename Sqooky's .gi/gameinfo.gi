@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock Version 3.2 by Sqooky with help from others <3
+// OptimizationLock Version 3.2.1 by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -198,11 +198,16 @@ GameInfo
             Game_UILanguage "citadel_*LANGUAGE*"
 
             // These are optional low-violence paths. They will only get mounted if you're in a low-violence mode.
-            Game "citadel/addons"
-            Game_LowViolence "citadel_lv"
+            //Game                citadel/cvar_unlocker
+            Game_Language "citadel_*LANGUAGE*"
+            Game          "citadel/addons"
 
-            Game "citadel"
-            Game "core"
+            Mod   "citadel"
+            Write "citadel"
+            Game  "citadel"
+            Mod   "core"
+            Write "core"
+            Game  "core"
         }
 
         UserSettingsPathID       "USRLOCAL"
