@@ -745,6 +745,7 @@ GameInfo
         r_size_cull_threshold                    "0.9"   // This will control the distance trooper healthbars and boxes stop rendering *Culls small objects sooner based on screen size threshold (higher = more culling). [def: "0.8"]
         sc_screen_size_lod_scale_override        "0.55"  // Controls LOD scale. Lower values will make sinners and playermodels look worse "my sinner's lights are little triangles" [def: "-1"]
         steam_inputhandler_enabled               "true"  // This disables controller support when set to false. Setting to false should improve performance if you're not on a steam deck, but some people are, and I don't want an influx of "why no work with controller"  [def: "true"]
+        // citadel_in_world_item_panel_dpi        "0"    // This controls the quality of the text above soul pickups, so boxes, golden statues, and soul orbs. Higher values mean better quality, lower means worse. [def: "2"]
 
         // --- Render Distance ---
         r_farz       "7000" // This controls the far clipping plane, ie building/player popin   [def: "-1"]
@@ -760,9 +761,7 @@ GameInfo
         citadel_unit_status_dpi                                "10"   // This increases the size of the health bar. Unfortunately I think this lowers performance. A shame. [def: "10"]
 
         // --- 2. Field of View ---
-        // These commands both affect fov but do so in different ways. citadel_camera_hero_fov changes the field of view using typical degrees but doesn't modify the punch zoom in. This means that if you have a high fov value the zoom in can be disorienting.
         // r_aspectratio changes the zoom of the camera which in turn doesn't make the punch zoom in as jarring, but the command is not as intuitive to set precisely
-        // citadel_camera_hero_fov "106" // The field of view angle of the camera when following a hero.     [def: "90"]
         r_aspectratio "2.9" // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).
 
         // --- 3. HUD ---
@@ -799,6 +798,7 @@ GameInfo
         panorama_max_overlay_fps                   "30"    // Fps In the settings/esc menu.                                    [def: "60"]
 
         // --- 6. Camera Tweaks ---
+        citadel_melee_shake_duration 0
         // citadel_camera_listening_offset    "-1"   // To be completely honest I have no idea but I want to test this.  [def: "0"]
         citadel_camera_soft_collision_angle         "75"    //                                                                  [def: "75"]
         citadel_camera_use_vmdl_flatten_horizontal  "false" // From my understanding of how these commands work, they slightly smooth camera inputs. This should make the camera more responsive?   [def: "true"]
@@ -1095,6 +1095,7 @@ GameInfo
         // cam_idealdist                            "0"
         // citadel_camera_dist                      "0"
         // citadel_camera_height_approach_speed     "0"             // This makes the camera go all black when set to zero. Cool!
+        // citadel_camera_hero_fov                  "106"           // The field of view angle of the camera when following a hero.     [def: "90"] //
         // citadel_crosshair_hit_marker_duration    "0.00001"       // Removes the hitmarker when shooting people.                      [def: "0.1"]
         // citadel_damage_text_show_effectiveness   "0"             // Shows extra “effectiveness” info in damage text (e.g., resist/weakness style feedback). As far as I can tell this is unfinished right now [def: "0"]
         // citadel_first_person                     "true"          // Puts you in first person, messes up character rendering
@@ -1108,6 +1109,7 @@ GameInfo
         // cl_phys_enabled                          "false"         // You can disable physics and might see an improvement in framerate, however a lot will be buggy.   [def: "true"]
         // cl_skip_update_animations                "true"          // Setting this to  true causes models outside of the game world to a-pose. looks cute.
         // gpu_level                                "1"             // GPU level literally doesn't matter, gets set to 2 in the engine
+        // instant_replay                           "true"          // enables/disables the replay system. If set to false players will be in the idle animation in replays [def: "true"]
         // lb_enable_envmaps                        "false"         // This makes all characters black
         // movement_stats_debug_draw                "true"          // Doesn't seem to do anything
         // panorama_disable_descendant_filtering    "true"          // Causes issues with the hud
@@ -1148,7 +1150,6 @@ GameInfo
         // sc_skip_traversal                        "true"          // Disables rendering, ie the screen is black.          [def: "false"]
         // sc_throw_away_all_layers                 "true"          // Disables rendering, ie the screen is black.          [def: "false"]
         // subtick_buttons_enabled                  "true"          // Makes it so people on windows systems cannot move
-        // instant_replay                           "true"          // enables/disables the replay system. If set to false players will be in the idle animation in replays [def: "true"]
         // music_hideout_debug_enabled              "true"          // Doesn't do anything
         fog_enable               "false"
         fog_enableskybox         "false" // I doubt the fog commands actually are modifiable but I am maintaining their inclusion for posterity
