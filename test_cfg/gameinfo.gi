@@ -198,6 +198,7 @@ GameInfo
             Game_UILanguage "citadel_*LANGUAGE*"
 
             // These are optional low-violence paths. They will only get mounted if you're in a low-violence mode.
+            Game "citadel/addons"
             Game_LowViolence "citadel_lv"
 
             Game "citadel"
