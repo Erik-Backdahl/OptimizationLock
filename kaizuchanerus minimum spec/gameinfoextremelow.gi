@@ -664,16 +664,16 @@ r_citadel_sun_shadow_slope_scale_depth_bias 0 // Zero shadow slope bias (default
 
 
 // POST-PROCESSING
-//r_postprocess_enable 0 // Disable ALL post-processing. Uncomment if not using post-processing mods like Sunlock or you want the game to look grey
+r_postprocess_enable 0 // Disable ALL post-processing. Uncomment if not using post-processing mods like Sunlock or you want the game to look grey
 r_effects_bloom 0 // Disable bloom
 r_post_bloom 0 // Disable bloom post-pass (default false — already off, reinforces)
 r_bloom_tent_filter_radius 0 // Zero bloom tent-filter radius (cheat, default 0 — already off, reinforces)
 r_depth_of_field 0 // Disable depth of field (default true)
 r_citadel_depthoffield_enable 0 // Hard-disable DOF (default false — already off, reinforces)
 r_citadel_upscaling 0 // Disable upscaling (0=off, default 4=DLSS/FSR). Keeps native res; reduces CPU post work. Uncomment if not using upscaling
-//mat_colorcorrection 0 // Disable color correction. Uncomment if not using post-processing mods like Sunlock
+mat_colorcorrection 0 // Disable color correction. Uncomment if not using post-processing mods like Sunlock
 r_citadel_cloak_blur_amount 0 // Disable cloak/blur post-effect (cheat, default 0.01). Saves blur pass for cloaked units
-//mat_colcorrection_disableentities 1 //uncomment if you want grey lookin game
+mat_colcorrection_disableentities 1 //uncomment if you want grey lookin game
 
 // DISTANCE FIELD (major GPU subsystem)
 r_distancefield_enable 0 // Disable entire distance-field subsystem (default true). Major GPU saver - kills DF AO/blur/shadows

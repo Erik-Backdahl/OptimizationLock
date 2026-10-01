@@ -8,4 +8,4 @@ The original upload can be found [here](https://gamebanana.com/mods/659459) On G
 
 ### Installation
 Place this file in your addons folder in Deadlock\game\citadel, just like you would any other mod.
-Make sure you have this line in your gameinfo.ini file, inside the searchpaths bracket: ``Game    citadel/addons``
+Make sure you have this line in your gameinfo.gi file, inside the searchpaths bracket: ``Game    citadel/addons``
