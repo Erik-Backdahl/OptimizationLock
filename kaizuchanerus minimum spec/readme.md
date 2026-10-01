@@ -1,6 +1,9 @@
 ## Intro
 This is Kaizuchanru's fps config. It reduces visual quality pretty severly with the goal of maxxing out fps
 
+Included is also a version titled "gameinfoextremelow.gi"
+Which primarily turns off all post processing and lighting.
+
 ## Screenshots
 <meta http-equiv="content-type" content="text/html; charset=utf-8"><img alt="ss1.jpg" data-hpc="true" style="max-width: 100%;" src="https://github.com/Sqooky/OptimizationLock/blob/main/kaizuchanerus%20minimum%20spec/screenshots/ss1.jpg?raw=true">
 <meta http-equiv="content-type" content="text/html; charset=utf-8"><img alt="ss2.jpg" data-hpc="true" style="max-width: 100%;" src="https://github.com/Sqooky/OptimizationLock/blob/main/kaizuchanerus%20minimum%20spec/screenshots/ss2.jpg?raw=true">
