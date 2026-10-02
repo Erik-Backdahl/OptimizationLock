@@ -50,6 +50,13 @@ Here is a list of each config provided in this repository.
 
 
 # FAQ
+If you get an error message like FATAL ERROR: ... <something>.xml that means a old/outdated/broken mod is responsible.
+
+Solutions:
+
+    Delete the mods: go to steamapps/common/Deadlock/game/citadel/addons and delete all its contents.
+    Disable mod loading: open steamapps/common/Deadlock/game/citadel/gameinfo.gi and search for "citadel/addons". add // in front of that line (in front of Game): // Game "citadel/addons". Then make sure to start through steam, not a mod manager.
+        this allows you to keep your mod folder intact
 - "Will this effect my mods?"
 No. Every config file included in this repo has mod support already added.
 - "How do I find a value in the config"  
