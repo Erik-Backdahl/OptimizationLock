@@ -13,7 +13,7 @@
 //         /!#%|'-_- '\%k*|
 //     o   |*@/        \_/
 //         \)&|
-// OptimizationLock Version 3.2.1 by Sqooky with help from others <3
+// OptimizationLock Version 3.3 by Sqooky with help from others <3
 
 // As much as I would love to say I did this alone, I did not. These are the amazing people who deserve as much praise as I, if not more
 //  Major thanks to all of these individuals from the bottom of my heart. They are all lovely.
@@ -210,7 +210,7 @@ GameInfo
             Game  "core"
         }
 
-        UserSettingsPathID       "USRLOCAL"
+        // UserSettingsPathID       "USRLOCAL" // this needs to be commented out in order to have video.txt usable
         LegacyUserSettingsPathID "MOD"
     }
 
@@ -729,7 +729,7 @@ GameInfo
         //      If you would like to donate as a means of showing thanks I have a kofi.     \\
         //      https://ko-fi.com/sqooky                                                    \\
 
-        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 3.2 -------- \\
+        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. 3.3 -------- \\
         // The github is here https://github.com/Sqooky/OptimizationLock  \\
         // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
         // The gamebanana:https://gamebanana.com/mods/656341 (it's usually behind, please check the github) \\
@@ -771,6 +771,7 @@ GameInfo
         r_aspectratio "2.9" // 1.75=80fov | 2.15=90fov | 2.49=100fov (every .15 interval = 5 fov).
 
         // --- 3. HUD ---
+        citadel_unit_status_stamina_low_pips            "7"     // below this threshold stamina is permanantly visble [def: "3"]
         citadel_damage_report_enable                    "1"     // Enables/Disables incoming/outgoing damage tab (tuning this off is very questionable but okay). [def: "1"]
         citadel_damage_text_batching_window_ability     "1000"  // How long to wait until batching damage text.
         citadel_distance_mouse_move_for_minimap_drawing "1"     // this command makes drawing on the minimap more precise so you can actually doodle on it :D makes me happy [def: "15"]
@@ -898,7 +899,7 @@ GameInfo
         enable_boneflex                 "0"    // Disables bone flexes (procedural facial/mesh flex drivers).      [def: "1"]
         ik_fabrik_align_chain           "1"    // Disables FABRIK chain alignment in IK (cheaper).                 [def: "1"]
         ik_final_fixup_enable           "0"    // Disables final IK fixup pass (cheaper animations, potentially less accurate). [def: "1"]
-        props_break_max_pieces_perframe "1"    // Makes boxes and troopers break into a single piece               [def: "16"]  // In future updates hopefully this being set to 0 will cause them to not leave any pieces behind
+        props_break_max_pieces_perframe "0"    // Makes boxes and troopers break into a single piece               [def: "16"]  // Say thank you to jasper that this can be set to 0 now <3
 
         // ================ Visual Clarity ================
         cl_show_splashes                     "0"     // Disables splash effects (water/impact splashes).                 [def: "1"]
@@ -1160,7 +1161,7 @@ GameInfo
         fog_enable               "false"
         fog_enableskybox         "false" // I doubt the fog commands actually are modifiable but I am maintaining their inclusion for posterity
         volume_fog_enable_jitter "false" // Don't think I can
-        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 3.2 ------------------------------- \\
+        // --------------------------------- END OF CONFIG OptimizationLock -- ver. 3.3 ------------------------------- \\
 
 
         // ====================== SV commands we cannot change but I want to maintain documentation for ======================
