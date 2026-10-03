@@ -195,19 +195,26 @@ GameInfo
             // *LANGUAGE* will be replaced with the actual language name. If not running a specific language, these paths will not be mounted
             // These currently hold localized images containing text, so they need to follow the UI language, not the audio language.
             // When we ship localized VO, it should go in a separate Game_AudioLanguage path (e.g. citadel_vo_*LANGUAGE*)
-            //Game                citadel/cvar_unlocker
-            Game_Language "citadel_*LANGUAGE*"
-            Game          "citadel/addons"
+            Game_UILanguage "citadel_*LANGUAGE*"
 
-            Mod   "citadel"
-            Write "citadel"
-            Game  "citadel"
-            Mod   "core"
-            Write "core"
-            Game  "core"        }
+            // These are optional low-violence paths. They will only get mounted if you're in a low-violence mode.
+            Game_UILanguage "citadel_*LANGUAGE*"
+            Game_LowViolence "citadel_lv"
 
-        UserSettingsPathID       "USRLOCAL"
+            Mod                 citadel
+            Write               citadel
+            Game                citadel/custom
+            Game                citadel/addons
+            Game                citadel
+            Game                core
+        }
+
         LegacyUserSettingsPathID "MOD"
+        UserSettingsPathID       "USRLOCAL" // this needs to be commented out in order to have citadel/cfg/video.txt usable, however if this is commented out it will force you into low violence mode (make drifter and mina purple)
+        // If it isn't commented out then you will need to edit the video.txt located at 
+        // Windows: \steam\userdata\your_steam_id\1422450\local\cfg 
+        // Linux:  ~/.steam/steam/userdata/your_steam_id/1422450/local/
+
     }
 
     MaterialSystem2
@@ -725,7 +732,7 @@ GameInfo
         //      If you would like to donate as a means of showing thanks I have a kofi.     \\
         //      https://ko-fi.com/sqooky                                                    \\
 
-        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. Maxfps 1.0 -------- \\
+        // -------- Performance Config! Sqooky's.gi / OptimizationLock -- ver. Maxfps 1.1 -------- \\
         // The github is here https://github.com/Sqooky/OptimizationLock  \\
         // In-Depth Tutorial: https://www.youtube.com/watch?v=zC3wBYY98vU \\
         // The gamebanana:https://gamebanana.com/mods/656341 (it's usually behind, please check the github) \\
@@ -752,6 +759,11 @@ GameInfo
         // --- Render Distance ---
         r_farz       "7000" // This controls the far clipping plane, ie building/player popin   [def: "-1"]
         r_mapextents "7000" // Far clipping plane, this will make buildings pop in and out      [def: "16384"]
+
+        // --- Health Bar Minor Tweaks ---
+        // citadel_unit_status_delta_decay_delay   "0"   // The delay between doing damage and havin the yellow damage indicator appear [def: "0.5"]
+        // citadel_unit_status_delta_decay_rate    "10"  // How quickly the yellow "you're dealing damage" indicator fades [def: "0.5"]
+        // citadel_unit_status_recent_damage_time  "inf" // how long to show someone's numerical health value when you shoot them. Inf means infinite, but will cause the healthbar to jiggle/shake forever. [def: "0.25"]
 
 
 
@@ -895,7 +907,7 @@ GameInfo
         enable_boneflex                 "0"    // Disables bone flexes (procedural facial/mesh flex drivers).      [def: "1"]
         ik_fabrik_align_chain           "1"    // Disables FABRIK chain alignment in IK (cheaper).                 [def: "1"]
         ik_final_fixup_enable           "0"    // Disables final IK fixup pass (cheaper animations, potentially less accurate). [def: "1"]
-        props_break_max_pieces_perframe "1"    // Makes boxes and troopers break into a single piece               [def: "16"]  // In future updates hopefully this being set to 0 will cause them to not leave any pieces behind
+        props_break_max_pieces_perframe "0"    // Makes boxes and troopers break into a single piece               [def: "16"]  // Say thank you to jasper that this can be set to 0 now <3
 
         // ================ Visual Clarity ================
         cl_show_splashes                     "0"     // Disables splash effects (water/impact splashes).                 [def: "1"]
@@ -1158,9 +1170,8 @@ GameInfo
         fog_enableskybox         "false" // I doubt the fog commands actually are modifiable but I am maintaining their inclusion for posterity
         volume_fog_enable_jitter "false" // Don't think I can
 
-        // --------------------------------- END OF CONFIG OptimizationLock -- ver. Maxfps 1.0 ------------------------------- \\
-        citadel_unit_status_recent_active_damage_time "999"
-        citadel_unit_status_hide_names                "true"
+        // --------------------------------- END OF CONFIG OptimizationLock -- ver. Maxfps 1.1 ------------------------------- \\
+
         citadel_unit_status_stamina_low_pips          "7"
 
 
@@ -1399,3 +1410,4 @@ GameInfo
         ShowLowAvailableVirtualMemoryMessageBox "1"
     }
 }
+
